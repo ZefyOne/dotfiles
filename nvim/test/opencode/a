@@ -1,0 +1,2 @@
+E5108: Error executing lua: /Users/zefy/.config/nvim/lua/custom/opencode/opencode.lua:156: E474: Invalid argument stack traceback: 
+[C]: in function 'nvim_set_option_value' /Users/zefy/.config/nvim/lua/custom/opencode/opencode.lua:156: in function 'maybe_start_client' /Users/zefy/.config/nvim/lua/custom/opencode/opencode.lua:219: in function 'toggle_client' ...rs/zefy/.config/nvim/lua/custom/opencode/plugin/init.lua:4: in function <...rs/zefy/.config/nvim/lua/custom/opencode/plugin/init.lua:3>

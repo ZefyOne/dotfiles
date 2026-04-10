@@ -1,0 +1,367 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[manager]
+
+keymap = [
+	{ on = "<Esc>", run = "escape",             desc = "退出视觉模式、清除所选内容或取消搜索" },
+	{ on = "<C-[>", run = "escape",             desc = "退出视觉模式、清除所选内容或取消搜索" },
+	{ on = "q",     run = "quit",               desc = "退出进程" },
+	{ on = "Q",     run = "quit --no-cwd-file", desc = "退出进程，不输出cwd文件" },
+	{ on = "<C-c>", run = "close",              desc = "关闭当前选项卡，如果是最后一个，则退出" },
+	{ on = "<C-z>", run = "suspend",            desc = "暂停进程" },
+
+	# Hopping
+	{ on = "k", run = "arrow -1", desc = "向上移动光标" },
+	{ on = "j", run = "arrow 1",  desc = "向下移动光标" },
+
+	{ on = "<Up>",    run = "arrow -1", desc = "向上移动光标" },
+	{ on = "<Down>",  run = "arrow 1",  desc = "向下移动光标" },
+
+	{ on = "<C-u>", run = "arrow -50%",  desc = "将光标上移半页" },
+	{ on = "<C-d>", run = "arrow 50%",   desc = "将光标向下移动半页" },
+	{ on = "<C-b>", run = "arrow -100%", desc = "将光标向上移动一页" },
+	{ on = "<C-f>", run = "arrow 100%",  desc = "将光标向下移动一页" },
+
+	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "将光标上移半页" },
+	{ on = "<S-PageDown>", run = "arrow 50%",   desc = "将光标向下移动半页" },
+	{ on = "<PageUp>",     run = "arrow -100%", desc = "将光标向上移动一页" },
+	{ on = "<PageDown>",   run = "arrow 100%",  desc = "将光标向下移动一页" },
+
+	{ on = [ "g", "g" ], run = "arrow top", desc = "将光标移动到顶部" },
+	{ on = "G",          run = "arrow bot",  desc = "将光标移动到底部" },
+
+	# Navigation
+	{ on = "h", run = "leave", desc = "返回父目录" },
+	{ on = "l", run = "enter", desc = "输入子目录" },
+
+	{ on = "<Left>",  run = "leave", desc = "返回父目录" },
+	{ on = "<Right>", run = "enter", desc = "输入子目录" },
+
+	{ on = "H", run = "back",    desc = "返回上一个目录" },
+	{ on = "L", run = "forward", desc = "转到下一个目录" },
+
+	# Toggle
+	{ on = "<Space>", run = [ "toggle", "arrow 1" ], desc = "切换当前选择状态" },
+	{ on = "<C-a>",   run = "toggle_all --state=on", desc = "选择所有文件" },
+	{ on = "<C-r>",   run = "toggle_all",            desc = "反转所有文件的选择" },
+
+	# Visual mode
+	{ on = "v", run = "visual_mode",         desc = "进入视觉模式 (选择模式)" },
+	{ on = "V", run = "visual_mode --unset", desc = "进入视觉模式 (未设置模式)" },
+
+	# Seeking
+	{ on = "K", run = "seek -5", desc = "在预览中查找5个单位" },
+	{ on = "J", run = "seek 5",  desc = "在预览中向下搜索5个单位" },
+
+	# Spotting
+	{ on = "<Tab>", run = "spot", desc = "定点悬停文件" },
+
+	# Operation
+	{ on = "o",         run = "open",                        desc = "打开所选文件" },
+	{ on = "O",         run = "open --interactive",          desc = "以交互方式打开所选文件" },
+	{ on = "<Enter>",   run = "open",                        desc = "打开所选文件" },
+	{ on = "<S-Enter>", run = "open --interactive",          desc = "以交互方式打开所选文件" },
+	{ on = "y",         run = "yank",                        desc = "Yank选定的文件 (复制)" },
+	{ on = "x",         run = "yank --cut",                  desc = "Yank选定的文件 (剪切)" },
+	{ on = "p",         run = "paste",                       desc = "粘贴拖动的文件" },
+	{ on = "P",         run = "paste --force",               desc = "粘贴拖动的文件 (如果目标存在，则覆盖)" },
+	{ on = "-",         run = "link",                        desc = "Symlink文件的绝对路径" },
+	{ on = "_",         run = "link --relative",             desc = "用符号链接拖动文件的相对路径" },
+	{ on = "<C-->",     run = "hardlink",                    desc = "硬链接yanked文件" },
+	{ on = "Y",         run = "unyank",                      desc = "取消yank状态" },
+	{ on = "X",         run = "unyank",                      desc = "取消cut状态" },
+	{ on = "d",         run = "remove",                      desc = "回收所选文件" },
+	{ on = "D",         run = "remove --permanently",        desc = "永久删除所选文件" },
+	{ on = "a",         run = "create",                      desc = "创建文件 (结尾的 / 对于目录)" },
+	{ on = "r",         run = "rename --cursor=before_ext",  desc = "重命名所选文件(s)" },
+	{ on = ";",         run = "shell --interactive",         desc = "运行shell命令" },
+	{ on = ":",         run = "shell --block --interactive", desc = "运行shell命令 (直到完工)" },
+	{ on = ".",         run = "hidden toggle",               desc = "切换隐藏文件的可见性" },
+	{ on = "s",         run = "search --via=fd",             desc = "通过fd按名称搜索文件" },
+	{ on = "S",         run = "search --via=rg",             desc = "通过ripgrep按内容搜索文件" },
+	{ on = "<C-s>",     run = "escape --search",             desc = "取消正在进行的搜索" },
+	{ on = "z",         run = "plugin zoxide",               desc = "通过zoxide跳转到目录" },
+	{ on = "Z",         run = "plugin fzf",                  desc = "跳转到文件/通过fzf目录" },
+
+	# Linemode
+	{ on = [ "m", "s" ], run = "linemode size",        desc = "线型：尺寸" },
+	{ on = [ "m", "p" ], run = "linemode permissions", desc = "线模式：权限" },
+	{ on = [ "m", "b" ], run = "linemode btime",       desc = "线路模式：btime" },
+	{ on = [ "m", "m" ], run = "linemode mtime",       desc = "线路模式：mtime" },
+	{ on = [ "m", "o" ], run = "linemode owner",       desc = "线路模式：所有者" },
+	{ on = [ "m", "n" ], run = "linemode none",        desc = "线模式：无" },
+
+	# Copy
+	{ on = [ "c", "c" ], run = "copy path",             desc = "复制文件路径" },
+	{ on = [ "c", "d" ], run = "copy dirname",          desc = "复制目录路径" },
+	{ on = [ "c", "f" ], run = "copy filename",         desc = "复制文件名" },
+	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "复制不带扩展名的文件名" },
+
+	# Filter
+	{ on = "f", run = "filter --smart", desc = "筛选文件" },
+
+	# Find
+	{ on = "/", run = "find --smart",            desc = "查找下一个文件" },
+	{ on = "?", run = "find --previous --smart", desc = "查找上一个文件" },
+	{ on = "n", run = "find_arrow",              desc = "转到下一个找到的" },
+	{ on = "N", run = "find_arrow --previous",   desc = "转到上一个发现" },
+
+	# Sorting
+	{ on = [ ",", "m" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "按修改时间排序" },
+	{ on = [ ",", "M" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "按修改时间排序 (颠倒)" },
+	{ on = [ ",", "b" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "按出生时间排序" },
+	{ on = [ ",", "B" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "按出生时间排序 (颠倒)" },
+	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                   desc = "按扩展名排序" },
+	{ on = [ ",", "E" ], run = "sort extension --reverse",                      desc = "按扩展名排序 (颠倒)" },
+	{ on = [ ",", "a" ], run = "sort alphabetical --reverse=no",                desc = "按字母顺序排序" },
+	{ on = [ ",", "A" ], run = "sort alphabetical --reverse",                   desc = "按字母顺序排序 (颠倒)" },
+	{ on = [ ",", "n" ], run = "sort natural --reverse=no",                     desc = "自然排序" },
+	{ on = [ ",", "N" ], run = "sort natural --reverse",                        desc = "自然排序 (颠倒)" },
+	{ on = [ ",", "s" ], run = [ "sort size --reverse=no", "linemode size" ],   desc = "按大小排序" },
+	{ on = [ ",", "S" ], run = [ "sort size --reverse", "linemode size" ],      desc = "按大小排序 (颠倒)" },
+	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "随机排序" },
+
+	# Goto
+	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
+    { on = [ "g", "x" ],       run = "cd ~/Learn/写作/作品/刑天/", desc = "Goto 刑天"},
+    { on = [ "g", "k" ],       run = "cd /Users/zefy/Learn/写作/狂更猫/", desc = "Goto 狂更猫"},
+    { on = [ "g", "w" ],     run = "cd /opt/homebrew/var/www/", desc = "Goto www"},
+    { on = [ "g", "y" ],     run = "cd ~/Library/Mobile Documents/com~apple~CloudDocs/", desc = "Goto Cloud"},
+    { on = [ "g", "l" ],     run = "cd ~/Logs/deepseek/", desc = "Goto deepseek log"},
+
+	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+
+	# Tabs
+	{ on = "t", run = "tab_create --current", desc = "使用CWD创建新选项卡" },
+
+	{ on = "1", run = "tab_switch 0", desc = "切换到第一个选项卡" },
+	{ on = "2", run = "tab_switch 1", desc = "Switch to the second tab" },
+	{ on = "3", run = "tab_switch 2", desc = "Switch to the third tab" },
+	{ on = "4", run = "tab_switch 3", desc = "Switch to the fourth tab" },
+	{ on = "5", run = "tab_switch 4", desc = "Switch to the fifth tab" },
+	{ on = "6", run = "tab_switch 5", desc = "Switch to the sixth tab" },
+	{ on = "7", run = "tab_switch 6", desc = "Switch to the seventh tab" },
+	{ on = "8", run = "tab_switch 7", desc = "Switch to the eighth tab" },
+	{ on = "9", run = "tab_switch 8", desc = "Switch to the ninth tab" },
+
+	{ on = "[", run = "tab_switch -1 --relative", desc = "切换到上一个选项卡" },
+	{ on = "]", run = "tab_switch 1 --relative",  desc = "切换到下一个选项卡" },
+
+	{ on = "{", run = "tab_swap -1", desc = "将当前选项卡与上一个选项卡交换" },
+	{ on = "}", run = "tab_swap 1",  desc = "将当前选项卡与下一个选项卡交换" },
+
+	# Tasks
+	{ on = "w", run = "tasks_show", desc = "显示任务管理器" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[tasks]
+
+keymap = [
+	{ on = "<Esc>", run = "close", desc = "Close task manager" },
+	{ on = "<C-[>", run = "close", desc = "Close task manager" },
+	{ on = "<C-c>", run = "close", desc = "Close task manager" },
+	{ on = "w",     run = "close", desc = "Close task manager" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Enter>", run = "inspect", desc = "Inspect the task" },
+	{ on = "x",       run = "cancel",  desc = "Cancel the task" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[spot]
+
+keymap = [
+	{ on = "<Esc>", run = "close", desc = "Close the spot" },
+	{ on = "<C-[>", run = "close", desc = "Close the spot" },
+	{ on = "<C-c>", run = "close", desc = "Close the spot" },
+	{ on = "<Tab>", run = "close", desc = "Close the spot" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "h", run = "swipe -1", desc = "Swipe to the previous file" },
+	{ on = "l", run = "swipe 1",  desc = "Swipe to the next file" },
+
+	{ on = "<Up>",    run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>",  run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "<Left>",  run = "swipe -1", desc = "Swipe to the next file" },
+	{ on = "<Right>", run = "swipe 1",  desc = "Swipe to the previous file" },
+
+	# Copy
+	{ on = [ "c", "c" ], run = "copy cell", desc = "Copy selected cell" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[pick]
+
+keymap = [
+	{ on = "<Esc>",   run = "close",          desc = "Cancel pick" },
+	{ on = "<C-[>",   run = "close",          desc = "Cancel pick" },
+	{ on = "<C-c>",   run = "close",          desc = "Cancel pick" },
+	{ on = "<Enter>", run = "close --submit", desc = "Submit the pick" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[input]
+
+keymap = [
+	{ on = "<C-c>",   run = "close",          desc = "Cancel input" },
+	{ on = "<Enter>", run = "close --submit", desc = "Submit input" },
+	{ on = "<Esc>",   run = "escape",         desc = "Go back the normal mode, or cancel input" },
+	{ on = "<C-[>",   run = "escape",         desc = "Go back the normal mode, or cancel input" },
+
+	# Mode
+	{ on = "i", run = "insert",                             desc = "Enter insert mode" },
+	{ on = "I", run = [ "move first-char", "insert" ],      desc = "Move to the BOL, and enter insert mode" },
+	{ on = "a", run = "insert --append",                    desc = "Enter append mode" },
+	{ on = "A", run = [ "move eol", "insert --append" ],    desc = "Move to the EOL, and enter append mode" },
+	{ on = "v", run = "visual",                             desc = "Enter visual mode" },
+	{ on = "V", run = [ "move bol", "visual", "move eol" ], desc = "Enter visual mode and select all" },
+	{ on = "r", run = "replace",                            desc = "Replace a single character" },
+
+	# Character-wise movement
+	{ on = "h",       run = "move -1", desc = "Move back a character" },
+	{ on = "l",       run = "move 1",  desc = "Move forward a character" },
+	{ on = "<Left>",  run = "move -1", desc = "Move back a character" },
+	{ on = "<Right>", run = "move 1",  desc = "Move forward a character" },
+	{ on = "<C-b>",   run = "move -1", desc = "Move back a character" },
+	{ on = "<C-f>",   run = "move 1",  desc = "Move forward a character" },
+
+	# Word-wise movement
+	{ on = "b",     run = "backward",                    desc = "Move back to the start of the current or previous word" },
+	{ on = "B",     run = "backward --far",              desc = "Move back to the start of the current or previous WORD" },
+	{ on = "w",     run = "forward",                     desc = "Move forward to the start of the next word" },
+	{ on = "W",     run = "forward --far",               desc = "Move forward to the start of the next WORD" },
+	{ on = "e",     run = "forward --end-of-word",       desc = "Move forward to the end of the current or next word" },
+	{ on = "E",     run = "forward --far --end-of-word", desc = "Move forward to the end of the current or next WORD" },
+	{ on = "<A-b>", run = "backward",                    desc = "Move back to the start of the current or previous word" },
+	{ on = "<A-f>", run = "forward --end-of-word",       desc = "Move forward to the end of the current or next word" },
+
+	# Line-wise movement
+	{ on = "0",      run = "move bol",        desc = "Move to the BOL" },
+	{ on = "$",      run = "move eol",        desc = "Move to the EOL" },
+	{ on = "_",      run = "move first-char", desc = "Move to the first non-whitespace character" },
+	{ on = "^",      run = "move first-char", desc = "Move to the first non-whitespace character" },
+	{ on = "<C-a>",  run = "move bol",        desc = "Move to the BOL" },
+	{ on = "<C-e>",  run = "move eol",        desc = "Move to the EOL" },
+	{ on = "<Home>", run = "move bol",        desc = "Move to the BOL" },
+	{ on = "<End>",  run = "move eol",        desc = "Move to the EOL" },
+
+	# Delete
+	{ on = "<Backspace>", run = "backspace",         desc = "Delete the character before the cursor" },
+	{ on = "<Delete>",    run = "backspace --under", desc = "Delete the character under the cursor" },
+	{ on = "<C-h>",       run = "backspace",         desc = "Delete the character before the cursor" },
+	{ on = "<C-d>",       run = "backspace --under", desc = "Delete the character under the cursor" },
+
+	# Kill
+	{ on = "<C-u>", run = "kill bol",      desc = "Kill backwards to the BOL" },
+	{ on = "<C-k>", run = "kill eol",      desc = "Kill forwards to the EOL" },
+	{ on = "<C-w>", run = "kill backward", desc = "Kill backwards to the start of the current word" },
+	{ on = "<A-d>", run = "kill forward",  desc = "Kill forwards to the end of the current word" },
+
+	# Cut/Yank/Paste
+	{ on = "d", run = "delete --cut",                              desc = "Cut the selected characters" },
+	{ on = "D", run = [ "delete --cut", "move eol" ],              desc = "Cut until the EOL" },
+	{ on = "c", run = "delete --cut --insert",                     desc = "Cut the selected characters, and enter insert mode" },
+	{ on = "C", run = [ "delete --cut --insert", "move eol" ],     desc = "Cut until the EOL, and enter insert mode" },
+	{ on = "x", run = [ "delete --cut", "move 1 --in-operating" ], desc = "Cut the current character" },
+	{ on = "y", run = "yank",                                      desc = "Copy the selected characters" },
+	{ on = "p", run = "paste",                                     desc = "Paste the copied characters after the cursor" },
+	{ on = "P", run = "paste --before",                            desc = "Paste the copied characters before the cursor" },
+
+	# Undo/Redo
+	{ on = "u",     run = "undo", desc = "Undo the last operation" },
+	{ on = "<C-r>", run = "redo", desc = "Redo the last operation" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[confirm]
+
+keymap = [
+	{ on = "<Esc>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-[>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-c>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<Enter>", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "n", run = "close",          desc = "Cancel the confirm" },
+	{ on = "y", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[cmp]
+
+keymap = [
+	{ on = "<C-c>",   run = "close",                                      desc = "Cancel completion" },
+	{ on = "<Tab>",   run = "close --submit",                             desc = "Submit the completion" },
+	{ on = "<Enter>", run = [ "close --submit", "close_input --submit" ], desc = "Submit the completion and input" },
+
+	{ on = "<A-k>", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<A-j>", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<C-p>", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<C-n>", run = "arrow 1",  desc = "Move cursor down" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[help]
+
+keymap = [
+	{ on = "<Esc>", run = "escape", desc = "Clear the filter, or hide the help" },
+	{ on = "<C-[>", run = "escape", desc = "Clear the filter, or hide the help" },
+	{ on = "<C-c>", run = "close",  desc = "Hide the help" },
+
+	# Navigation
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+	# Filtering
+	{ on = "f", run = "filter", desc = "Apply a filter for the help items" },
+]
