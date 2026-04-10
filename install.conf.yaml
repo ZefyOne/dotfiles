@@ -1,0 +1,31 @@
+# Dotbot configuration for zefy's dotfiles
+
+- defaults:
+    link:
+      relink: true
+      create: true
+
+# Clean up dead symlinks in home directory
+- clean: ['~']
+
+# Link terminal configurations
+- link:
+    ~/.config/kitty:
+      path: kitty
+    ~/.config/yazi:
+      path: yazi
+
+# Link editor configuration
+- link:
+    ~/.config/nvim:
+      path: nvim
+
+# Link tmux configuration
+- link:
+    ~/.tmux.conf:
+      path: tmux/tmux.conf
+
+
+# Initialize git submodules (for tmux plugins)
+- shell:
+  - [git submodule update --init --recursive, Initialize tmux plugins]
