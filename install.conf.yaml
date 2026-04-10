@@ -10,21 +10,20 @@
 
 # Link terminal configurations
 - link:
-    ~/.config/kitty:
-      path: kitty
-    ~/.config/yazi:
-      path: yazi
+    ~/.config/kitty: .config/kitty
+    ~/.config/yazi: .config/yazi
 
 # Link editor configuration
-- link:
-    ~/.config/nvim:
-      path: nvim
+    ~/.config/nvim: .config/nvim
+    ~/.vimrc: vimrc
 
 # Link tmux configuration
 - link:
-    ~/.tmux.conf:
-      path: tmux/tmux.conf
+    ~/.config/tmux: .config/tmux
 
+# Link ai configuration
+- link:
+    ~/.config/opencode: .config/opencode
 
 # Initialize git submodules (for tmux plugins)
 - shell:
