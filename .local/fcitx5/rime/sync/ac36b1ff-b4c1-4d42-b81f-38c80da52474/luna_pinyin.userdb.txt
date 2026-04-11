@@ -1,0 +1,39 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.16.1
+#@/tick	41
+#@/user_id	ac36b1ff-b4c1-4d42-b81f-38c80da52474
+an zhuang 	安裝	c=2 d=1.83234 t=41
+bi zhi 	壁紙	c=2 d=1.89319 t=41
+bian qiang 	變強	c=1 d=0.970446 t=41
+de 	的	c=1 d=0.955997 t=41
+du qu 	讀取	c=1 d=0.937067 t=41
+fan qie 	番茄	c=1 d=0.946485 t=41
+fei 	非	c=1 d=0.904837 t=41
+fei 	飛	c=1 d=0.909373 t=41
+gao qing 	高清	c=1 d=0.927743 t=41
+he 	和	c=2 d=1.98511 t=41
+hu 	虎	c=1 d=1 t=41
+huan 	換	c=2 d=1.97521 t=41
+hui 	會	c=1 d=0.965605 t=41
+jiao hu 	交互	c=2 d=1.96536 t=41
+jiu 	就	c=1 d=0.965605 t=41
+me 	麼	c=0 d=0.0923116 t=41
+shai tai yang 	曬太陽	c=1 d=0.960789 t=41
+shi 	是	c=1 d=1 t=41
+shu 	書	c=1 d=0.913931 t=41
+shu ru fa 	輸入法	c=2 d=1.98506 t=41
+shuo 	說	c=1 d=0.955997 t=41
+wang zhan 	網站	c=1 d=0.937067 t=41
+wen dang 	文檔	c=1 d=0.923116 t=41
+wo 	我	c=1 d=0.995012 t=41
+xia zai 	下載	c=1 d=0.951229 t=41
+xiao shi 	小時	c=1 d=0.951229 t=41
+xun fei 	訊飛	c=3 d=2.96042 t=41
+yong 	用	c=1 d=0.941765 t=41
+yun 	雲	c=1 d=0.918512 t=41
+zen me 	怎麼	c=3 d=2.654 t=41
+zhe 	這	c=1 d=0.99005 t=41
+zhe ne 	着呢	c=0 d=0.0923116 t=41
+zhe ne me 	着呢麼	c=1 d=0.927743 t=41

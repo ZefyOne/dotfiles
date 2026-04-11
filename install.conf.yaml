@@ -11,7 +11,7 @@
 # Link terminal configurations
 - link:
     ~/.config/kitty: .config/kitty
-    ~/.config/yazi: .config/yazi
+    # ~/.config/yazi: .config/yazi
 
 # Link editor configuration
     ~/.config/nvim: .config/nvim
@@ -24,6 +24,10 @@
 # Link ai configuration
 - link:
     ~/.config/opencode: .config/opencode
+
+# Link resource configuration
+- link:
+    ~/.local/share/fcitx5: .local/fcitx5
 
 # Initialize git submodules (for tmux plugins)
 - shell:

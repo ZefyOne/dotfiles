@@ -1,0 +1,173 @@
+__build_info:
+  rime_version: 1.16.1
+  timestamps:
+    default: 1758176996
+    default.custom: 1772626686
+    key_bindings: 1758176996
+    key_bindings.custom: 0
+    punctuation: 1758176996
+    punctuation.custom: 0
+    symbols: 1753324912
+    symbols.custom: 0
+    tigress.custom: 0
+    tigress.schema: 1775883336
+ascii_composer:
+  switch_key:
+    Caps_Lock: clear
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code
+    Shift_R: commit_text
+engine:
+  filters:
+    - uniquifier
+    - "charset_filter@gbk"
+    - "charset_filter@utf8"
+    - "charset_filter@gb2312"
+  processors:
+    - "lua_processor@lua/vim_mode"
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+key_binder:
+  bindings:
+    - {accept: semicolon, send: 2, when: has_menu}
+menu:
+  page_size: 3
+punctuator:
+  full_shape:
+    " ": {commit: "　"}
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "＃"
+    "$": {commit: "￥"}
+    "%": {commit: "％"}
+    "&": "＆"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": "＊"
+    "+": "＋"
+    ",": {commit: "，"}
+    "-": "－"
+    .: {commit: "。"}
+    "/": {commit: "／"}
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": {commit: "《"}
+    "=": {commit: "＝"}
+    ">": {commit: "》"}
+    "?": {commit: "？"}
+    "@": "＠"
+    "[": {commit: "【"}
+    "\\": "、"
+    "]": {commit: "】"}
+    "^": {commit: "……"}
+    _: "——"
+    "`": "｀"
+    "{": {commit: "{"}
+    "|": {commit: "｜"}
+    "}": {commit: "}"}
+    "~": "～"
+  half_shape:
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "#"
+    "$": {commit: "￥"}
+    "%": {commit: "%"}
+    "&": "&"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": "*"
+    "+": "+"
+    ",": {commit: "，"}
+    "-": "-"
+    .: {commit: "。"}
+    "/": {commit: "、"}
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": {commit: "《"}
+    "=": {commit: "="}
+    ">": {commit: "》"}
+    "?": {commit: "？"}
+    "@": "@"
+    "[": {commit: "【"}
+    "\\": "、"
+    "]": {commit: "】"}
+    "^": {commit: "……"}
+    _: "——"
+    "`": {commit: "`"}
+    "{": {commit: "{"}
+    "|": {commit: "|"}
+    "}": {commit: "}"}
+    "~": {commit: "~"}
+  import_preset: symbols
+recognizer:
+  import_preset: default
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
+    reverse_lookup: "^`[a-z]*'?$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+reverse_lookup:
+  dictionary: pinyin_simp
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  prefix: "`"
+  suffix: "'"
+  tips: "〔拼音〕"
+schema:
+  author:
+    - {}
+  dependencies:
+    - pinyin_simp
+  description: |
+    虎码官方小词库
+    敲 ` 鍵進入拼音反查    
+
+  name: "虎码官方小词库"
+  schema_id: tigress
+  version: 0.9
+speller:
+  auto_clear: max_length
+  auto_select: false
+  max_code_length: 4
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["中文", "西文"]
+  - name: extended_char
+    reset: 1
+    states: ["全集", "常用"]
+  - options: [gbk, gb2312, utf8]
+    states: [GBK, GB2312, "UTF-8"]
+  - options: [_keyboard_default, _keyboard_defaultzj]
+    states: ["助记关", "助记开"]
+translator:
+  dictionary: tigress
+  enable_charset_filter: false
+  enable_encoder: true
+  enable_sentence: false
+  enable_user_dict: false
+  encode_commit_history: true
+  max_phrase_length: 4
