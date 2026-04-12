@@ -1,0 +1,99 @@
+INFO  2026-04-12T03:18:02 +850ms service=default version=1.4.3 args=["web"] opencode
+INFO  2026-04-12T03:18:02 +3ms service=config path=/Users/zefy/.config/opencode/config.json loading
+INFO  2026-04-12T03:18:02 +1ms service=config path=/Users/zefy/.config/opencode/opencode.json loading
+INFO  2026-04-12T03:18:02 +3ms service=config path=/Users/zefy/.config/opencode/opencode.jsonc loading
+INFO  2026-04-12T03:18:02 +131ms service=server method=GET path=/ request
+INFO  2026-04-12T03:18:02 +0ms service=server status=started method=GET path=/ request
+INFO  2026-04-12T03:18:02 +3ms service=default directory=/Users/zefy/dotfiles creating instance
+INFO  2026-04-12T03:18:02 +2ms service=project directory=/Users/zefy/dotfiles fromDirectory
+INFO  2026-04-12T03:18:02 +48ms service=db path=/Users/zefy/.local/share/opencode/opencode.db opening database
+INFO  2026-04-12T03:18:02 +18ms service=db count=10 mode=bundled applying migrations
+INFO  2026-04-12T03:18:02 +10ms service=default directory=/Users/zefy/dotfiles bootstrapping
+INFO  2026-04-12T03:18:02 +13ms service=config path=/Users/zefy/.opencode/opencode.json loading
+INFO  2026-04-12T03:18:02 +0ms service=config path=/Users/zefy/.opencode/opencode.jsonc loading
+INFO  2026-04-12T03:18:02 +1ms service=npm dir=/Users/zefy/.config/opencode checking dependencies
+INFO  2026-04-12T03:18:02 +1ms service=npm dependencies in sync
+INFO  2026-04-12T03:18:02 +3ms service=plugin name=CodexAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +1ms service=plugin name=CopilotAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +0ms service=plugin name=gitlabAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +0ms service=plugin name=PoeAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +0ms service=plugin name=CloudflareWorkersAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +0ms service=plugin name=CloudflareAIGatewayAuthPlugin loading internal plugin
+INFO  2026-04-12T03:18:02 +0ms service=npm dir=/Users/zefy/.opencode checking dependencies
+INFO  2026-04-12T03:18:02 +1ms service=npm dependencies in sync
+INFO  2026-04-12T03:18:02 +1ms service=plugin path=oh-my-openagent@latest loading plugin
+INFO  2026-04-12T03:18:02 +1ms service=npm pkg=oh-my-openagent@latest installing package
+INFO  2026-04-12T03:18:03 +1029ms service=bus type=* subscribing
+INFO  2026-04-12T03:18:03 +1ms service=bus type=session.updated subscribing
+INFO  2026-04-12T03:18:03 +0ms service=bus type=message.updated subscribing
+INFO  2026-04-12T03:18:03 +0ms service=bus type=message.part.updated subscribing
+INFO  2026-04-12T03:18:03 +0ms service=bus type=session.diff subscribing
+INFO  2026-04-12T03:18:03 +1ms service=format init
+INFO  2026-04-12T03:18:03 +0ms service=lsp serverIds=deno, typescript, vue, eslint, oxlint, biome, gopls, ruby-lsp, pyright, elixir-ls, zls, csharp, fsharp, sourcekit-lsp, rust, clangd, svelte, astro, jdtls, kotlin-ls, yaml-ls, lua-ls, php intelephense, prisma, dart, ocaml-lsp, bash, terraform, texlab, dockerfile, gleam, clojure-lsp, nixd, tinymist, haskell-language-server, julials enabled LSP servers
+INFO  2026-04-12T03:18:03 +1ms service=file init
+INFO  2026-04-12T03:18:03 +2ms service=file.watcher directory=/Users/zefy/dotfiles init
+INFO  2026-04-12T03:18:03 +167ms service=file.watcher directory=/Users/zefy/dotfiles platform=darwin backend=fs-events watcher backend
+INFO  2026-04-12T03:18:03 +10ms service=bus type=command.executed subscribing
+INFO  2026-04-12T03:18:03 +20ms service=server status=completed duration=1334 method=GET path=/ request
+INFO  2026-04-12T03:18:03 +28ms service=server method=GET path=/assets/index-BufQaI4Q.css request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/index-BufQaI4Q.css request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/assets/index-QDWovHoS.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/index-QDWovHoS.js request
+INFO  2026-04-12T03:18:03 +2ms service=server status=completed duration=3 method=GET path=/assets/index-BufQaI4Q.css request
+INFO  2026-04-12T03:18:03 +2ms service=server status=completed duration=4 method=GET path=/assets/index-QDWovHoS.js request
+INFO  2026-04-12T03:18:03 +5ms service=vcs branch=main default_branch=main initialized
+INFO  2026-04-12T03:18:03 +0ms service=bus type=file.watcher.updated subscribing
+INFO  2026-04-12T03:18:03 +108ms service=server method=GET path=/assets/zh-BvcGTnhx.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/zh-BvcGTnhx.js request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/assets/zh-DqNk452I.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/zh-DqNk452I.js request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=2 method=GET path=/assets/zh-BvcGTnhx.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=1 method=GET path=/assets/zh-DqNk452I.js request
+INFO  2026-04-12T03:18:03 +2ms service=server method=GET path=/global/config request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/global/config request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=0 method=GET path=/global/config request
+INFO  2026-04-12T03:18:03 +0ms service=server method=GET path=/provider request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/provider request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/assets/home-BBsmioDu.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/home-BBsmioDu.js request
+INFO  2026-04-12T03:18:03 +0ms service=server method=GET path=/assets/dialog-select-directory-Dc0S19yJ.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/dialog-select-directory-Dc0S19yJ.js request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/assets/file-icon-BmK9RcZg.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/file-icon-BmK9RcZg.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=1 method=GET path=/assets/home-BBsmioDu.js request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=2 method=GET path=/assets/dialog-select-directory-Dc0S19yJ.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=1 method=GET path=/assets/file-icon-BmK9RcZg.js request
+INFO  2026-04-12T03:18:03 +13ms service=provider status=started state
+INFO  2026-04-12T03:18:03 +24ms service=provider init
+INFO  2026-04-12T03:18:03 +2ms service=server method=GET path=/assets/dialog-select-server-DhMrBac4.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/dialog-select-server-DhMrBac4.js request
+INFO  2026-04-12T03:18:03 +0ms service=server method=GET path=/assets/server-row-BnEpAgE3.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/server-row-BnEpAgE3.js request
+INFO  2026-04-12T03:18:03 +0ms service=server method=GET path=/assets/index-BrarljAu.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/index-BrarljAu.js request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/global/event request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/global/event request
+INFO  2026-04-12T03:18:03 +0ms service=server global event connected
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=1 method=GET path=/global/event request
+INFO  2026-04-12T03:18:03 +0ms service=server method=GET path=/assets/list-D3Idy8Pk.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/assets/list-D3Idy8Pk.js request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=3 method=GET path=/assets/dialog-select-server-DhMrBac4.js request
+INFO  2026-04-12T03:18:03 +4ms service=server status=completed duration=7 method=GET path=/assets/index-BrarljAu.js request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=7 method=GET path=/assets/server-row-BnEpAgE3.js request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=6 method=GET path=/assets/list-D3Idy8Pk.js request
+INFO  2026-04-12T03:18:03 +2ms service=server method=GET path=/favicon-v3.ico request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/favicon-v3.ico request
+INFO  2026-04-12T03:18:03 +2ms service=server status=completed duration=2 method=GET path=/favicon-v3.ico request
+INFO  2026-04-12T03:18:03 +3ms service=server method=GET path=/site.webmanifest request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/site.webmanifest request
+INFO  2026-04-12T03:18:03 +0ms service=provider providerID=deepseek found
+INFO  2026-04-12T03:18:03 +0ms service=provider providerID=opencode found
+INFO  2026-04-12T03:18:03 +0ms service=provider status=completed duration=41 state
+INFO  2026-04-12T03:18:03 +20ms service=server status=completed duration=77 method=GET path=/provider request
+INFO  2026-04-12T03:18:03 +0ms service=server status=completed duration=20 method=GET path=/site.webmanifest request
+INFO  2026-04-12T03:18:03 +70ms service=server method=GET path=/path request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/path request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=1 method=GET path=/path request
+INFO  2026-04-12T03:18:03 +1ms service=server method=GET path=/project request
+INFO  2026-04-12T03:18:03 +0ms service=server status=started method=GET path=/project request
+INFO  2026-04-12T03:18:03 +1ms service=server status=completed duration=1 method=GET path=/project request

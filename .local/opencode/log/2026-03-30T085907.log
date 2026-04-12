@@ -1,0 +1,195 @@
+INFO  2026-03-30T08:59:07 +374ms service=default version=1.3.7 args=["serve","--port","8299"] opencode
+INFO  2026-03-30T08:59:07 +3ms service=config path=/Users/zefy/.config/opencode/config.json loading
+INFO  2026-03-30T08:59:07 +1ms service=config path=/Users/zefy/.config/opencode/opencode.json loading
+INFO  2026-03-30T08:59:07 +2ms service=config path=/Users/zefy/.config/opencode/opencode.jsonc loading
+INFO  2026-03-30T08:59:08 +1289ms service=server method=GET path=/event request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/event request
+INFO  2026-03-30T08:59:08 +1ms service=default directory=/Users/zefy creating instance
+INFO  2026-03-30T08:59:08 +1ms service=project directory=/Users/zefy fromDirectory
+INFO  2026-03-30T08:59:08 +0ms service=server method=GET path=/config request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/config request
+INFO  2026-03-30T08:59:08 +1ms service=server method=GET path=/agent request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/agent request
+INFO  2026-03-30T08:59:08 +0ms service=db path=/Users/zefy/.local/share/opencode/opencode.db opening database
+INFO  2026-03-30T08:59:08 +3ms service=db count=10 mode=bundled applying migrations
+INFO  2026-03-30T08:59:08 +3ms service=default directory=/Users/zefy bootstrapping
+INFO  2026-03-30T08:59:08 +4ms service=server method=GET path=/provider request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/provider request
+INFO  2026-03-30T08:59:08 +0ms service=server method=GET path=/config/providers request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/config/providers request
+INFO  2026-03-30T08:59:08 +0ms service=server method=GET path=/session request
+INFO  2026-03-30T08:59:08 +0ms service=server status=started method=GET path=/session request
+INFO  2026-03-30T08:59:08 +1ms service=config path=/Users/zefy/.opencode/opencode.jsonc loading
+INFO  2026-03-30T08:59:08 +0ms service=config path=/Users/zefy/.opencode/opencode.json loading
+INFO  2026-03-30T08:59:08 +2ms service=plugin name=CodexAuthPlugin loading internal plugin
+INFO  2026-03-30T08:59:08 +0ms service=plugin name=CopilotAuthPlugin loading internal plugin
+INFO  2026-03-30T08:59:08 +0ms service=plugin name=gitlabAuthPlugin loading internal plugin
+INFO  2026-03-30T08:59:08 +0ms service=plugin name=PoeAuthPlugin loading internal plugin
+INFO  2026-03-30T08:59:08 +1ms service=plugin path=oh-my-openagent@latest loading plugin
+INFO  2026-03-30T08:59:10 +1815ms service=bus type=* subscribing
+INFO  2026-03-30T08:59:10 +1ms service=bus type=session.updated subscribing
+INFO  2026-03-30T08:59:10 +1ms service=bus type=message.updated subscribing
+INFO  2026-03-30T08:59:10 +0ms service=bus type=message.part.updated subscribing
+INFO  2026-03-30T08:59:10 +0ms service=bus type=session.diff subscribing
+INFO  2026-03-30T08:59:10 +1ms service=format init
+INFO  2026-03-30T08:59:10 +0ms service=lsp serverIds=deno, typescript, vue, eslint, oxlint, biome, gopls, ruby-lsp, pyright, elixir-ls, zls, csharp, fsharp, sourcekit-lsp, rust, clangd, svelte, astro, jdtls, kotlin-ls, yaml-ls, lua-ls, php intelephense, prisma, dart, ocaml-lsp, bash, terraform, texlab, dockerfile, gleam, clojure-lsp, nixd, tinymist, haskell-language-server, julials enabled LSP servers
+INFO  2026-03-30T08:59:10 +0ms service=file init
+INFO  2026-03-30T08:59:10 +2ms service=file.watcher directory=/Users/zefy init
+INFO  2026-03-30T08:59:10 +152ms service=file.watcher directory=/Users/zefy platform=darwin backend=fs-events watcher backend
+INFO  2026-03-30T08:59:10 +1ms service=bus type=command.executed subscribing
+INFO  2026-03-30T08:59:10 +5ms service=server event connected
+INFO  2026-03-30T08:59:10 +1ms service=bus type=* subscribing
+INFO  2026-03-30T08:59:10 +2ms service=server status=started providers
+INFO  2026-03-30T08:59:10 +1ms service=provider status=started state
+INFO  2026-03-30T08:59:10 +3ms service=server status=completed duration=2002 method=GET path=/event request
+INFO  2026-03-30T08:59:10 +2ms service=server status=completed duration=2002 method=GET path=/config request
+INFO  2026-03-30T08:59:10 +1ms service=server status=completed duration=1992 method=GET path=/session request
+INFO  2026-03-30T08:59:10 +11ms service=provider init
+INFO  2026-03-30T08:59:10 +3ms service=skill count=0 init
+INFO  2026-03-30T08:59:10 +1ms service=server status=completed duration=2017 method=GET path=/agent request
+INFO  2026-03-30T08:59:10 +0ms service=provider providerID=deepseek found
+INFO  2026-03-30T08:59:10 +1ms service=provider providerID=opencode found
+INFO  2026-03-30T08:59:10 +0ms service=provider status=completed duration=22 state
+INFO  2026-03-30T08:59:10 +17ms service=server status=completed duration=40 providers
+INFO  2026-03-30T08:59:10 +1ms service=server status=completed duration=2026 method=GET path=/provider request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=2026 method=GET path=/config/providers request
+INFO  2026-03-30T08:59:10 +49ms service=server method=GET path=/command request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/command request
+INFO  2026-03-30T08:59:10 +3ms service=mcp key=websearch type=remote found
+INFO  2026-03-30T08:59:10 +3ms service=mcp key=context7 type=remote found
+INFO  2026-03-30T08:59:10 +0ms service=mcp key=grep_app type=remote found
+INFO  2026-03-30T08:59:10 +1ms service=server method=GET path=/lsp request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/lsp request
+INFO  2026-03-30T08:59:10 +1ms service=server status=completed duration=1 method=GET path=/lsp request
+INFO  2026-03-30T08:59:10 +0ms service=server method=GET path=/mcp request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/mcp request
+INFO  2026-03-30T08:59:10 +0ms service=server method=GET path=/experimental/resource request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/experimental/resource request
+INFO  2026-03-30T08:59:10 +0ms service=server method=GET path=/formatter request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/formatter request
+INFO  2026-03-30T08:59:10 +2ms service=server method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=0 method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:10 +0ms service=server method=GET path=/path request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/path request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=0 method=GET path=/path request
+INFO  2026-03-30T08:59:10 +1ms service=server method=GET path=/vcs request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/vcs request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=0 method=GET path=/vcs request
+INFO  2026-03-30T08:59:10 +0ms service=server method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=0 method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:10 +1ms service=server method=GET path=/session/status request
+INFO  2026-03-30T08:59:10 +0ms service=server status=started method=GET path=/session/status request
+INFO  2026-03-30T08:59:10 +0ms service=server status=completed duration=0 method=GET path=/session/status request
+INFO  2026-03-30T08:59:10 +25ms service=server status=completed duration=29 method=GET path=/formatter request
+INFO  2026-03-30T08:59:11 +285ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:11 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:11 +0ms service=server url=http://localhost:8299/session/ses_2c2f03782ffepeZm5mUS7TUmD1 SEARCH
+INFO  2026-03-30T08:59:11 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:11 +0ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:11 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:11 +3ms service=server status=completed duration=3 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:11 +0ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:11 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:11 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:11 +0ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+INFO  2026-03-30T08:59:11 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+INFO  2026-03-30T08:59:11 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+INFO  2026-03-30T08:59:11 +634ms service=mcp key=websearch transport=StreamableHTTP connected
+INFO  2026-03-30T08:59:11 +50ms service=mcp key=grep_app transport=StreamableHTTP connected
+INFO  2026-03-30T08:59:12 +443ms service=mcp key=websearch toolCount=1 create() successfully created client
+INFO  2026-03-30T08:59:12 +116ms service=mcp key=grep_app toolCount=1 create() successfully created client
+INFO  2026-03-30T08:59:14 +1615ms service=mcp key=context7 transport=StreamableHTTP connected
+INFO  2026-03-30T08:59:15 +1219ms service=mcp key=context7 toolCount=2 create() successfully created client
+INFO  2026-03-30T08:59:15 +2ms service=server status=completed duration=4399 method=GET path=/mcp request
+ERROR 2026-03-30T08:59:15 +309ms service=mcp clientName=context7 error=MCP error -32601: Method not found failed to get resources
+ERROR 2026-03-30T08:59:15 +5ms service=mcp clientName=context7 error=MCP error -32601: Method not found failed to get prompts
+ERROR 2026-03-30T08:59:15 +64ms service=mcp clientName=grep_app error=MCP error -32601: Method not found failed to get resources
+INFO  2026-03-30T08:59:15 +1ms service=server status=completed duration=4778 method=GET path=/experimental/resource request
+ERROR 2026-03-30T08:59:15 +2ms service=mcp clientName=grep_app error=MCP error -32601: Method not found failed to get prompts
+INFO  2026-03-30T08:59:15 +0ms service=server status=completed duration=4788 method=GET path=/command request
+INFO  2026-03-30T08:59:19 +4049ms service=bus type=* unsubscribing
+INFO  2026-03-30T08:59:19 +1ms service=server event disconnected
+INFO  2026-03-30T08:59:21 +1442ms service=server method=GET path=/event request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/event request
+INFO  2026-03-30T08:59:21 +0ms service=server event connected
+INFO  2026-03-30T08:59:21 +1ms service=bus type=* subscribing
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=1 method=GET path=/event request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/config request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/config request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/config request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/agent request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/agent request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/agent request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/provider request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/provider request
+INFO  2026-03-30T08:59:21 +17ms service=server status=completed duration=17 method=GET path=/provider request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/config/providers request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/config/providers request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started providers
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 providers
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/config/providers request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/session request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/session request
+INFO  2026-03-30T08:59:21 +41ms service=server method=GET path=/command request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/command request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/command request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/lsp request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/lsp request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/lsp request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/mcp request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/mcp request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/mcp request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/experimental/resource request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/experimental/resource request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/formatter request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/formatter request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/formatter request
+INFO  2026-03-30T08:59:21 +1ms service=server method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/experimental/workspace request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/path request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/path request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=0 method=GET path=/path request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/vcs request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/vcs request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/vcs request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/provider/auth request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/session/status request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session/status request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/session/status request
+ERROR 2026-03-30T08:59:21 +281ms service=mcp clientName=context7 error=MCP error -32601: Method not found failed to get resources
+INFO  2026-03-30T08:59:21 +37ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:21 +0ms service=server url=http://localhost:8299/session/ses_2c2f03782ffepeZm5mUS7TUmD1 SEARCH
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1 request
+INFO  2026-03-30T08:59:21 +0ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:21 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/message request
+INFO  2026-03-30T08:59:21 +3ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/todo request
+INFO  2026-03-30T08:59:21 +1ms service=server method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+INFO  2026-03-30T08:59:21 +0ms service=server status=started method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+INFO  2026-03-30T08:59:21 +0ms service=server status=completed duration=0 method=GET path=/session/ses_2c2f03782ffepeZm5mUS7TUmD1/diff request
+ERROR 2026-03-30T08:59:21 +46ms service=mcp clientName=grep_app error=MCP error -32601: Method not found failed to get resources
+INFO  2026-03-30T08:59:21 +103ms service=server status=completed duration=475 method=GET path=/experimental/resource request
+INFO  2026-03-30T08:59:44 +22689ms service=server method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy request
+INFO  2026-03-30T08:59:44 +0ms service=server status=started method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy request
+INFO  2026-03-30T08:59:44 +0ms service=server url=http://localhost:8299/session/ses_2c3170a53ffechT4PLkihRifxy SEARCH
+INFO  2026-03-30T08:59:44 +0ms service=server status=completed duration=0 method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy request
+INFO  2026-03-30T08:59:44 +1ms service=server method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/message request
+INFO  2026-03-30T08:59:44 +0ms service=server status=started method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/message request
+INFO  2026-03-30T08:59:44 +2ms service=server status=completed duration=2 method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/message request
+INFO  2026-03-30T08:59:44 +0ms service=server method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/todo request
+INFO  2026-03-30T08:59:44 +0ms service=server status=started method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/todo request
+INFO  2026-03-30T08:59:44 +0ms service=server status=completed duration=0 method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/todo request
+INFO  2026-03-30T08:59:44 +0ms service=server method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/diff request
+INFO  2026-03-30T08:59:44 +0ms service=server status=started method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/diff request
+INFO  2026-03-30T08:59:44 +1ms service=server status=completed duration=1 method=GET path=/session/ses_2c3170a53ffechT4PLkihRifxy/diff request
+INFO  2026-03-30T08:59:46 +2322ms service=bus type=* unsubscribing
+INFO  2026-03-30T08:59:46 +0ms service=server event disconnected
