@@ -21,14 +21,36 @@
 - link:
     ~/.config/tmux: .config/tmux
 
+- link:
+  ~/.config/btop: .config/btop
+  ~/.config/cava: .config/cava
+  ~/.config/fastfetch: .config/fastfetch
+  ~/.config/rofi: .config/rofi
+
+
 # Link ai configuration
 - link:
     ~/.config/opencode: .config/opencode
 
-# Link resource configuration
+# Link .local configuration
 - link:
     ~/.local/share/fcitx5: .local/fcitx5
+    ~/.local/share/opencode: .local/opencode
 
 # Initialize git submodules (for tmux plugins)
+
+- shell:
+  - |
+    # Check and install missing packages via pacman
+    packages=("neovim" "kitty" "btop" "cava" "rofi" "fastfetch" "opencode" "tmux" "fcitx5" "fcitx5-rime")
+    for pkg in "${packages[@]}"; do
+      if ! pacman -Qs "^${pkg}$" > /dev/null 2>&1; then
+        echo "Installing $pkg..."
+        sudo pacman -S --needed --noconfirm "$pkg"
+      else
+        echo "$pkg already installed, skipping."
+      fi
+    done
+
 - shell:
   - [git submodule update --init --recursive, Initialize tmux plugins]

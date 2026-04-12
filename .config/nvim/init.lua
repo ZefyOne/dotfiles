@@ -22,7 +22,7 @@ require("tools.auto_save")
 
 local currentTime = os.time()
 local hour = tonumber(os.date("%H", currentTime))
-if hour >= 18 then
+if hour >= 18 or hour <= 6 then
   vim.cmd.colorscheme("tokyonight-moon")
 else
   vim.cmd.colorscheme("everforest")
