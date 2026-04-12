@@ -1,0 +1,833 @@
+INFO  2026-04-10T04:44:00 +72ms service=default directory=/Users/zefy/Documents/github/test creating instance
+INFO  2026-04-10T04:44:00 +3ms service=project directory=/Users/zefy/Documents/github/test fromDirectory
+INFO  2026-04-10T04:44:00 +3ms service=server method=GET path=/session request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/session request
+INFO  2026-04-10T04:44:00 +0ms service=server method=GET path=/config/providers request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/config/providers request
+INFO  2026-04-10T04:44:00 +0ms service=server method=GET path=/provider request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/provider request
+INFO  2026-04-10T04:44:00 +0ms service=server method=GET path=/experimental/console request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/experimental/console request
+INFO  2026-04-10T04:44:00 +0ms service=server method=GET path=/agent request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/agent request
+INFO  2026-04-10T04:44:00 +0ms service=server method=GET path=/config request
+INFO  2026-04-10T04:44:00 +0ms service=server status=started method=GET path=/config request
+INFO  2026-04-10T04:44:00 +37ms service=db path=/Users/zefy/.local/share/opencode/opencode.db opening database
+INFO  2026-04-10T04:44:00 +3ms service=db count=10 mode=bundled applying migrations
+INFO  2026-04-10T04:44:00 +3ms service=default directory=/Users/zefy/Documents/github/test bootstrapping
+INFO  2026-04-10T04:44:00 +5ms service=config path=/Users/zefy/.config/opencode/config.json loading
+INFO  2026-04-10T04:44:00 +0ms service=config path=/Users/zefy/.config/opencode/opencode.json loading
+INFO  2026-04-10T04:44:00 +4ms service=config path=/Users/zefy/.config/opencode/opencode.jsonc loading
+INFO  2026-04-10T04:44:00 +4ms service=config path=/Users/zefy/.opencode/opencode.json loading
+INFO  2026-04-10T04:44:00 +0ms service=config path=/Users/zefy/.opencode/opencode.jsonc loading
+INFO  2026-04-10T04:44:00 +1ms service=npm dir=/Users/zefy/.config/opencode checking dependencies
+INFO  2026-04-10T04:44:00 +1ms service=plugin name=CodexAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +0ms service=plugin name=CopilotAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +0ms service=plugin name=gitlabAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +0ms service=plugin name=PoeAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +0ms service=plugin name=CloudflareWorkersAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +0ms service=plugin name=CloudflareAIGatewayAuthPlugin loading internal plugin
+INFO  2026-04-10T04:44:00 +1ms service=npm dependencies in sync
+INFO  2026-04-10T04:44:00 +0ms service=npm dir=/Users/zefy/.opencode checking dependencies
+INFO  2026-04-10T04:44:00 +0ms service=npm dependencies in sync
+INFO  2026-04-10T04:44:00 +1ms service=plugin path=oh-my-openagent@latest loading plugin
+INFO  2026-04-10T04:44:00 +0ms service=npm pkg=oh-my-openagent@latest installing package
+INFO  2026-04-10T04:44:01 +939ms service=bus type=* subscribing
+INFO  2026-04-10T04:44:01 +2ms service=bus type=session.updated subscribing
+INFO  2026-04-10T04:44:01 +0ms service=bus type=message.updated subscribing
+INFO  2026-04-10T04:44:01 +0ms service=bus type=message.part.updated subscribing
+INFO  2026-04-10T04:44:01 +0ms service=bus type=session.diff subscribing
+INFO  2026-04-10T04:44:01 +4ms service=format init
+INFO  2026-04-10T04:44:01 +0ms service=lsp serverIds=deno, typescript, vue, eslint, oxlint, biome, gopls, ruby-lsp, pyright, elixir-ls, zls, csharp, fsharp, sourcekit-lsp, rust, clangd, svelte, astro, jdtls, kotlin-ls, yaml-ls, lua-ls, php intelephense, prisma, dart, ocaml-lsp, bash, terraform, texlab, dockerfile, gleam, clojure-lsp, nixd, tinymist, haskell-language-server, julials enabled LSP servers
+INFO  2026-04-10T04:44:01 +1ms service=file init
+INFO  2026-04-10T04:44:01 +2ms service=file.watcher directory=/Users/zefy/Documents/github/test init
+INFO  2026-04-10T04:44:01 +198ms service=file.watcher directory=/Users/zefy/Documents/github/test platform=darwin backend=fs-events watcher backend
+INFO  2026-04-10T04:44:01 +11ms service=bus type=command.executed subscribing
+INFO  2026-04-10T04:44:01 +2ms service=bus type=* subscribing
+INFO  2026-04-10T04:44:01 +15ms service=server status=started providers
+INFO  2026-04-10T04:44:01 +3ms service=provider status=started state
+INFO  2026-04-10T04:44:01 +11ms service=server status=completed duration=1248 method=GET path=/config request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=1248 method=GET path=/experimental/console request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=1248 method=GET path=/session request
+INFO  2026-04-10T04:44:01 +19ms service=provider init
+INFO  2026-04-10T04:44:01 +5ms service=skill count=0 init
+INFO  2026-04-10T04:44:01 +1ms service=server status=completed duration=1273 method=GET path=/agent request
+INFO  2026-04-10T04:44:01 +9ms service=provider providerID=deepseek found
+INFO  2026-04-10T04:44:01 +0ms service=provider providerID=opencode found
+INFO  2026-04-10T04:44:01 +0ms service=provider status=completed duration=45 state
+INFO  2026-04-10T04:44:01 +18ms service=server status=completed duration=66 providers
+INFO  2026-04-10T04:44:01 +1ms service=server status=completed duration=1301 method=GET path=/provider request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=1301 method=GET path=/config/providers request
+INFO  2026-04-10T04:44:01 +17ms service=vcs branch=main initialized
+INFO  2026-04-10T04:44:01 +0ms service=bus type=file.watcher.updated subscribing
+INFO  2026-04-10T04:44:01 +18ms service=server method=GET path=/command request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/command request
+INFO  2026-04-10T04:44:01 +2ms service=mcp key=websearch type=remote found
+INFO  2026-04-10T04:44:01 +2ms service=mcp key=context7 type=remote found
+INFO  2026-04-10T04:44:01 +1ms service=mcp key=grep_app type=remote found
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/lsp request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/lsp request
+INFO  2026-04-10T04:44:01 +1ms service=server status=completed duration=1 method=GET path=/lsp request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/mcp request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/mcp request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/experimental/resource request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/experimental/resource request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/formatter request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/formatter request
+INFO  2026-04-10T04:44:01 +2ms service=server method=GET path=/session/status request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/session/status request
+INFO  2026-04-10T04:44:01 +1ms service=server status=completed duration=1 method=GET path=/session/status request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/provider/auth request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/provider/auth request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=0 method=GET path=/provider/auth request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/vcs request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/vcs request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=0 method=GET path=/vcs request
+INFO  2026-04-10T04:44:01 +1ms service=server method=GET path=/path request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/path request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=0 method=GET path=/path request
+INFO  2026-04-10T04:44:01 +0ms service=server method=GET path=/experimental/workspace request
+INFO  2026-04-10T04:44:01 +0ms service=server status=started method=GET path=/experimental/workspace request
+INFO  2026-04-10T04:44:01 +0ms service=server status=completed duration=0 method=GET path=/experimental/workspace request
+INFO  2026-04-10T04:44:01 +26ms service=server status=completed duration=30 method=GET path=/formatter request
+INFO  2026-04-10T04:44:02 +1940ms service=tui.plugin id=internal:home-footer loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:home-tips loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-context loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-mcp loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-lsp loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-todo loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-files loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:sidebar-footer loading internal tui plugin
+INFO  2026-04-10T04:44:02 +0ms service=tui.plugin id=internal:plugin-manager loading internal tui plugin
+INFO  2026-04-10T04:44:02 +871ms service=mcp key=websearch transport=StreamableHTTP connected
+INFO  2026-04-10T04:44:02 +110ms service=mcp key=grep_app transport=StreamableHTTP connected
+INFO  2026-04-10T04:44:03 +424ms service=mcp key=websearch toolCount=1 create() successfully created client
+INFO  2026-04-10T04:44:03 +25ms service=mcp key=context7 transport=StreamableHTTP connected
+INFO  2026-04-10T04:44:03 +106ms service=mcp key=grep_app toolCount=1 create() successfully created client
+INFO  2026-04-10T04:44:04 +1060ms service=mcp key=context7 toolCount=2 create() successfully created client
+INFO  2026-04-10T04:44:04 +3ms service=server status=completed duration=2629 method=GET path=/mcp request
+ERROR 2026-04-10T04:44:04 +274ms service=mcp clientName=context7 error=MCP error -32601: Method not found failed to get resources
+ERROR 2026-04-10T04:44:04 +17ms service=mcp clientName=context7 error=MCP error -32601: Method not found failed to get prompts
+ERROR 2026-04-10T04:44:04 +72ms service=mcp clientName=grep_app error=MCP error -32601: Method not found failed to get prompts
+INFO  2026-04-10T04:44:04 +3ms service=server status=completed duration=3001 method=GET path=/command request
+ERROR 2026-04-10T04:44:04 +16ms service=mcp clientName=grep_app error=MCP error -32601: Method not found failed to get resources
+INFO  2026-04-10T04:44:04 +0ms service=server status=completed duration=3011 method=GET path=/experimental/resource request
+INFO  2026-04-10T04:44:22 +17725ms service=server method=POST path=/session request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=POST path=/session request
+INFO  2026-04-10T04:44:22 +9ms service=session id=ses_28a4b69b1ffeYhGnb6g2XmfQSF slug=curious-rocket version=1.4.1 projectID=global directory=/Users/zefy/Documents/github/test title=New session - 2026-04-10T04:44:22.478Z time={"created":1775796262478,"updated":1775796262478} created
+INFO  2026-04-10T04:44:22 +5ms service=bus type=session.created publishing
+INFO  2026-04-10T04:44:22 +3ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:44:22 +5ms service=server status=completed duration=22 method=POST path=/session request
+INFO  2026-04-10T04:44:22 +7ms service=server method=GET path=/provider request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/provider request
+INFO  2026-04-10T04:44:22 +0ms service=server method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +7ms service=server status=completed duration=7 method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +30ms service=server status=completed duration=37 method=GET path=/provider request
+INFO  2026-04-10T04:44:22 +25ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +1ms service=server url=http://opencode.internal/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:44:22 +0ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +1ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:22 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:22 +1ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:22 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/diff request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/diff request
+INFO  2026-04-10T04:44:22 +7ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +0ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:44:22 +0ms service=server status=completed duration=0 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:22 +2ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:22 +1ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:22 +1ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:44:22 +5ms service=server status=completed duration=16 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/diff request
+INFO  2026-04-10T04:44:22 +1ms service=bus type=session.status publishing
+INFO  2026-04-10T04:44:22 +0ms service=session.prompt step=0 sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF loop
+INFO  2026-04-10T04:44:22 +1ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:22 +2ms service=llm providerID=opencode modelID=gpt-5-nano sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF small=true agent=title mode=primary stream
+INFO  2026-04-10T04:44:22 +1ms service=provider status=started providerID=opencode getSDK
+INFO  2026-04-10T04:44:22 +0ms service=provider providerID=opencode pkg=@ai-sdk/openai using bundled provider
+INFO  2026-04-10T04:44:22 +0ms service=provider status=completed duration=0 providerID=opencode getSDK
+INFO  2026-04-10T04:44:22 +52ms service=snapshot hash=93cc04a53966f4d887f881640276dd23728934e0 cwd=/Users/zefy/Documents/github/test git=/Users/zefy/.local/share/opencode/snapshot/global/6d73a4ac3fa5380499b1af30de12e38b2958e14e tracking
+INFO  2026-04-10T04:44:22 +1ms service=session.prompt status=started resolveTools
+INFO  2026-04-10T04:44:22 +2ms service=bash-tool shell=/bin/zsh bash tool using shell
+INFO  2026-04-10T04:44:22 +1ms service=tool.registry status=started invalid
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 invalid
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started question
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 question
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started bash
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 bash
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started read
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 read
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started edit
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 edit
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started write
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 write
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started webfetch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 webfetch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started todowrite
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 todowrite
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started websearch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 websearch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started codesearch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 codesearch
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:44:22 +1ms service=tool.registry status=started lsp_goto_definition
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_goto_definition
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started lsp_find_references
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_find_references
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started lsp_symbols
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_symbols
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started lsp_diagnostics
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_diagnostics
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started lsp_prepare_rename
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_prepare_rename
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started lsp_rename
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 lsp_rename
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started ast_grep_search
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 ast_grep_search
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started ast_grep_replace
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 ast_grep_replace
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started session_list
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 session_list
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started session_read
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 session_read
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started session_search
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 session_search
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started session_info
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 session_info
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started background_output
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 background_output
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started background_cancel
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 background_cancel
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started call_omo_agent
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 call_omo_agent
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started look_at
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 look_at
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started skill_mcp
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 skill_mcp
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=started interactive_bash
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 interactive_bash
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=1 skill
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 skill
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=1 task
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:44:22 +0ms service=tool.registry status=completed duration=0 task
+INFO  2026-04-10T04:44:22 +4ms service=session.prompt status=completed duration=8 resolveTools
+INFO  2026-04-10T04:44:22 +1ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:44:22 +2ms service=bus type=session.diff publishing
+INFO  2026-04-10T04:44:22 +0ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:22 +1ms service=session.processor process
+INFO  2026-04-10T04:44:22 +0ms service=llm providerID=opencode modelID=big-pickle sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF small=false agent=​Sisyphus - Ultraworker mode=primary stream
+INFO  2026-04-10T04:44:22 +0ms service=provider status=started providerID=opencode getSDK
+INFO  2026-04-10T04:44:22 +0ms service=provider providerID=opencode pkg=@ai-sdk/anthropic using bundled provider
+INFO  2026-04-10T04:44:22 +0ms service=provider status=completed duration=0 providerID=opencode getSDK
+INFO  2026-04-10T04:44:22 +2ms service=bus type=session.status publishing
+INFO  2026-04-10T04:44:23 +825ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:23 +1ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:23 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:23 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:23 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:23 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:23 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +2ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +0ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +102ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +2ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +0ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +107ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +2ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +0ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +102ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +106ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:44:24 +3ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +107ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:24 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:24 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +107ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +107ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +107ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:25 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:25 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +2ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +0ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +1ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:26 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:26 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +1ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +0ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +0ms service=server status=completed duration=0 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +39ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:27 +2ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:27 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:27 +60ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:27 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:27 +0ms service=server status=completed duration=0 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +77ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:28 +25ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +0ms service=server status=completed duration=0 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +103ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +0ms service=server status=completed duration=0 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +104ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +92ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:28 +9ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +0ms service=server status=completed duration=0 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +106ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +1ms service=server status=completed duration=2 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +105ms service=server method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +0ms service=server status=started method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +1ms service=bus type=tui.toast.show publishing
+INFO  2026-04-10T04:44:28 +0ms service=server status=completed duration=1 method=POST path=/tui/show-toast request
+INFO  2026-04-10T04:44:28 +43ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:28 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:28 +1ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:28 +1ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:28 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:29 +445ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:29 +310ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:44:29 +16ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:29 +302ms service=snapshot hash=93cc04a53966f4d887f881640276dd23728934e0 cwd=/Users/zefy/Documents/github/test git=/Users/zefy/.local/share/opencode/snapshot/global/6d73a4ac3fa5380499b1af30de12e38b2958e14e tracking
+INFO  2026-04-10T04:44:29 +1ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:44:29 +0ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:29 +39ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:29 +0ms service=bus type=session.status publishing
+INFO  2026-04-10T04:44:29 +0ms service=session.prompt step=1 sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF loop
+INFO  2026-04-10T04:44:29 +0ms service=session.prompt sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF exiting loop
+INFO  2026-04-10T04:44:29 +1ms service=bus type=session.status publishing
+INFO  2026-04-10T04:44:29 +0ms service=bus type=session.idle publishing
+INFO  2026-04-10T04:44:29 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:29 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:29 +1ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:44:29 +0ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:29 +1ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:29 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:29 +0ms service=server status=completed duration=0 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:29 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:29 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:29 +0ms service=server status=completed duration=0 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:29 +1ms service=session.compaction pruning
+INFO  2026-04-10T04:44:29 +1ms service=session.compaction pruned=0 total=0 found
+INFO  2026-04-10T04:44:29 +23ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:44:29 +0ms service=bus type=session.diff publishing
+INFO  2026-04-10T04:44:29 +24ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:44:31 +1458ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:31 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:31 +3ms service=server status=completed duration=3 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:44:31 +1ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:31 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:31 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:31 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:44:31 +2ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:44:31 +6ms service=server status=completed duration=8 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:44:31 +0ms service=server status=completed duration=8 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:45:01 +30383ms service=snapshot prune=7.days cleanup
+INFO  2026-04-10T04:46:48 +106983ms service=server method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:48 +0ms service=server status=started method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:48 +10ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:48 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:48 +1ms service=server status=completed duration=11 method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:48 +0ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:46:48 +2ms service=server status=completed duration=3 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:48 +2ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:46:48 +3ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:46:48 +3ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:46:48 +3ms service=bus type=session.status publishing
+INFO  2026-04-10T04:46:48 +0ms service=session.prompt step=0 sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF loop
+INFO  2026-04-10T04:46:48 +3ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:46:48 +57ms service=snapshot hash=93cc04a53966f4d887f881640276dd23728934e0 cwd=/Users/zefy/Documents/github/test git=/Users/zefy/.local/share/opencode/snapshot/global/6d73a4ac3fa5380499b1af30de12e38b2958e14e tracking
+INFO  2026-04-10T04:46:48 +1ms service=session.prompt status=started resolveTools
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started invalid
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 invalid
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started question
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 question
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started bash
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 bash
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started read
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 read
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started edit
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 edit
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started write
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 write
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started webfetch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 webfetch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started todowrite
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 todowrite
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started websearch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 websearch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started codesearch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 codesearch
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_goto_definition
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_goto_definition
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_find_references
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_find_references
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_symbols
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_symbols
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_diagnostics
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_diagnostics
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_prepare_rename
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_prepare_rename
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started lsp_rename
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 lsp_rename
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started ast_grep_search
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 ast_grep_search
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started ast_grep_replace
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 ast_grep_replace
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started session_list
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 session_list
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started session_read
+INFO  2026-04-10T04:46:48 +1ms service=tool.registry status=completed duration=1 session_read
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started session_search
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 session_search
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started session_info
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 session_info
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started background_output
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 background_output
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started background_cancel
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 background_cancel
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started call_omo_agent
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 call_omo_agent
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started look_at
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 look_at
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started skill_mcp
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 skill_mcp
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=started interactive_bash
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 interactive_bash
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=1 skill
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 skill
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=1 task
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:46:48 +0ms service=tool.registry status=completed duration=0 task
+INFO  2026-04-10T04:46:48 +2ms service=session.prompt status=completed duration=3 resolveTools
+INFO  2026-04-10T04:46:48 +4ms service=session.processor process
+INFO  2026-04-10T04:46:48 +0ms service=llm providerID=opencode modelID=big-pickle sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF small=false agent=​Sisyphus - Ultraworker mode=primary stream
+INFO  2026-04-10T04:46:48 +3ms service=bus type=session.status publishing
+INFO  2026-04-10T04:46:48 +17ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:46:48 +1ms service=bus type=session.diff publishing
+INFO  2026-04-10T04:46:48 +0ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:46:50 +1390ms service=server method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/abort request
+INFO  2026-04-10T04:46:50 +0ms service=server status=started method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/abort request
+INFO  2026-04-10T04:46:50 +3ms service=session.prompt sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF cancel
+ERROR 2026-04-10T04:46:50 +5ms service=session.processor error=Aborted process
+INFO  2026-04-10T04:46:50 +1ms service=bus type=session.error publishing
+INFO  2026-04-10T04:46:50 +0ms service=bus type=session.status publishing
+INFO  2026-04-10T04:46:50 +1ms service=bus type=session.idle publishing
+INFO  2026-04-10T04:46:50 +73ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:46:50 +1ms service=bus type=session.status publishing
+INFO  2026-04-10T04:46:50 +0ms service=bus type=session.idle publishing
+INFO  2026-04-10T04:46:50 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:50 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:50 +0ms service=server status=completed duration=84 method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/abort request
+INFO  2026-04-10T04:46:50 +1ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:51 +1434ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:46:51 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:46:51 +3ms service=server status=completed duration=3 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:46:51 +1ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:51 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:51 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:51 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:46:51 +0ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:46:51 +4ms service=server status=completed duration=4 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:46:51 +0ms service=server status=completed duration=4 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:20 +28618ms service=server method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:20 +0ms service=server status=started method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:20 +7ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:20 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:20 +1ms service=server status=completed duration=8 method=POST path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:20 +0ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:47:20 +1ms service=server status=completed duration=2 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:20 +3ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:20 +2ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:20 +1ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:47:20 +3ms service=bus type=session.status publishing
+INFO  2026-04-10T04:47:20 +0ms service=session.prompt step=0 sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF loop
+INFO  2026-04-10T04:47:20 +3ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:20 +62ms service=snapshot hash=93cc04a53966f4d887f881640276dd23728934e0 cwd=/Users/zefy/Documents/github/test git=/Users/zefy/.local/share/opencode/snapshot/global/6d73a4ac3fa5380499b1af30de12e38b2958e14e tracking
+INFO  2026-04-10T04:47:20 +0ms service=session.prompt status=started resolveTools
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started invalid
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 invalid
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started question
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 question
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started bash
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 bash
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started read
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 read
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started edit
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 edit
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started write
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 write
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started webfetch
+INFO  2026-04-10T04:47:20 +1ms service=tool.registry status=completed duration=1 webfetch
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started todowrite
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 todowrite
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started websearch
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 websearch
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started codesearch
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 codesearch
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_goto_definition
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_goto_definition
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_find_references
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_find_references
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_symbols
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_symbols
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_diagnostics
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_diagnostics
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_prepare_rename
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_prepare_rename
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started lsp_rename
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 lsp_rename
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started grep
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 grep
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started glob
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 glob
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started ast_grep_search
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 ast_grep_search
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started ast_grep_replace
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 ast_grep_replace
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started session_list
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 session_list
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started session_read
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 session_read
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started session_search
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 session_search
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started session_info
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 session_info
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started background_output
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 background_output
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started background_cancel
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 background_cancel
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started call_omo_agent
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 call_omo_agent
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started look_at
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 look_at
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started task
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started skill_mcp
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 skill_mcp
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started skill
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=started interactive_bash
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 interactive_bash
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 skill
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 skill
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=1 task
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Metis - Plan Consultant ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Momus - Plan Critic ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=Sisyphus-Junior ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=build ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=explore ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=general ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=librarian ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=multimodal-looker ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=oracle ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=plan ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=permission permission=task pattern=​​​Prometheus - Plan Builder ruleset=[{"permission":"*","action":"allow","pattern":"*"},{"permission":"doom_loop","action":"ask","pattern":"*"},{"permission":"external_directory","pattern":"*","action":"ask"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"},{"permission":"question","action":"deny","pattern":"*"},{"permission":"plan_enter","action":"deny","pattern":"*"},{"permission":"plan_exit","action":"deny","pattern":"*"},{"permission":"read","pattern":"*","action":"allow"},{"permission":"read","pattern":"*.env","action":"ask"},{"permission":"read","pattern":"*.env.*","action":"ask"},{"permission":"read","pattern":"*.env.example","action":"allow"},{"permission":"webfetch","action":"allow","pattern":"*"},{"permission":"external_directory","action":"allow","pattern":"*"},{"permission":"task","action":"deny","pattern":"*"},{"permission":"question","action":"allow","pattern":"*"},{"permission":"call_omo_agent","action":"deny","pattern":"*"},{"permission":"task","action":"allow","pattern":"*"},{"permission":"task_*","action":"allow","pattern":"*"},{"permission":"teammate","action":"allow","pattern":"*"},{"permission":"external_directory","pattern":"/Users/zefy/.local/share/opencode/tool-output/*","action":"allow"}] evaluate
+INFO  2026-04-10T04:47:20 +0ms service=tool.registry status=completed duration=0 task
+INFO  2026-04-10T04:47:20 +2ms service=session.prompt status=completed duration=3 resolveTools
+INFO  2026-04-10T04:47:20 +1ms service=session.processor process
+INFO  2026-04-10T04:47:20 +1ms service=llm providerID=opencode modelID=big-pickle sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF small=false agent=​Sisyphus - Ultraworker mode=primary stream
+INFO  2026-04-10T04:47:20 +1ms service=bus type=session.status publishing
+INFO  2026-04-10T04:47:20 +23ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:47:20 +1ms service=bus type=session.diff publishing
+INFO  2026-04-10T04:47:20 +0ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:22 +2038ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:22 +3ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:22 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:22 +311ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:23 +425ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:23 +453ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:24 +463ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:24 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:24 +3ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:24 +2ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:24 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:24 +503ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:25 +403ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:25 +593ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:26 +1165ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:26 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:26 +1ms service=bus type=message.part.delta publishing
+INFO  2026-04-10T04:47:26 +3ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:27 +270ms service=snapshot hash=93cc04a53966f4d887f881640276dd23728934e0 cwd=/Users/zefy/Documents/github/test git=/Users/zefy/.local/share/opencode/snapshot/global/6d73a4ac3fa5380499b1af30de12e38b2958e14e tracking
+INFO  2026-04-10T04:47:27 +1ms service=bus type=message.part.updated publishing
+INFO  2026-04-10T04:47:27 +0ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:27 +38ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:27 +0ms service=bus type=session.status publishing
+INFO  2026-04-10T04:47:27 +0ms service=session.prompt step=1 sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF loop
+INFO  2026-04-10T04:47:27 +0ms service=session.prompt sessionID=ses_28a4b69b1ffeYhGnb6g2XmfQSF exiting loop
+INFO  2026-04-10T04:47:27 +1ms service=bus type=session.status publishing
+INFO  2026-04-10T04:47:27 +0ms service=bus type=session.idle publishing
+INFO  2026-04-10T04:47:27 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:27 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:27 +1ms service=server status=completed duration=1 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:27 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:27 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:27 +0ms service=server status=completed duration=0 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:27 +1ms service=session.compaction pruning
+INFO  2026-04-10T04:47:27 +0ms service=session.compaction pruned=0 total=0 found
+INFO  2026-04-10T04:47:27 +21ms service=bus type=session.updated publishing
+INFO  2026-04-10T04:47:27 +1ms service=bus type=session.diff publishing
+INFO  2026-04-10T04:47:27 +21ms service=bus type=message.updated publishing
+INFO  2026-04-10T04:47:28 +1461ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:28 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:28 +3ms service=server status=completed duration=3 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/todo request
+INFO  2026-04-10T04:47:28 +0ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:28 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:28 +1ms service=server method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:28 +0ms service=server status=started method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:28 +0ms service=server url=http://localhost:4096/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF?directory=%2FUsers%2Fzefy%2FDocuments%2Fgithub%2Ftest SEARCH
+INFO  2026-04-10T04:47:28 +5ms service=server status=completed duration=6 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF request
+INFO  2026-04-10T04:47:28 +0ms service=server status=completed duration=5 method=GET path=/session/ses_28a4b69b1ffeYhGnb6g2XmfQSF/message request
+INFO  2026-04-10T04:47:34 +5507ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:34 +0ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:34 +0ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:35 +982ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:35 +1ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:35 +0ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:35 +0ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:47:35 +0ms service=bus type=file.watcher.updated publishing
+INFO  2026-04-10T04:49:08 +93407ms service=default worker shutting down
+INFO  2026-04-10T04:49:08 +0ms service=bus type=* unsubscribing
+INFO  2026-04-10T04:49:08 +2ms service=default disposing all instances
+INFO  2026-04-10T04:49:08 +0ms service=default directory=/Users/zefy/Documents/github/test disposing instance
+INFO  2026-04-10T04:49:08 +0ms service=state key=/Users/zefy/Documents/github/test waiting for state disposal to complete
+INFO  2026-04-10T04:49:08 +1ms service=bus type=* unsubscribing
+INFO  2026-04-10T04:49:08 +0ms service=bus type=session.updated unsubscribing
+INFO  2026-04-10T04:49:08 +1ms service=bus type=message.updated unsubscribing
+INFO  2026-04-10T04:49:08 +0ms service=bus type=message.part.updated unsubscribing
+INFO  2026-04-10T04:49:08 +0ms service=bus type=session.diff unsubscribing
+INFO  2026-04-10T04:49:08 +0ms service=bus type=file.watcher.updated unsubscribing
+INFO  2026-04-10T04:49:08 +1ms service=state key=/Users/zefy/Documents/github/test state disposal completed

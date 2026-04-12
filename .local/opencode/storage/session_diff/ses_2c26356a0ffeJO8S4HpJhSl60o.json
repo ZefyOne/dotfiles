@@ -1,0 +1,18 @@
+[
+  {
+    "file": "init.lua",
+    "before": "-- bootstrap lazy.nvim, LazyVim and your plugins\nrequire(\"config.lazy\")\n\n-- 写作模式\nrequire(\"mode.novel\").setup()\n\n-- 自动保存文件，光标静止后五分钟\nrequire(\"tools.auto_save\")\n\nrequire(\"custom.opencode\")\n\n-- 主题\n-- vim.o.termguicolors = true\n-- vim.g.PaperColor_Theme_Options = {\n--   theme = {\n--     default = {\n--       override = {\n--         color00 = '#bcdbbb',  -- WPS护眼绿背景\n--       }\n--     }\n--   }\n-- }\n-- vim.cmd.colorscheme(\"tokyonight-moon\")\n\nlocal currentTime = os.time()\nlocal hour = tonumber(os.date(\"%H\", currentTime))\nif hour >= 18 then\n  vim.cmd.colorscheme(\"tokyonight-moon\")\nelse\n  vim.cmd.colorscheme(\"everforest\")\nend\n",
+    "after": "-- bootstrap lazy.nvim, LazyVim and your plugins\nrequire(\"config.lazy\")\n\n-- 写作模式\nrequire(\"mode.novel\").setup()\n\n-- 自动保存文件，光标静止后五分钟\nrequire(\"tools.auto_save\")\n\nrequire(\"custom.opencode\")\nrequire(\"custom.opencode.plugin\")\n\n-- 主题\n-- vim.o.termguicolors = true\n-- vim.g.PaperColor_Theme_Options = {\n--   theme = {\n--     default = {\n--       override = {\n--         color00 = '#bcdbbb',  -- WPS护眼绿背景\n--       }\n--     }\n--   }\n-- }\n-- vim.cmd.colorscheme(\"tokyonight-moon\")\n\nlocal currentTime = os.time()\nlocal hour = tonumber(os.date(\"%H\", currentTime))\nif hour >= 18 then\n  vim.cmd.colorscheme(\"tokyonight-moon\")\nelse\n  vim.cmd.colorscheme(\"everforest\")\nend\n",
+    "additions": 1,
+    "deletions": 0,
+    "status": "modified"
+  },
+  {
+    "file": "lua/custom/opencode/init.lua",
+    "before": "return require('custom.opencode.opencode')\n",
+    "after": "return require(\"custom.opencode.opencode\")\n",
+    "additions": 1,
+    "deletions": 1,
+    "status": "modified"
+  }
+]
