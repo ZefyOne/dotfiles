@@ -42,6 +42,9 @@ setopt appendhistory
 
 
 # custom
+
+
+
 export EDITOR='nvim'
 
 alias n='nvim'
@@ -49,3 +52,5 @@ alias y='yazi'
 
 
 
+# PATH
+PATH="$PATH:~/.local/bin"
