@@ -1,0 +1,44 @@
+packages:
+  yay: 
+    # 常用应用
+    - wps-office-cn   # wps国内版
+    - wps-office-mui-zh-cn  # wps中文包
+    - wechat-universal-bwrap  # 微信沙盒版
+
+  pacman:
+    # 终端类
+    - zsh
+    - zsh-completions   # 自动补全扩展，补全官方不完全的，按tab补全
+    - neovim
+    - tmux
+    - yazi
+    - kitty
+    - cava  # 音频可视化工具，在终端里
+    - btop
+    - fastfetch 
+
+    # AI类
+    - opencode
+
+    # 窗口类
+    - rofi
+
+    # 字体包
+    - nerd-fonts  # 包含所有常用的，以及下面的这些，不过都带-nerd，意思是被项目修补过的
+
+    # 工具类
+    - curl
+    # - lib32-curl  # 安装32位程序的包
+    - fzf
+    - wget
+    - fd
+
+    # 输入法
+    - fcitx5
+    - fcitx5-gtk
+    - fcitx5-qt
+    - fcitx5-rime
+    - fcitx5-configtool
+
+    # 环境类
+    - base-devel    # 包含cmake等编译工具
