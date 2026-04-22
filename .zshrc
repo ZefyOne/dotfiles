@@ -74,7 +74,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 
 # PATH
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export EDITOR='nvim'
 
 # alias
