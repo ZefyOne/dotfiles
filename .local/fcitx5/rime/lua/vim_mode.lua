@@ -1,10 +1,10 @@
-local lists = {}
+local h = {}
 
-function lists.init(env)
+function h.init(env)
 	print("处理器初始化")
 end
 
-function lists.func(key, env)
+function h.func(key, env)
 	local ctx = env.engine.context
 	local is_ascii_mode = ctx:get_option("ascii_mode")
 	if (not is_ascii_mode) and key:repr() == "Control+bracketleft" then
@@ -14,4 +14,4 @@ function lists.func(key, env)
 	return 2
 end
 
-return lists
+return h
