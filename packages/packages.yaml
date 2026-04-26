@@ -4,6 +4,7 @@ packages:
     - wps-office-cn   # wps国内版
     - wps-office-mui-zh-cn  # wps中文包
     - wechat-universal-bwrap  # 微信沙盒版
+    - vicinae-bin   # 类raycast启动器
 
   pacman:
     # 终端类
