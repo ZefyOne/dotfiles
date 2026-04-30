@@ -43,3 +43,5 @@ packages:
 
     # 环境类
     - base-devel    # 包含cmake等编译工具
+
+    - pandoc  # 文件转换工具，用于在yazi中浏览docx等文件
