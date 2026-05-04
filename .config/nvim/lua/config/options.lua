@@ -5,7 +5,7 @@
 local opt = vim.opt
 
 -- 禁用光标行高亮
-opt.cursorline = false
+-- opt.cursorline = false
 
 opt.relativenumber = false -- Relative line numbers
 
@@ -25,7 +25,6 @@ opt.expandtab = true -- 用空格代替 Tab
 opt.tabstop = 2 -- 一个 Tab 显示为 4 个空格
 opt.shiftwidth = 2 -- 自动缩进时使用 4 个空格
 opt.softtabstop = 2 -- 退格时删除 4 个空格
-
 
 -- opt.listchars:append({ space = "-" }) -- 把空格显示成别的符号
 -- opt.list = true

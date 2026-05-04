@@ -7,23 +7,7 @@ require("mode.novel").setup()
 -- 自动保存文件，光标静止后五分钟
 require("tools.auto_save")
 
--- 主题
--- vim.o.termguicolors = true
--- vim.g.PaperColor_Theme_Options = {
---   theme = {
---     default = {
---       override = {
---         color00 = '#bcdbbb',  -- WPS护眼绿背景
---       }
---     }
---   }
--- }
--- vim.cmd.colorscheme("tokyonight-moon")
+-- 护眼主题
+-- require("theme.EyeProtection")
 
-local currentTime = os.time()
-local hour = tonumber(os.date("%H", currentTime))
-if hour >= 18 or hour <= 6 then
-  vim.cmd.colorscheme("tokyonight-moon")
-else
-  vim.cmd.colorscheme("everforest")
-end
+vim.cmd.colorscheme("tokyonight-moon")

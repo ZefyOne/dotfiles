@@ -1,9 +1,0 @@
-[
-  {
-    "file": "install.conf.yaml",
-    "patch": "Index: install.conf.yaml\n===================================================================\n--- install.conf.yaml\t\n+++ install.conf.yaml\t\n@@ -0,0 +1,31 @@\n+# Dotbot configuration for zefy's dotfiles\n+\n+- defaults:\n+    link:\n+      relink: true\n+      create: true\n+\n+# Clean up dead symlinks in home directory\n+- clean: ['~']\n+\n+# Link terminal configurations\n+- link:\n+    ~/.config/kitty:\n+      path: kitty\n+    ~/.config/yazi:\n+      path: yazi\n+\n+# Link editor configuration\n+- link:\n+    ~/.config/nvim:\n+      path: nvim\n+\n+# Link tmux configuration\n+- link:\n+    ~/.tmux.conf:\n+      path: tmux/tmux.conf\n+\n+\n+# Initialize git submodules (for tmux plugins)\n+- shell:\n+  - [git submodule update --init --recursive, Initialize tmux plugins]\n",
-    "additions": 31,
-    "deletions": 0,
-    "status": "modified"
-  }
-]

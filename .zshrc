@@ -80,3 +80,4 @@ export EDITOR='nvim'
 # alias
 alias n='nvim'
 alias y='yazi'
+alias c='clear'

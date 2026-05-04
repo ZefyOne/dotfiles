@@ -1,5 +1,5 @@
 return {
-  { "saghen/blink.cmp", enabled = false }, -- 关闭代码补全功能
+  -- { "saghen/blink.cmp", enabled = false }, -- 关闭代码补全功能
   -- { "stevearc/conform.nvim", enabled = false }, -- 作用：自动格式化代码，支持多种格式化工具，可配置触发时机
   -- { "folke/flash.nvim", enabled = false }, -- 作用：快速跳转插件，通过显示字符标签实现快速定位和跳转
   -- { "rafamadriz/friendly-snippets", enabled = false }, -- 作用：提供大量预配置的代码片段，支持多种编程语言
