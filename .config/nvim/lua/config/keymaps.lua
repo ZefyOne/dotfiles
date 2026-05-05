@@ -46,3 +46,6 @@ keymap("n", "<leader>tw2", "jdjkdiwkko<CR>1-2<CR><CR>日/外<CR><CR>场景：<ES
 keymap("n", ",e", "ce（）<ESC>P", { desc = "加括号" })
 -- keymap("v", "<leader>", "<cmd>s/\\%V.*\\%V./（&）/|noh<CR><ESC>") --与上一个功能相同，但开销更大
 keymap("n", ",w", "df）", { desc = "删括号" })
+
+-- 快捷短语
+keymap("i", "<C-,>", "▲")
