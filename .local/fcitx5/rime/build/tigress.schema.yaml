@@ -2,7 +2,7 @@ __build_info:
   rime_version: 1.16.1
   timestamps:
     default: 1774018450
-    default.custom: 1777185601
+    default.custom: 1777983448
     key_bindings: 1774018450
     key_bindings.custom: 0
     punctuation: 1774018450
@@ -10,7 +10,7 @@ __build_info:
     symbols: 1777185545
     symbols.custom: 0
     tigress.custom: 1777213599
-    tigress.schema: 1777186649
+    tigress.schema: 1777983539
 chaifen:
   comment_format:
     - "xform/&nbsp;/ /"
@@ -50,7 +50,6 @@ engine:
     - "lua_filter@lua_unicode_display_filter"
     - uniquifier
   processors:
-    - "lua_processor@*vim_mode"
     - ascii_composer
     - recognizer
     - key_binder

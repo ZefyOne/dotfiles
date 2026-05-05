@@ -8,9 +8,29 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.nov", "*.md" }, -- 直接匹配 .nov 后缀
+  pattern = { "*.nov", "*.md", "*.txt" }, -- 直接匹配 .nov 后缀
   callback = function()
-    vim.opt_local.spell = false -- 禁用拼写检查
+    vim.opt_local.spell = false -- 禁用拼写检查，这样不会标红
+  end,
+})
+
+-- 监听模式变化，刚切换就触发。
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = "*",
+  callback = function()
+    local current_mode = vim.fn.mode()
+    local ft = vim.bo.filetype
+
+    if current_mode == "i" then
+      -- 只有特定文件类型才切中文
+      if ft == "markdown" or ft == "text" then
+        vim.fn.system("fcitx5-remote -s rime")
+      end
+      -- 其他文件进入 i 模式什么都不做
+    elseif current_mode == "n" then
+      -- 所有文件回 n 模式都切英文
+      vim.fn.system("fcitx5-remote -s keyboard-us")
+    end
   end,
 })
 
@@ -23,6 +43,6 @@ uc("Yazi", function()
   vim.cmd("normal! a")
 end, {})
 
--- 打开Typora
+-- 打开Obsidian
 uc("Obsidian", require("tools.obsidian").setup, {})
 -- custom function

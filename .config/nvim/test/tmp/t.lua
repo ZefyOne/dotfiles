@@ -1,0 +1,15 @@
+
+-- vim.lsp.config["rime_ls"] = {
+--   cmd = { "/usr/bin/rime_ls" },
+--   filetypes = { "markdown", "text" },
+--   init_options = {
+--     user_data_dir = vim.fn.expand("~/.local/share/rime-ls"),
+--     auto_complete = false, -- 关闭自动补全
+--     trigger_characters = {}, -- 可留空，但自动已被关，不影响
+--     max_candidates = 9,
+--     always_incomplete = true,
+--     long_filter_text = true,
+--   },
+-- }
+--
+-- vim.lsp.enable("rime_ls")

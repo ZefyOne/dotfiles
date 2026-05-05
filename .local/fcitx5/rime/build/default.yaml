@@ -2,7 +2,7 @@ __build_info:
   rime_version: 1.16.1
   timestamps:
     default: 1774018450
-    default.custom: 1777185601
+    default.custom: 1777983448
     key_bindings: 1774018450
     key_bindings.custom: 0
     punctuation: 1774018450
@@ -14,8 +14,6 @@ ascii_composer:
     Control_L: noop
     Control_R: noop
     Eisu_toggle: clear
-    Shift_L: commit_code
-    Shift_R: commit_code
 config_version: 0.50
 key_binder:
   bindings:
@@ -146,3 +144,5 @@ switcher:
     - zh_hant
     - zh_hans
     - zh_hant_tw
+switches:
+  - reset: 1
