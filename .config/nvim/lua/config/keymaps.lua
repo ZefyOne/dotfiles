@@ -48,4 +48,4 @@ keymap("n", ",e", "ce（）<ESC>P", { desc = "加括号" })
 keymap("n", ",w", "df）", { desc = "删括号" })
 
 -- 快捷短语
-keymap("i", "<C-,>", "▲")
+keymap("i", "<C-d>", "▲")
