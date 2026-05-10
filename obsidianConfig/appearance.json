@@ -1,0 +1,12 @@
+{
+  "showViewHeader": true,
+  "showRibbon": true,
+  "interfaceFontFamily": "FantasqueSansM Nerd Font Mono",
+  "textFontFamily": "FantasqueSansM Nerd Font Mono",
+  "monospaceFontFamily": "FantasqueSansM Nerd Font Mono",
+  "baseFontSizeAction": true,
+  "cssTheme": "AnuPpuccin",
+  "theme": "obsidian",
+  "enabledCssSnippets": [],
+  "nativeMenus": false
+}

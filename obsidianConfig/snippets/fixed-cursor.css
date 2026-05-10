@@ -1,0 +1,20 @@
+/* 方法一：覆盖并强制统一宽度（推荐） */
+.cm-cursor, .cm-cursor-primary {
+    width: 7px !important;
+}
+
+/* 对于标题、链接等特殊内容，确保光标也被覆盖 */
+.cm-cursor.cm-cursor-vim {
+    width: 7px !important;
+}
+
+/* 方法二：如果上面的方法无效，可以使用边框模拟固定宽度 */
+/*
+.cm-cursor {
+    border-left-color: currentColor;
+    border-left-width: 2px;
+    border-left-style: solid;
+    background: transparent !important;
+    width: 0px !important;
+}
+*/
