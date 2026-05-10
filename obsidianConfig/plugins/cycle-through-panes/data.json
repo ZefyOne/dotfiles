@@ -1,8 +1,8 @@
 {
   "viewTypes": [
-    "markdown",
     "canvas",
-    "pdf"
+    "pdf",
+    "markdown"
   ],
   "showModal": true,
   "skipPinned": false,

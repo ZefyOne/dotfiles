@@ -6,7 +6,11 @@ nnoremap Y y$
 
 inoremap <C-j> <CR>
 
-inoremap <C-e> <End>
+" exmap up obcommand editor:up
+" exmap down obcommand editor:down
+" inoremap <C-p> <esc>:up<CR>
+" inoremap <C-n> <esc>:down<CR>
+
 
 " 访问系统剪贴板
 set clipboard=unnamed
@@ -24,8 +28,6 @@ nnoremap H :tabprev<CR>
 exmap vsp obcommand workspace:split-vertical
 " 实现工作区的纵向分割
 exmap sp obcommand workspace:split-horizontal
-
-
 
 
 
