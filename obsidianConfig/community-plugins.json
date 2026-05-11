@@ -3,5 +3,7 @@
   "vim-im-control",
   "easy-typing-obsidian",
   "cycle-through-panes",
-  "fix-require-modules"
+  "fix-require-modules",
+  "obsidian-style-settings",
+  "obsidian-dynamic-background"
 ]
