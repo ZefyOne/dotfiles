@@ -1,7 +1,7 @@
 {
-  "dynamicEffect": 40,
+  "dynamicEffect": 41,
   "digitalRainBrightness": 0.7,
-  "enableDynamicEffect": false,
+  "enableDynamicEffect": true,
   "backgroundImageFile": ".obsidian/backgrounds/99.jpg",
-  "blur": 28
+  "blur": 0
 }
