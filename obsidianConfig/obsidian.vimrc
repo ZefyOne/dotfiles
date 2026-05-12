@@ -78,23 +78,23 @@ exmap surround_math surround $ $
 
 " 必须使用 'map'
 map [[ :surround_wiki
-nunmap s
-vunmap s
-map s" :surround_double_quotes<CR>
-map s' :surround_single_quotes<CR>
-map s` :surround_backticks<CR>
-map sb :surround_brackets<CR>
-map s( :surround_brackets<CR>
-map s) :surround_brackets<CR>
-map s[ :surround_square_brackets<CR>
-map s] :surround_square_brackets<CR>
-map s{ :surround_curly_brackets<CR>
-map s} :surround_curly_brackets<CR>
-map si :surround_italic<CR>
-map sb :surround_bold<CR>
-map sd :surround_delete<CR>
-map sm :surround_mark<CR>
-map s$ :surround_math<CR>
+nunmap x
+vunmap x
+map x" :surround_double_quotes<CR>
+map x' :surround_single_quotes<CR>
+map x` :surround_backticks<CR>
+map xb :surround_brackets<CR>
+map x( :surround_brackets<CR>
+map x) :surround_brackets<CR>
+map x[ :surround_square_brackets<CR>
+map x] :surround_square_brackets<CR>
+map x{ :surround_curly_brackets<CR>
+map x} :surround_curly_brackets<CR>
+map xi :surround_italic<CR>
+map xb :surround_bold<CR>
+map xd :surround_delete<CR>
+map xm :surround_mark<CR>
+map x$ :surround_math<CR>
 
 
 

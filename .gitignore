@@ -5,3 +5,5 @@
 .local/fcitx5/rime/trash/
 .local/fcitx5/rime/user.yaml
 .local/fcitx5/rime/installation.yaml
+
+.dotfiles/obsidianConfig/workspace.json
