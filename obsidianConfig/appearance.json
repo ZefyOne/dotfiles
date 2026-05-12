@@ -2,11 +2,14 @@
   "showViewHeader": true,
   "showRibbon": true,
   "interfaceFontFamily": "FantasqueSansM Nerd Font Mono",
-  "textFontFamily": "FantasqueSansM Nerd Font Mono",
+  "textFontFamily": "FantasqueSansM Nerd Font Mono,Arial Black",
   "monospaceFontFamily": "FantasqueSansM Nerd Font Mono",
   "baseFontSizeAction": true,
   "cssTheme": "Composer",
   "theme": "moonstone",
-  "enabledCssSnippets": [],
+  "enabledCssSnippets": [
+    "fixed-cursor",
+    "gj"
+  ],
   "nativeMenus": false
 }

@@ -1,9 +1,8 @@
 [
-  "obsidian-vimrc-support",
-  "vim-im-control",
+  "fix-require-modules",
+  "obsidian-dynamic-background",
   "easy-typing-obsidian",
   "cycle-through-panes",
-  "fix-require-modules",
-  "obsidian-style-settings",
-  "obsidian-dynamic-background"
+  "vim-im-control",
+  "obsidian-vimrc-support"
 ]

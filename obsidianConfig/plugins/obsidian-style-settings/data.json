@@ -1,4 +1,10 @@
 {
   "obsidian-composer-theme@@theme-variant-light": "composer--XiaScheme-light",
-  "obsidian-composer-theme@@composer--ComponentsSimpleTag": true
+  "obsidian-composer-theme@@composer--ComponentsSimpleTag": false,
+  "phycat-colors@@light-color-scheme": "theme-light-forest",
+  "phycat-colors@@dark-color-scheme": "theme-dark-vampire",
+  "phycat-layout@@rainbow-folders": true,
+  "obsidian-composer-theme@@composer--EnableFilenameLineFeed": false,
+  "obsidian-composer-theme@@composer--ComponentsFilledGallaryCover": false,
+  "obsidian-composer-theme@@composer--DisableRainbowTree": false
 }

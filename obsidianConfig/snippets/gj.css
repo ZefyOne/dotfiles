@@ -1,0 +1,19 @@
+/* body { */
+/*     background-color: var(--background-primary); /* 备用色 */ */
+/*     background-image: url("/home/zefy/.dotfiles/source/wallpapers/99.jpg"); */
+/*     background-size: cover; */
+/*     background-position: center; */
+/*     background-attachment: fixed; */
+/* } */
+
+
+/* 强制编辑器内容区域使用稳定的行高 */
+.cm-content {}
+
+/* 确保块级元素不会因边距干扰光标计算 */
+.cm-line {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
