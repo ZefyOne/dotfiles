@@ -5,5 +5,7 @@
   "cycle-through-panes",
   "vim-im-control",
   "obsidian-vimrc-support",
-  "obsidian-style-settings"
+  "obsidian-style-settings",
+  "calendar",
+  "obsidian-scroll-offset"
 ]
