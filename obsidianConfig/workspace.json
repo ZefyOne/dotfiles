@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "深层记忆/领域/计算机/AI/命令.md",
+                "file": "深层记忆/领域/计算机/AI/AI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "命令"
+              "title": "AI"
             }
           },
           {
@@ -166,7 +166,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "水/41-50.md",
+                "file": "深层记忆/领域/计算机/AI/AI.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +176,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "41-50 的反向链接列表"
+              "title": "AI 的反向链接列表"
             }
           },
           {
@@ -185,11 +185,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "深层记忆/领域/计算机/AI/AI.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "AI 的出链列表"
             }
           },
           {
@@ -245,8 +246,7 @@
               "title": "Claudian"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       },
       {
         "id": "ad3a6f5cdfd753b2",
@@ -283,9 +283,9 @@
   },
   "active": "7d79a4321a3f4487",
   "lastOpenFiles": [
+    "深层记忆/领域/计算机/AI/命令.md",
     "深层记忆/领域/计算机/AI/AI.md",
     "深层记忆/领域/计算机/AI/Claude各模式.md",
-    "深层记忆/领域/计算机/AI/命令.md",
     "灵感与任务/任务.md",
     "灵感与任务/灵感.md",
     "深层记忆/领域/计算机/计算机.md",
