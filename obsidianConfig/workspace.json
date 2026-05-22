@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "题材/新题材.md",
+                "file": "饭店/dic.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "新题材"
+              "title": "dic"
             }
           }
         ],
@@ -220,9 +220,12 @@
   "active": "caa039ee8edb77bf",
   "lastOpenFiles": [
     "知识点/剧本的哲学.md",
+    "知识点/框架.md",
     "题材/新题材.md",
     "题材/榜单.md",
-    "知识点/框架.md",
+    "知识点/剧本的哲学.md.tmp.12605.f2d851a87ec1",
+    "饭店/dic.md",
+    "饭店",
     "题材/1.md",
     "举报我偷水，断水后全村哭了/header.md",
     "举报我偷水，断水后全村哭了/未命名.md"
