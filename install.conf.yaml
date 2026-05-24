@@ -25,7 +25,7 @@
     ~/.config/btop: .config/btop
     ~/.config/cava: .config/cava
     ~/.config/fastfetch: .config/fastfetch
-    ~/.config/rofi: .config/rofi
+    # ~/.config/rofi: .config/rofi
 
 
 # Link ai configuration
