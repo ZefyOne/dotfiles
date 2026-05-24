@@ -7,4 +7,5 @@
 .local/fcitx5/rime/installation.yaml
 
 obsidianConfig/workspace.json
+obsidianConfig/workspace-mobile.json
 obsidianConfig/plugins/realclaudian/data.json
