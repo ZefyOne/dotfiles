@@ -1,7 +1,26 @@
 =========================================
 仓库: /home/g/.dotfiles
 分支: main
-GitHub: 成功
-Gitee: 成功
-时间: 2026-05-14 14:07:14
+时间: 2026-05-22 13:42:40
+=========================================
+
+--- GitHub 推送状态 ---
+状态: 失败
+退出码: 128
+错误详情:
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+致命错误：无法读取远程仓库。
+
+请确认您有正确的访问权限并且仓库存在。
+
+
+--- Gitee 推送状态 ---
+状态: 失败
+退出码: 128
+错误详情:
+ssh: Could not resolve hostname gitee.com: Temporary failure in name resolution
+致命错误：无法读取远程仓库。
+
+请确认您有正确的访问权限并且仓库存在。
+
 =========================================
