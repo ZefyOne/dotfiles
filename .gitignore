@@ -6,4 +6,5 @@
 .local/fcitx5/rime/user.yaml
 .local/fcitx5/rime/installation.yaml
 
-.dotfiles/obsidianConfig/workspace.json
+obsidianConfig/workspace.json
+obsidianConfig/plugins/realclaudian/data.json
