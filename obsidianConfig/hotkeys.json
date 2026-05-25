@@ -73,14 +73,6 @@
   "editor:open-search": [],
   "easy-typing-obsidian:easy-typing-format-selection": [],
   "easy-typing-obsidian:easy-typing-delete-blank-line": [],
-  "workspace:close-window": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "W"
-    }
-  ],
+  "workspace:close-window": [],
   "easy-typing-obsidian:easy-typing-toggle-comment": []
 }
