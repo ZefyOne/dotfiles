@@ -1,0 +1,33 @@
+# Powerlevel10k 即时提示，必须放在文件顶部
+# 需要控制台输入（密码确认、[y/n] 等）的代码必须放在此块之前
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# p10k 主题配置，运行 `p10k configure` 可重新生成
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+export ZDOTDIR="${${(%):-%x}:A:h}"
+
+# 环境变量
+source $ZDOTDIR/path.zsh
+
+# Oh My Zsh 框架
+source $ZDOTDIR/omz.zsh
+
+# 历史记录
+source $ZDOTDIR/history.zsh
+
+# FZF 模糊搜索（Ctrl+R 历史记录搜索，Ctrl+T 文件搜索）
+source <(fzf --zsh)
+
+# 别名
+source $ZDOTDIR/aliass.zsh
+
+# git 相关函数
+source $ZDOTDIR/git.zsh
+
+# 启动画面
+source $ZDOTDIR/splash.zsh
