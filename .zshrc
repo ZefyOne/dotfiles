@@ -83,3 +83,22 @@ alias y='yazi'
 alias c='clear'
 alias cl='claude'
 alias cld='claude --dangerously-skip-permissions'
+
+
+
+
+
+
+
+# 函数
+gac() {
+  git add . && git commit -m "$(date "+%Y-%m-%d %H:%M")"
+}
+
+
+
+
+
+
+
+
