@@ -90,13 +90,20 @@ alias cld='claude --dangerously-skip-permissions'
 
 
 
-# 函数
-gac() {
-  git add . && git commit -m "$(date "+%Y-%m-%d %H:%M")"
+# git
+## 提交git工具
+commit() {
+  git add .
+  git commit -m "$(date "+%Y-%m-%d %H:%M")"
 }
 
+push() {
+  git push gitee main
+  git push github main
+}
 
-
+alias pushe='git push gitee main'
+alias pushb='git push github main'
 
 
 
