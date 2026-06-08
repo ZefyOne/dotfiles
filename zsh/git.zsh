@@ -1,5 +1,10 @@
 # git
 ## 提交git工具
+commit() {
+  git add .
+  git commit -m "$(date "+%Y-%m-%d %H:%M")"
+}
+
 push() {
   git add .
   git commit -m "$(date "+%Y-%m-%d %H:%M")"
