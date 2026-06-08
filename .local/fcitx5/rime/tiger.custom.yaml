@@ -38,7 +38,7 @@ patch:
   #style/layout/corner_radius: 0 #候选圆角
   #style/layout/round_corner: 0 #高亮圆角
 
-  # 竖排候选框超长时自动倒序
+  # 竖排候选框超时长自动倒序
   #style/vertical_auto_reverse: false # 默认启用，若想关闭，将该行行首的#删掉
 
   # #候选字体
@@ -50,6 +50,7 @@ patch:
   # #候选前编号标志字体
   #style/label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
   #style/label_font_point: 15 #候选前编号标志字号
+
 
   # 去除拼音滤镜的括号，如对括号有需求，可在下面5行前面加上#号注释掉
   #pinyin/comment_format:

@@ -62,7 +62,6 @@ switches: # 0 默认关，1 默认开
 
 engine:
   processors:
-    # - lua_processor@*vim_mode
     - ascii_composer
     - recognizer
     - key_binder
