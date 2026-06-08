@@ -45,4 +45,3 @@ end, {})
 
 -- 打开Obsidian
 uc("Obsidian", require("tools.obsidian").setup, {})
--- custom function
