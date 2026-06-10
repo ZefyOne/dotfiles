@@ -11,5 +11,6 @@
     "fixed-cursor",
     "gj"
   ],
-  "nativeMenus": false
+  "nativeMenus": false,
+  "baseFontSize": 17
 }
