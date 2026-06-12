@@ -26,6 +26,15 @@ pushb() {
 }
 
 
-
-
-
+pull() {
+  local dirs=(
+    ~/.dotfiles
+    ~/Documents/script
+    ~/Documents/KnowledgeSystem
+  )
+  for d in $dirs; do
+    echo ">>> $d"
+    git -C "$d" fetch --all && git -C "$d" pull --rebase
+    echo
+  done
+}
