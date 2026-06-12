@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 时代，Git 应该学到什么程度？</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d2991d;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --pink: #f778ba;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-size: 0.88em;
+  }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+
+  /* ── hero ── */
+  .hero {
+    padding: 80px 24px 60px; text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 2.6em; margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .sub { color: var(--muted); font-size: 1.15em; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+  h2 {
+    font-size: 1.6em; margin: 56px 0 20px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border); color: var(--text);
+  }
+  h3 { font-size: 1.2em; margin: 36px 0 12px; color: var(--text); }
+  h4 { margin: 18px 0 8px; color: var(--text); }
+  p { margin: 14px 0; }
+
+  /* ── cards ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 16px; margin: 18px 0;
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 20px; transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card .icon { font-size: 1.5em; margin-bottom: 6px; }
+  .card h4 { font-size: 1em; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 0.92em; margin: 4px 0; }
+
+  /* ── tiers ── */
+  .tier {
+    border-left: 3px solid var(--border);
+    padding: 16px 20px; margin: 18px 0;
+    border-radius: 0 10px 10px 0; background: var(--surface);
+  }
+  .tier.must   { border-color: var(--red); }
+  .tier.should { border-color: var(--orange); }
+  .tier.let    { border-color: var(--green); }
+  .tier.skip   { border-color: var(--muted); }
+  .tier .label {
+    font-weight: 700; font-size: 0.82em; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .tier.must .label   { color: var(--red); }
+  .tier.should .label { color: var(--orange); }
+  .tier.let .label    { color: var(--green); }
+  .tier.skip .label   { color: var(--muted); }
+  .tier ul { margin: 8px 0 0 18px; font-size: 0.95em; }
+  .tier li { margin: 5px 0; }
+
+  /* ── bubbles ── */
+  .bubble {
+    display: inline-block; border-radius: 12px; padding: 2px 10px;
+    font-size: 0.76em; font-weight: 700; margin-right: 4px; color: #fff;
+  }
+  .bubble.red    { background: var(--red); }
+  .bubble.orange { background: var(--orange); }
+  .bubble.green  { background: var(--green); }
+  .bubble.blue   { background: var(--accent); }
+
+  /* ── diagrams ── */
+  .diagram {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin: 18px 0;
+    font-family: "JetBrains Mono","Fira Code","Cascadia Code",monospace;
+    font-size: 0.85em; line-height: 1.7; overflow-x: auto;
+    white-space: pre; color: var(--text);
+  }
+  .diagram .dim  { color: var(--muted); }
+  .diagram .head { color: var(--red); }
+  .diagram .ref  { color: var(--accent); }
+  .diagram .sha  { color: var(--green); }
+  .diagram .hash { color: var(--orange); }
+  .diagram .warn { color: var(--red); font-weight: 700; }
+
+  /* ── callout ── */
+  .callout {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin: 18px 0;
+  }
+  .callout.warn  { border-color: var(--red); }
+  .callout.info  { border-color: var(--accent); }
+  .callout.tip   { border-color: var(--green); }
+  .callout .title { font-weight: 700; margin-bottom: 6px; }
+  .callout.warn .title { color: var(--red); }
+  .callout.info .title { color: var(--accent); }
+  .callout.tip  .title { color: var(--green); }
+
+  /* ── others ── */
+  .one-line {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin: 18px 0;
+    font-size: 1.15em; text-align: center;
+  }
+  .one-line em { color: var(--orange); font-style: normal; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0 36px; }
+  em.hl { color: var(--orange); font-style: normal; font-weight: 600; }
+  code {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1px 6px; font-size: 0.9em;
+    font-family: "JetBrains Mono","Fira Code",monospace;
+  }
+  ul, ol { margin: 10px 0 10px 22px; }
+  li { margin: 5px 0; }
+
+  /* ── responsive ── */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.8em; }
+    .card-grid { grid-template-columns: 1fr; }
+    .diagram { font-size: 0.72em; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#l1">第一层·必须懂</a>
+  <a href="#l2">第二层·应该会</a>
+  <a href="#l3">第三层·交给AI</a>
+  <a href="#l4">第四层·不必深究</a>
+  <a href="#summary">总结</a>
+</nav>
+
+<div class="hero">
+  <h1>AI 时代，Git 学到什么程度？</h1>
+  <p class="sub">不是学多少的问题，而是 <em class="hl">学哪些</em> 的问题</p>
+</div>
+
+<div class="container">
+
+<p>Git 是一个庞然大物——光 <code>git help -a</code> 就能列出 150+ 条命令。在 AI 时代，你不需要掌握所有命令，但有一个东西 AI 给不了你：<em class="hl">对仓库当前状态的正确心智画像</em>。当 AI 建议你 <code>git reset --hard</code> 时，你得自己判断这会不会丢数据——AI 不会为你的代码负责。</p>
+<p>下面按重要程度分四层，逐层拆解你需要学到什么程度，以及为什么。</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 id="l1">第一层 <span class="bubble red">必须懂</span></h2>
+<p>这一层的知识在你的大脑里，不在 AI 的 token 里。你每敲一次 Git 命令，都在依赖它们。</p>
+
+<!-- ──────────────────── 1.1 ──────────────────── -->
+<h3>1.1 分支不是目录，是一个 41 字节的文本文件</h3>
+
+<p>很多人以为"切分支"是把文件内容换成了另一个版本。实际上，<em class="hl">分支只是一个指向 commit 的指针</em>——它就是一个文本文件，里面只有 40 个字符的 SHA-1 哈希 + 一个换行符。</p>
+
+<div class="diagram">
+<span class="dim"># 看看分支"长什么样"</span>
+$ cat .git/refs/heads/main
+<span class="sha">a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0</span>
+
+<span class="dim"># 就这一行。没有别的。</span>
+
+<span class="dim"># 创建分支 = 写一个 41 字节的文件</span>
+$ git branch feature-x
+<span class="dim">→ 等同于 echo "a1b2..." > .git/refs/heads/feature-x</span>
+
+<span class="dim"># 删除分支 = 删掉这个文件</span>
+$ git branch -d feature-x
+<span class="dim">→ 等同于 rm .git/refs/heads/feature-x</span>
+<span class="dim">→ commit 数据不会丢失（只要还有其他引用指向它）</span>
+</div>
+
+<div class="callout tip">
+  <div class="title">这意味着什么？</div>
+  <p>创建分支是 <em class="hl">瞬时</em> 的——它不是拷贝整个工作目录，只是写一个 41 字节的文件。这就是为什么 Git 的分支如此廉价，你可以随便创建和删除。</p>
+  <p>多个分支可以指向同一个 commit：</p>
+</div>
+
+<div class="diagram">
+<span class="dim"># 三个分支，指向同一个 commit</span>
+$ git log --oneline -1
+<span class="sha">a1b2c3</span> (HEAD -> main, feature-a, <span class="head">feature-b</span>) Initial commit
+
+<span class="dim"># 此时三个分支完全等价——它们只是三个不同的指针，指着同一个地方</span>
+<span class="dim"># 之后谁往前走，谁就和新 commit 绑定</span>
+</div>
+
+<h4>指针移动的物理含义</h4>
+
+<div class="diagram">
+<span class="dim"># 初始状态</span>
+A ── B ── C  ← <span class="ref">main</span> ← <span class="head">HEAD</span>
+
+<span class="dim"># git commit → 新 commit D，main 指针前移</span>
+A ── B ── C ── D  ← <span class="ref">main</span> ← <span class="head">HEAD</span>
+
+<span class="dim"># git reset --hard HEAD~1 → main 指针回退到 C</span>
+A ── B ── C  ← <span class="ref">main</span> ← <span class="head">HEAD</span>
+           \
+            D  <span class="dim">← 还在对象库里，但没有引用指向它了（"悬空对象"）</span>
+</div>
+
+<!-- ──────────────────── 1.2 ──────────────────── -->
+<h3>1.2 历史是有向无环图（DAG），不是一条直线</h3>
+
+<p>每个 commit 都记录了<em class="hl">至少一个 parent</em>（除了最初的 commit）。合并 commit 有两个 parent。这就构成了一个有向无环图（DAG）。</p>
+
+<div class="diagram">
+<span class="dim"># 查看 commit 的 parent</span>
+$ git cat-file -p HEAD
+tree <span class="hash">d4e5f6...</span>
+parent <span class="sha">b7890a...</span>          <span class="dim">← 这个 commit 的 parent</span>
+author Alice &lt;alice@example.com&gt; 1713456789 +0800
+committer Alice &lt;alice@example.com&gt; 1713456789 +0800
+
+Fix login timeout bug
+</div>
+
+<div class="diagram">
+<span class="dim"># 朴素认知：Git 历史是一条直线</span>
+A → B → C → D
+
+<span class="dim"># 真实情况：Git 历史是一个 DAG（有向无环图）</span>
+A ── B ── C ── D       (main)
+      \
+       E ── F           (feature-A)
+        \
+         G ── H         (feature-B 从 feature-A 分出来)
+
+<span class="dim"># 合并后</span>
+A ── B ── C ── D ── M  (main)
+      \             /
+       E ── F ── G ── H
+                        <span class="dim">↑ M 有两个 parent：D 和 H</span>
+</div>
+
+<p>为什么要理解这一点？因为很多命令的行为取决于 parent 链：</p>
+
+<div class="diagram">
+<span class="dim"># git log main..feature</span>
+<span class="dim"># = "在 feature 上但不在 main 上的 commit"</span>
+<span class="dim"># = 从 feature 出发，沿 parent 链往回走，排除 main 可达的</span>
+
+<span class="dim"># git merge-base main feature</span>
+<span class="dim"># = "main 和 feature 的共同祖先"</span>
+<span class="dim"># = DAG 中两条路径交汇的那个 commit（图中的 B）</span>
+
+<span class="dim"># git branch --merged main</span>
+<span class="dim"># = "所有其 tip commit 是 main 的祖先的分支"</span>
+<span class="dim"># = 从 main 沿 parent 往回走，看哪些分支包含在这条路径上</span>
+</div>
+
+<div class="callout info">
+  <div class="title">为什么叫"有向无环图"？</div>
+  <p><strong>有向</strong>：parent 关系有方向——commit 指向它的 parent，反过来不行。子 commit 知道父 commit 是谁，父 commit 不知道子 commit 是谁。</p>
+  <p><strong>无环</strong>：不能出现循环——一个 commit 不能间接成为自己的祖先。这保证了历史总是可以"从任何 commit 走到根"，而不会陷入死循环。</p>
+</div>
+
+<!-- ──────────────────── 1.3 ──────────────────── -->
+<h3>1.3 暂存区是工作目录和 HEAD 之间的缓冲区</h3>
+
+<p>Git 的文件有三个"居所"：工作目录、暂存区（index）、HEAD 指向的 commit。每个地方的文件内容可以不同。</p>
+
+<div class="diagram">
+  <span class="head">工作目录</span>                  <span class="ref">暂存区 (index)</span>                 <span class="sha">HEAD</span>
+ ┌─────────────────┐       ┌──────────────────┐       ┌─────────────────┐
+ │ main.c    (v4)  │       │ main.c    (v3)   │       │ main.c    (v2)  │
+ │ lib.c     (v3)  │       │ lib.c     (v2)   │       │ lib.c     (v1)  │
+ │ new.py    (新)  │       │ new.py    (新)   │       │ (没有这个文件)  │
+ │ README    (v1)  │       │ (没加进去)       │       │ README    (v1)  │
+ └────────┬────────┘       └────────┬─────────┘       └────────┬────────┘
+          │                         │                          │
+          ▼                         ▼                          ▼
+    git add 写入            git commit 写入              已提交的快照
+    "改了但没加"              "加了但没提交"                "已保存"
+</div>
+
+<h4>一个文件同时有三个版本在系统中</h4>
+
+<div class="diagram">
+<span class="dim"># 场景：你在改 main.c</span>
+$ echo "line 1"        >  main.c    <span class="dim"># 初始内容，git add && git commit</span>
+$ echo "line 2"        >> main.c    <span class="dim"># 继续改，还没 add</span>
+
+<span class="dim"># 此时 main.c 的三个版本：</span>
+<span class="head">工作目录:</span> "line 1\nline 2\n"     <span class="dim">← 硬盘上的实际内容</span>
+<span class="ref">暂存区:</span>   "line 1\n"              <span class="dim">← 上次 git add 的版本</span>
+<span class="sha">HEAD:</span>     "line 1\n"              <span class="dim">← 上次 commit 的版本</span>
+
+$ git add main.c
+<span class="dim"># 现在暂存区更新了：</span>
+<span class="head">工作目录:</span> "line 1\nline 2\n"
+<span class="ref">暂存区:</span>   "line 1\nline 2\n"        <span class="dim">← 更新了</span>
+<span class="sha">HEAD:</span>     "line 1\n"
+
+$ git commit -m "add line 2"
+<span class="dim"># commit 后：</span>
+<span class="head">工作目录:</span> "line 1\nline 2\n"
+<span class="ref">暂存区:</span>   "line 1\nline 2\n"
+<span class="sha">HEAD:</span>     "line 1\nline 2\n"        <span class="dim">← 三者同步了</span>
+</div>
+
+<h4>暂存区的精妙之处</h4>
+
+<p>暂存区让你可以<em class="hl">部分提交</em>——一个文件改了 10 行，可以先只提交 3 行，剩下的 7 行下次再提交：</p>
+
+<div class="diagram">
+<span class="dim"># 只暂存文件的一部分修改</span>
+$ git add -p main.c                  <span class="dim">← 交互式选择哪些改动加入暂存区</span>
+
+<span class="dim">Git 会显示每个代码块（hunk），让你逐块确认：</span>
+@@ -10,3 +10,10 @@
+ context line
++added line 1
++added line 2          <span class="dim">← 选 y: 这几行加入暂存区</span>
+ context line
++added line 3
++added line 4          <span class="dim">← 选 n: 这几行留在工作目录，下次再说</span>
+
+<span class="dim"># 结果：一次修改拆成两次精致的小提交</span>
+</div>
+
+<!-- ──────────────────── 1.4 ──────────────────── -->
+<h3>1.4 HEAD、refs、remotes 之间的连线</h3>
+
+<div class="diagram">
+<span class="dim"># 在 main 分支上，本地和远程各有一个 commit</span>
+
+<span class="head">HEAD</span> ──符号链接──▶ <span class="ref">refs/heads/main</span> ──指向──▶ <span class="sha">commit abc123</span> (你的最新本地 commit)
+
+<span class="ref">refs/remotes/origin/main</span> ──指向──▶ <span class="hash">commit def456</span> (上次 fetch/push 时远程的样子)
+
+<span class="dim"># 如果 abc123 ≠ def456，说明本地和远程分叉了</span>
+</div>
+
+<div class="diagram">
+<span class="dim"># 分离头指针（detached HEAD）</span>
+$ git checkout <span class="sha">a1b2c3</span>
+
+<span class="head">HEAD</span> ──直接指向──▶ <span class="sha">commit a1b2c3</span>  <span class="warn">← 不在任何分支上！</span>
+
+<span class="dim"># 此时如果你 git commit：</span>
+<span class="head">HEAD</span> ──直接指向──▶ <span class="sha">commit a1b2c3</span> ──parent──▶ <span class="sha">commit xyz789</span> (新 commit)
+                     <span class="warn">↑ 没有分支指向它    ↑ 这个新 commit 也没有分支指向它</span>
+
+<span class="dim"># 如果你现在切回 main 分支：</span>
+<span class="dim"># 新 commit xyz789 变成"悬空对象"——没有引用指向它</span>
+<span class="dim"># 除非你用 reflog 找回（后面会讲）</span>
+</div>
+
+<div class="callout warn">
+  <div class="title">常见误解</div>
+  <p><strong>误解</strong>："<code>git fetch</code> 会把远程的改动拉到本地工作目录。"</p>
+  <p><strong>真相</strong>：<code>git fetch</code> 只更新 <code>refs/remotes/origin/*</code>——它只下载远程对象并移动远程跟踪分支的指针，<em class="hl">不碰你的工作目录和本地分支</em>。</p>
+</div>
+
+<div class="diagram">
+<span class="dim"># fetch 前后对比</span>
+
+<span class="dim"># fetch 前：</span>
+refs/remotes/origin/main → <span class="hash">abc123</span>
+refs/heads/main           → <span class="sha">abc123</span>  <span class="dim">← 同步</span>
+
+<span class="dim"># 同事 push 了一个新 commit xyz789 到远程</span>
+
+<span class="dim"># git fetch 后：</span>
+refs/remotes/origin/main → <span class="sha">xyz789</span>  <span class="dim">← 更新了</span>
+refs/heads/main           → <span class="hash">abc123</span>  <span class="dim">← 没动!</span>
+
+<span class="dim"># 此时 git status 会显示 "Your branch is behind 'origin/main' by 1 commit"</span>
+<span class="dim"># 想把这些改动合并进来？用 git merge 或 git rebase</span>
+</div>
+
+<!-- ──────────────────── 1.5 ──────────────────── -->
+<h3>1.5 对象模型：Git 存储的四个"积木"</h3>
+
+<p>Git 底层只有四种对象类型。所有高级命令（branch、merge、rebase）都是这四个积木的排列组合：</p>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="icon">📄</div>
+    <h4>Blob — 文件内容</h4>
+    <p>只存内容，不存文件名。相同内容的文件只存一份（相同 SHA-1）。文件名由 tree 对象记录。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📁</div>
+    <h4>Tree — 目录快照</h4>
+    <p>记录文件名、权限、以及对应 blob（或子 tree）的 SHA-1。这就是"某个时刻的目录结构"。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📝</div>
+    <h4>Commit — 一次提交</h4>
+    <p>指向一个 tree（根目录快照）、记录 parent、作者、时间、提交信息。历史就是 commit 组成的链表/图。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🏷️</div>
+    <h4>Tag — 带注释的标签</h4>
+    <p>指向一个 commit（或任意对象），可以 GPG 签名。v1.0.0 这种里程碑就是 tag。</p>
+  </div>
+</div>
+
+<div class="diagram">
+<span class="dim"># 一个 commit 里发生了什么——完整拆解</span>
+
+$ git cat-file -p HEAD
+tree <span class="hash">29ff16c9c14e2652b4f4b8a1b4c1f7c5c7a5d3e1</span>
+parent <span class="sha">5b10d2c5d4e3f2a1b6c7d8e9f0a1b2c3d4e5f6</span>
+author zefy &lt;zefy@example.com&gt; 1713456789 +0800
+committer zefy &lt;zefy@example.com&gt; 1713456789 +0800
+
+Fix login timeout
+
+$ git cat-file -p 29ff16  <span class="dim"> # 展开 tree 对象</span>
+100644 blob <span class="hash">e69de29bb2d1d6434b8b29ae775ad8c2e48c5391</span>  .gitignore
+100644 blob <span class="sha">7c23e78a3b6c4d5e6f7a8b9c0d1e2f3a4b5c6d7e</span>  README.md
+040000 tree <span class="hash">a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2</span>  src
+
+<span class="dim"># 文件内容存在 blob 里</span>
+$ git cat-file -p e69de2    <span class="dim"># .gitignore 的 blob</span>
+node_modules/
+dist/
+
+<span class="dim"># src/ 是一个子 tree</span>
+$ git cat-file -p a3b4c5    <span class="dim"># src/ 目录的 tree</span>
+100644 blob <span class="sha">b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1</span>  index.ts
+100644 blob <span class="hash">c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2</span>  utils.ts
+
+<span class="dim"># 结构关系：</span>
+<span class="dim"># commit → root tree → {.gitignore blob, README blob, src tree → {index.ts blob, utils.ts blob}}</span>
+</div>
+
+<div class="callout tip">
+  <div class="title">关键推论</div>
+  <p>如果两个 commit 之间有 1000 个文件，但你只改了 1 个——那 999 个文件的 blob 和 tree <em class="hl">完全复用</em>，新的 commit 只指向新的 tree（而这个 tree 的其余条目指向的 blob 和上一个版本完全相同）。这就是 Git 不会为每个版本存储完整项目拷贝的原因。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 id="l2">第二层 <span class="bubble orange">应该会</span></h2>
+<p>这一层是<em class="hl">决策层</em>。AI 能帮你执行命令，但选哪个策略、评估什么后果，是你的判断。</p>
+
+<!-- ──────────────────── 2.1 ──────────────────── -->
+<h3>2.1 Rebase vs Merge：一个决策，两个世界</h3>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="icon">🔀</div>
+    <h4>Merge（合并）</h4>
+    <p><strong>做什么</strong>：创建一个新的 merge commit，把两个分支的 head 连起来。</p>
+    <p><strong>效果</strong>：保留完整的开发轨迹——能看到 feature 分支是从哪分出来的、中间做了什么、最后在哪合回去。</p>
+    <p><strong>历史</strong>：带分叉的 DAG，真实但可能很乱。</p>
+    <p><strong>适合</strong>：公共分支（main/develop）、多人协作、需要审计的仓库。</p>
+    <p><strong>危险</strong>：频繁合并会让历史变成"意大利面条"。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📏</div>
+    <h4>Rebase（变基）</h4>
+    <p><strong>做什么</strong>：把 feature 分支的 commit "搬"到 main 的最新 commit 上，重写每个 commit。</p>
+    <p><strong>效果</strong>：历史变成一条干净的直线——看起来像是先有了 main 的最新代码，再基于此开发了 feature。</p>
+    <p><strong>历史</strong>：线性干净，但失去了"feature 是何时分出来的"这个信息。</p>
+    <p><strong>适合</strong>：私有 feature 分支、推到远程之前整理 commit。</p>
+    <p><strong>危险</strong>：改变了 commit 的 SHA-1——如果这些 commit 已经被别人 pull 了，会造成混乱。</p>
+  </div>
+</div>
+
+<div class="diagram">
+<span class="dim"># Merge 流程</span>
+A ── B ── C ── D  (main)           A ── B ── C ── D ── M (main)
+      \                 ──merge──▶       \             /
+       E ── F  (feature)                  E ── F ────┘
+                                          <span class="dim">↑ M 是 merge commit，parent 是 D 和 F</span>
+
+<span class="dim"># Rebase 流程</span>
+A ── B ── C ── D  (main)           A ── B ── C ── D ── E' ── F' (feature)
+      \                 ──rebase──▶                      <span class="dim">↑ 注意：E' 和 F' 是全新的 commit！</span>
+       E ── F  (feature)                                <span class="dim">SHA-1 和原来的 E、F 完全不同</span>
+</div>
+
+<div class="callout warn">
+  <div class="title">Rebase 黄金法则</div>
+  <p><strong>永远不要 rebase 已经 push 到公共仓库的 commit。</strong></p>
+  <p>原因：rebase 会产生新的 SHA-1。如果你的同事已经基于你原来的 commit（旧 SHA-1）做了开发，你 force push 新的 SHA-1 后，同事的本地仓库会出现"同一个改动有两份不同 SHA-1 的 commit"这种混乱。修复这种混乱比 merge 的意大利面条难得多。</p>
+</div>
+
+<h4>什么时候用什么？——决策流程图</h4>
+
+<div class="diagram">
+<span class="dim"># 判断逻辑</span>
+
+你的分支 push 到远程了吗？
+  ├── 没有 → 随便 rebase（没有别人依赖它）
+  │
+  └── 推了，但这是你自己的 feature 分支，确定只有你一个人在用？
+        ├── 是 → 可以 rebase + force push（但要和团队约定好）
+        │
+        └── 不是 / 不确定 → 用 merge，不要 rebase
+
+<span class="dim"># 团队经验法则：</span>
+<span class="dim">#   main / develop → 永远 merge</span>
+<span class="dim">#   feature / fix   → rebase 到 main 再提 PR（保持 PR history 干净）</span>
+<span class="dim">#   代码审查后   → squash merge 或 rebase merge 到 main（看团队偏好）</span>
+</div>
+
+<!-- ──────────────────── 2.2 ──────────────────── -->
+<h3>2.2 Reflog：你的"后悔药"</h3>
+
+<p>每一次 HEAD 移动，Git 都会悄悄记下来。这就是 reflog。</p>
+
+<div class="diagram">
+<span class="dim"># 窥探 reflog</span>
+$ git reflog
+<span class="sha">a1b2c3d</span> <span class="head">HEAD@{0}</span>: commit: Fix login timeout
+<span class="hash">d4e5f6a</span> <span class="head">HEAD@{1}</span>: reset: moving to HEAD~1          <span class="dim">← 你刚 reset 掉的 commit</span>
+<span class="sha">b7890a1</span> <span class="head">HEAD@{2}</span>: commit: Add user profile page
+<span class="hash">c3456d7</span> <span class="head">HEAD@{3}</span>: checkout: moving from feature to main
+<span class="sha">e8901b2</span> <span class="head">HEAD@{4}</span>: commit: Refactor auth middleware
+
+<span class="dim"># 每一个 HEAD@{n} 都可以 checkout 回去！</span>
+$ git checkout HEAD@{2}  <span class="dim"># 回到"Add user profile page"那一刻</span>
+</div>
+
+<h4>实战：用 reflog 挽救丢失的 commit</h4>
+
+<div class="diagram">
+<span class="dim"># 场景：你不小心 git reset --hard，丢了 3 个 commit</span>
+$ git reset --hard HEAD~3
+<span class="warn">HEAD is now at d4e5f6a  ← 啊！前面 3 个 commit 不见了！</span>
+
+<span class="dim"># 别慌——reflog 记录了一切</span>
+$ git reflog
+<span class="sha">d4e5f6a</span> <span class="head">HEAD@{0}</span>: reset: moving to HEAD~3
+<span class="hash">a1b2c3d</span> <span class="head">HEAD@{1}</span>: commit: <span class="warn">Fix login timeout</span>      <span class="dim">← 就是这个！</span>
+<span class="sha">b7890a1</span> <span class="head">HEAD@{2}</span>: commit: Add user profile
+<span class="hash">c3456d7</span> <span class="head">HEAD@{3}</span>: commit: Update dependencies
+
+<span class="dim"># 回到 HEAD@{1}，也就是丢失前的状态</span>
+$ git reset --hard HEAD@{1}
+<span class="sha">HEAD is now at a1b2c3d  ← 恢复了！三个 commit 都回来了</span>
+</div>
+
+<div class="diagram">
+<span class="dim"># 场景：错误的 rebase 后恢复</span>
+$ git rebase main
+<span class="dim"># 一堆冲突，解决了一部分，但最终发现 rebase 方向搞反了……</span>
+<span class="dim"># 想回到 rebase 之前？</span>
+
+$ git reflog
+<span class="hash">abc1234</span> <span class="head">HEAD@{0}</span>: rebase (finish): ...
+<span class="sha">def5678</span> <span class="head">HEAD@{1}</span>: rebase (start): checkout main
+<span class="hash">feedbac</span> <span class="head">HEAD@{2}</span>: commit: My feature work  <span class="dim">← rebase 前的最后一个 commit</span>
+
+$ git reset --hard HEAD@{2}
+<span class="dim"># 完美回到 rebase 前。rebase 产生的 commit 和冲突修改全部丢弃。</span>
+</div>
+
+<div class="callout tip">
+  <div class="title">Reflog 的时限</div>
+  <p>Reflog 条目默认保留 90 天（不可达条目）或永久（可达条目）。只要在 90 天之内，你几乎总能找回"丢失"的 commit。过了 90 天，<code>git gc</code> 会清理掉它们。</p>
+</div>
+
+<!-- ──────────────────── 2.3 ──────────────────── -->
+<h3>2.3 合并冲突：不是 Bug，是 Git 在说"你来裁决"</h3>
+
+<p>冲突发生时，Git 的信息很清楚：<em class="hl">两个分支在同一个文件的相同位置，做了不同的改动。我不知道哪个对，你来决定。</em></p>
+
+<h4>三路合并的本质</h4>
+
+<div class="diagram">
+<span class="dim"># 三路合并的三个输入</span>
+
+        <span class="hash">Base（共同祖先）</span>
+        function login() {
+          return "ok";
+        }
+
+       ↙                     ↘
+  <span class="head">Ours（你的版本）</span>          <span class="ref">Theirs（对方的版本）</span>
+  function login() {           function login() {
+    validateInput();             auditLog();
+    return "ok";                 return "ok";
+  }                            }
+
+<span class="dim"># 合并算法对每一行做判断：</span>
+<span class="dim">#   Base 有 "return ok"  → Ours 没改 → 没冲突</span>
+<span class="dim">#   Ours 新增 validateInput() → Theirs 也在这个位置新增了 auditLog() → 冲突!</span>
+<span class="dim">#   Git 不知道谁先谁后、哪个对，所以标记冲突让你裁决</span>
+
+<span class="dim"># 融合后（你手动裁决的结果）：</span>
+function login() {
+  auditLog();
+  validateInput();
+  return "ok";
+}
+</div>
+
+<h4>冲突标记的含义</h4>
+
+<div class="diagram">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; <span class="head">HEAD</span>                 <span class="dim">← 你的当前分支的版本</span>
+function login() {
+  validateInput();              <span class="dim">← 你加的这一行</span>
+  return "ok";
+}
+=======                           <span class="dim">← 分隔线</span>
+function login() {
+  auditLog();                   <span class="dim">← 对方加的这一行</span>
+  return "ok";
+}
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span class="ref">feature-branch</span>        <span class="dim">← 你要合并进来的分支版本</span>
+</div>
+
+<h4>索引中的三阶段（stage）条目</h4>
+
+<p>冲突时，同一个文件在暂存区里有三个条目，通过 stage 编号区分：</p>
+
+<div class="diagram">
+<span class="dim"># 查看冲突文件的 index 条目</span>
+$ git ls-files -s conflict.c
+100644 <span class="hash">d4e5f6a7</span> 1  conflict.c    <span class="dim">← stage 1: 共同祖先（base）</span>
+100644 <span class="sha">b8c9d0e1</span> 2  conflict.c    <span class="dim">← stage 2: 你的版本（ours）</span>
+100644 <span class="hash">f2a3b4c5</span> 3  conflict.c    <span class="dim">← stage 3: 对方的版本（theirs）</span>
+
+<span class="dim"># 查看某个版本的完整内容</span>
+$ git show :1:conflict.c   <span class="dim"># 看共同祖先的版本</span>
+$ git show :2:conflict.c   <span class="dim"># 看你的版本</span>
+$ git show :3:conflict.c   <span class="dim"># 看对方的版本</span>
+
+<span class="dim"># 解决冲突后，staged 条目合并为一个 stage 0</span>
+$ git add conflict.c
+$ git ls-files -s conflict.c
+100644 <span class="sha">e7f8a9b0</span> 0  conflict.c    <span class="dim">← stage 0: 已解决，待提交</span>
+</div>
+
+<div class="callout tip">
+  <div class="title">冲突时你有哪些选择</div>
+  <ul>
+    <li><code>git checkout --ours conflict.c</code> — 完全采纳自己的版本</li>
+    <li><code>git checkout --theirs conflict.c</code> — 完全采纳对方的版本</li>
+    <li><code>git mergetool</code> — 用可视化工具（VSCode/vimdiff/Beyond Compare）三栏对比着解决</li>
+    <li>用 AI 建议合并 — 把冲突文件和两边内容给 AI，让它建议融合方案（但要审查）</li>
+    <li><code>git merge --abort</code> — 放弃合并，回到合并前</li>
+  </ul>
+</div>
+
+<!-- ──────────────────── 2.4 ──────────────────── -->
+<h3>2.4 提交信息不是写给今天，是写给两年后的自己</h3>
+
+<p>一个好的 commit message 在两年后、你完全忘记了这段代码时，仍能让你理解"为什么这么改"。AI 可以根据 diff 写摘要，但 <em class="hl">"为什么"只有你知道</em>。</p>
+
+<h4>推荐格式：约定式提交（Conventional Commits）</h4>
+
+<div class="diagram">
+<span class="dim"># 好的 commit</span>
+<span class="sha">feat(auth): add OAuth2 login flow</span>
+
+Replace the old session-based auth with OAuth2 PKCE flow.
+The old approach broke on Safari due to third-party cookie
+blocking (ITP). PKCE avoids cookies entirely.
+
+Closes #342
+
+<span class="dim"># 坏的 commit——两年后没人知道为什么</span>
+<span class="hash">fix login</span>
+</div>
+
+<table class="tier" style="width:100%">
+  <tr><td><code>feat:</code></td><td>新功能</td></tr>
+  <tr><td><code>fix:</code></td><td>修 bug</td></tr>
+  <tr><td><code>refactor:</code></td><td>重构（不改变行为）</td></tr>
+  <tr><td><code>docs:</code></td><td>文档</td></tr>
+  <tr><td><code>test:</code></td><td>测试</td></tr>
+  <tr><td><code>chore:</code></td><td>杂务（构建、依赖）</td></tr>
+</table>
+
+<!-- ──────────────────── 2.5 ──────────────────── -->
+<h3>2.5 常用救援操作速查</h3>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="icon">⏪</div>
+    <h4>撤销还没 push 的 commit</h4>
+    <p><code>git reset HEAD~1</code> — 撤销最近一次 commit，改动回到工作目录</p>
+    <p><code>git reset --soft HEAD~1</code> — 撤销 commit 但改动保留在暂存区</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔙</div>
+    <h4>撤销某个文件到某次 commit</h4>
+    <p><code>git checkout a1b2c3 -- file.txt</code> — 把 file.txt 恢复到 commit a1b2c3 时的样子</p>
+  </div>
+  <div class="card">
+    <div class="icon">🧹</div>
+    <h4>已经 push 了，要撤销</h4>
+    <p><code>git revert HEAD</code> — 创建一个新 commit，内容是"撤销上一个 commit 的改动"</p>
+    <p>这个是安全的——不重写历史，只加新记录。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📌</div>
+    <h4>暂存当前改动</h4>
+    <p><code>git stash</code> — 把所有未提交的改动暂存起来，工作目录变干净</p>
+    <p><code>git stash pop</code> — 还原最近一次 stash 的改动</p>
+    <p><code>git stash list</code> — 查看所有 stash 条目</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔍</div>
+    <h4>找出谁改了什么</h4>
+    <p><code>git blame file.txt</code> — 每一行是谁、哪次 commit 改的</p>
+    <p><code>git bisect</code> — 二分法查找 bug 是在哪次 commit 引入的</p>
+  </div>
+  <div class="card">
+    <div class="icon">📝</div>
+    <h4>修改最后一次 commit</h4>
+    <p><code>git commit --amend</code> — 修改上次 commit 的信息或追加文件</p>
+    <p><strong>注意</strong>：这也会产生新的 SHA-1。如果上次 commit 已经 push 了，不要 amend。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 id="l3">第三层 <span class="bubble green">交给 AI</span></h2>
+<p>这一层的特点是：机械、模式化、后果可控、错了也容易回滚。最适合 AI 来做。</p>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="icon">⌨️</div>
+    <h4>拼命令参数</h4>
+    <p>"帮我看最近 20 条 commit，带分支图" → <code>git log --oneline --graph --decorate -20</code></p>
+    <p>"把 feature 分支 rebase 到 main 上" → <code>git rebase main</code>（但决定 rebase 还是 merge 要靠你）</p>
+  </div>
+  <div class="card">
+    <div class="icon">✍️</div>
+    <h4>写 commit message</h4>
+    <p>把 <code>git diff --staged</code> 的输出丢给 AI，让它生成约定式提交格式的信息。你再补充"为什么"。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🛡️</div>
+    <h4>生成 .gitignore</h4>
+    <p>"给我生成一份 Python 项目的 .gitignore" → AI 生成包含 <code>__pycache__/</code> <code>.venv/</code> <code>*.pyc</code> 等的完整规则。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔀</div>
+    <h4>解决简单合并冲突</h4>
+    <p>两个分支各加了一个不冲突的 import → AI 可以自动合并。复杂逻辑冲突仍需人工审查。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🧹</div>
+    <h4>批量清理分支</h4>
+    <p>"把已合并到 main 的本地分支全删掉" → AI 生成 <code>git branch --merged main | grep -v main | xargs git branch -d</code></p>
+  </div>
+  <div class="card">
+    <div class="icon">🔎</div>
+    <h4>操作历史查询</h4>
+    <p>"这个 bug 哪次 commit 引入的？帮我定位" → AI 引导你使用 <code>git bisect</code></p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 id="l4">第四层 <span class="bubble">不必深究</span></h2>
+<p>知道它们<em class="hl">存在</em>即可。需要时知道去哪查。真正的价值在于理解"Git 为什么快、为什么不会撒谎"。</p>
+
+<div class="tier skip">
+  <div class="label">可以不知道细节的东西</div>
+  <ul>
+    <li>packfile 的二进制格式和增量压缩算法细节</li>
+    <li>pkt-line 传输协议和 multi_ack 协商</li>
+    <li>index 文件的字节级布局</li>
+    <li>SHA-1 → SHA-256 的迁移方案</li>
+    <li>Git 内部 C 源码的具体实现</li>
+  </ul>
+</div>
+
+<p>除非你在做 Git 工具链、CI 系统集成、或者想给 Git 贡献代码——否则这些不需要装入大脑。</p>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2 id="summary">一句话总结</h2>
+
+<div class="one-line">
+  知道<em>状态机长什么样</em>，但不一定要会手写所有<em>状态转换的汇编</em>
+</div>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="icon">🔑</div>
+    <h4>Reflog 当救生绳</h4>
+    <p>每次 HEAD 移动都有记录，出了事能找到回家的路。<code>git reflog</code> + hash = 万能后悔药。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔑</div>
+    <h4>暂存区当缓冲区</h4>
+    <p>理解 add → commit 的两步节奏。能用 <code>git add -p</code> 精细拆分提交。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔑</div>
+    <h4>Rebase 当编辑器</h4>
+    <p>在 push 前可以尽情改写历史。一旦 push 到公共仓库，就把 <code>--force</code> 从肌肉记忆里删掉。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔑</div>
+    <h4>AI 当副驾驶</h4>
+    <p>让它拼命令、写信息、解简单冲突。但<em class="hl">什么时候该让 AI 停下</em>——那是你决定的。</p>
+  </div>
+</div>
+
+<p style="text-align:center;color:var(--muted);margin-top:40px;font-size:0.88em;">
+  记住 <code>git rebase --onto</code> 的参数顺序不值钱。<br>
+  知道为什么不该对公共分支 <code>--force</code>，才值钱。
+</p>
+
+</div>
+</body>
+</html>
