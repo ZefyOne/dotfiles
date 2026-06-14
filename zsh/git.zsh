@@ -67,6 +67,7 @@ pushall() {
   cd ~/.dotfiles || return
   push
 
+  echo "\033[2m  ─────────────────────────────────────\033[0m"
   echo
   echo "\033[1;33m  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo "\033[1;33m  仓库: ~/Documents/Script\033[0m"
@@ -75,6 +76,7 @@ pushall() {
   cd ~/Documents/Script || return
   pushe
 
+  echo "\033[2m  ─────────────────────────────────────\033[0m"
   echo
   echo "\033[1;33m  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo "\033[1;33m  仓库: ~/Documents/KnowledgeSystem\033[0m"
