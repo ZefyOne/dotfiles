@@ -38,3 +38,15 @@ pull() {
     echo
   done
 }
+
+
+pushall() {
+  local orig=$(pwd)
+  cd ~/.dotfiles || return
+  push
+  cd ~/Documents/Script || return
+  pushe
+  cd ~/Documents/KnowledgeSystem || return
+  push
+  cd "$orig"
+}
