@@ -42,11 +42,18 @@ pull() {
 
 pushall() {
   local orig=$(pwd)
+
+  echo ">>> ~/.dotfiles → gitee + github"
   cd ~/.dotfiles || return
   push
+
+  echo ">>> ~/Documents/Script → gitee"
   cd ~/Documents/Script || return
   pushe
+
+  echo ">>> ~/Documents/KnowledgeSystem → gitee + github"
   cd ~/Documents/KnowledgeSystem || return
   push
+
   cd "$orig"
 }
