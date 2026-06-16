@@ -42,7 +42,7 @@ pushb() {
 }
 
 
-pull() {
+pullall() {
   local dirs=(
     ~/.dotfiles
     ~/Documents/Script
