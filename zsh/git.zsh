@@ -7,7 +7,7 @@ commit() {
 
 push() {
   git add .
-  git commit -m "$(date "+%Y-%m-%d %H:%M")"
+  git commit --quiet -m "$(date "+%Y-%m-%d %H:%M")"
   echo
   echo "    \033[1;36m→ gitee\033[0m    $(git push gitee main 2>&1 | tail -1)"
   echo "    \033[1;36m→ github\033[0m   $(git push github main 2>&1 | tail -1)"
@@ -15,14 +15,14 @@ push() {
 
 pushe() {
   git add .
-  git commit -m "$(date "+%Y-%m-%d %H:%M")"
+  git commit --quiet -m "$(date "+%Y-%m-%d %H:%M")"
   echo
   echo "    \033[1;36m→ gitee\033[0m    $(git push gitee main 2>&1 | tail -1)"
 }
 
 pushb() {
   git add .
-  git commit -m "$(date "+%Y-%m-%d %H:%M")"
+  git commit --quiet -m "$(date "+%Y-%m-%d %H:%M")"
   echo
   echo "    \033[1;36m→ github\033[0m   $(git push github main 2>&1 | tail -1)"
 }
