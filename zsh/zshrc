@@ -30,4 +30,5 @@ source $ZDOTDIR/aliass.zsh
 source $ZDOTDIR/git.zsh
 
 # 启动画面
-source $ZDOTDIR/splash.zsh
+# source $ZDOTDIR/splash.zsh
+pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
