@@ -13,7 +13,7 @@
   },
   "linux": {
     "pathToIMControl": "/usr/bin",
-    "cmdOnInsertLeave": "fcitx5-remote -s vocotype",
+    "cmdOnInsertLeave": "fcitx5-remote -s keyboard-us",
     "cmdOnInsertEnter": "fcitx5-remote -s rime",
     "cmdGetCurrentIM": "fcitx5-remote | sed 's/^2$/-o/;s/^1$/-c/'"
   },
