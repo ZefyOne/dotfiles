@@ -32,6 +32,7 @@ pullall() {
     ~/.dotfiles
     ~/Documents/Script
     ~/Documents/KnowledgeSystem
+    ~/Documents/Novel
   )
   for d in $dirs; do
     echo "\033[1;33m  ── $d ──\033[0m"
@@ -56,6 +57,11 @@ pushall() {
   echo "\033[1;33m  ── ~/Documents/KnowledgeSystem ──\033[0m"
   cd ~/Documents/KnowledgeSystem || return
   push
+
+  echo
+  echo "\033[1;33m  ── ~/Documents/Novel ──\033[0m"
+  cd ~/Documents/Novel || return
+  pushe
 
   cd "$orig"
 }
