@@ -1,0 +1,6 @@
+elpa/
+eln-cache/
+backups/
+*.desktop
+places
+\#*\#
