@@ -165,5 +165,6 @@
 (show-paren-mode 1)                   ; 高亮匹配的括号
 (column-number-mode 1)                ; 在 mode line 显示列号
 (setq ring-bell-function 'ignore)     ; 关闭提示音
+(setq x-stretch-cursor nil)           ; 光标仅覆盖字符区域，不延伸到行间距
 (setq read-file-name-completion-ignore-case t)  ; 文件名补全忽略大小写
 (setq read-buffer-completion-ignore-case t)      ; 缓冲区名补全忽略大小写
