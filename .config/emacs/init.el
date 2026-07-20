@@ -22,12 +22,13 @@
                     :height 140
                     :weight 'normal)     ; 加宽字间距
 
-(setq-default line-spacing 8)             ; 行间距（像素）
+(setq-default line-spacing nil)             ; 无额外行间距
 
 ;; ============================================================
 ;; 包管理
 ;; ============================================================
 (require 'package)
+(setq package-user-dir "~/.config/emacs/elpa")    ; 包安装目录，远离 ~/.emacs.d
 (setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
@@ -126,18 +127,6 @@
         olivetti-recall-visual-line-mode-entry-state t))
 
 ;; ============================================================
-;; 文件侧边栏 (neotree)
-;; ============================================================
-(use-package neotree
-  :ensure t
-  :bind ("<f9>" . neotree-toggle)
-  :config
-  (setq neo-theme 'ascii          ; 用 ASCII 箭头而非图标，简洁
-        neo-smart-open t          ; 打开文件时不问，直接开
-        neo-show-hidden-files t   ; 显示隐藏文件
-        neo-window-width 28))     ; 侧边栏宽度
-
-;; ============================================================
 ;; 外观
 ;; ============================================================
 (setq default-frame-alist
@@ -158,6 +147,38 @@
 (add-hook 'window-setup-hook #'center-frame-callback t)
 
 ;; ============================================================
+;; 会话恢复 — 启动时自动打开上次的文件
+;; ============================================================
+(desktop-save-mode 1)
+(setq desktop-path '("~/.config/emacs/"))
+(setq desktop-dirname "~/.config/emacs/")
+(setq desktop-save t)                 ; 退出时不询问，自动保存
+(setq desktop-auto-save-timeout 300)
+
+;; 高亮当前行
+(global-hl-line-mode 1)
+
+;; ============================================================
+;; 标签栏 — 浏览器风格，每个文件一个标签
+;; ============================================================
+(global-tab-line-mode 1)
+(global-set-key (kbd "C-c C-n") 'tab-line-switch-to-next-tab)
+(global-set-key (kbd "C-c C-p") 'tab-line-switch-to-prev-tab)
+
+;; ============================================================
+;; 输入法兼容 — 中文状态下 C-x <字母> 不受拦截
+;; ============================================================
+;; 方式：把单字母快捷键改成 Ctrl+字母 双键形式
+(global-set-key (kbd "C-x C-b") 'switch-to-buffer)    ; 原 C-x b
+(global-set-key (kbd "C-x C-k") 'kill-buffer)          ; 原 C-x k
+(global-set-key (kbd "C-x C-o") 'other-window)         ; 原 C-x o
+(global-set-key (kbd "C-x C-u") 'undo)                 ; 原 C-x u
+(global-set-key (kbd "C-x C-h") 'mark-whole-buffer)    ; 原 C-x h
+(global-set-key (kbd "C-x C-z") 'repeat)               ; 原 C-x z
+;; C-x C-s = 保存，已存在且能用，不改
+;; C-x s = 全部保存，保留不改
+
+;; ============================================================
 ;; 杂项
 ;; ============================================================
 (setq sentence-end-double-space nil)  ; 句号后一个空格即可
@@ -166,5 +187,11 @@
 (column-number-mode 1)                ; 在 mode line 显示列号
 (setq ring-bell-function 'ignore)     ; 关闭提示音
 (setq x-stretch-cursor nil)           ; 光标仅覆盖字符区域，不延伸到行间距
+;; 启动完成后设置下划线光标
+(add-hook 'window-setup-hook
+          (lambda ()
+            (set-frame-parameter nil 'cursor-type 'hbar)
+            (set-default 'cursor-type '(hbar . 2)))
+          t)
 (setq read-file-name-completion-ignore-case t)  ; 文件名补全忽略大小写
 (setq read-buffer-completion-ignore-case t)      ; 缓冲区名补全忽略大小写
