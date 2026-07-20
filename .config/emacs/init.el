@@ -161,6 +161,29 @@
   ("C-\\" . toggle-input-method))
 
 ;; ============================================================
+;; Vim 模拟 (evil)
+;; ============================================================
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+  ;; H/L 切换标签页
+  (define-key evil-normal-state-map (kbd "H") 'tab-line-switch-to-prev-tab)
+  (define-key evil-normal-state-map (kbd "L") 'tab-line-switch-to-next-tab)
+  ;; n 模式 C-u 上翻屏
+  (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+  ;; j/k 按视觉行移动（折行时逐屏走，不跳行）
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  ;; n/i 模式下 C-e 到行尾
+  (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
+  (define-key evil-insert-state-map (kbd "C-u") (lambda () (interactive)
+                                                   (kill-line 0))))
+  
+
+;; ============================================================
 ;; 杂项
 ;; ============================================================
 (setq sentence-end-double-space nil)  ; 句号后一个空格即可
@@ -170,7 +193,8 @@
 (show-paren-mode 1)                   ; 高亮匹配的括号
 (column-number-mode 1)                ; 在 mode line 显示列号
 (setq ring-bell-function 'ignore)     ; 关闭提示音
-(global-set-key (kbd "C-u") (lambda () (interactive) (kill-line 0)))  ; 删光标前到行首
+(global-set-key (kbd "<f2>") (lambda () (interactive)
+                               (find-file "~/.config/emacs/init.el")))
 (setq x-stretch-cursor nil)           ; 光标仅覆盖字符区域，不延伸到行间距
 ;; 启动完成后设置下划线光标
 (add-hook 'window-setup-hook
