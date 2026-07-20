@@ -19,7 +19,7 @@
 ;; 确保默认字体不受之前 session 残留设置影响
 (set-face-attribute 'default nil
                     :family "Noto Sans Mono CJK SC"
-                    :height 140
+                    :height 190
                     :weight 'normal)     ; 加宽字间距
 
 (setq-default line-spacing nil)             ; 无额外行间距
@@ -45,6 +45,8 @@
 ;; 编辑器行为
 ;; ============================================================
 (global-visual-line-mode 1)          ; 软换行，不插入实际换行符
+(global-display-line-numbers-mode 1) ; 显示行号
+(global-set-key (kbd "C-e") 'end-of-line)    ; C-e 走逻辑行尾而非视觉行尾
 (delete-selection-mode 1)            ; 选中后打字直接替换
 (save-place-mode 1)                  ; 记住上次编辑位置
 (global-auto-revert-mode 1)          ; 文件外部变更时自动刷新
@@ -72,49 +74,28 @@
       auto-save-interval 300)        ; 或输入 300 个字符后保存
 
 ;; ============================================================
-;; 字数统计 — 实时显示在 mode line
+;; 字数统计
 ;; ============================================================
 (defun writing--count-non-space (begin end)
   "计算区域内的非空白字符数（标点也算，空白不算）。"
   (- (- end begin)
      (how-many "[[:space:]]" begin end)))
 
-(defvar writing--total 0
-  "当前缓冲区非空白字符总数。")
-(make-variable-buffer-local 'writing--total)
-
-(defvar writing--tick nil
-  "上次计算时的 buffer-chars-modified-tick。")
-(make-variable-buffer-local 'writing--tick)
-
-(defvar writing--mode-line-string " 字数:0"
-  "mode line 显示用字符串。")
-(make-variable-buffer-local 'writing--mode-line-string)
-
-(defun writing--refresh-mode-line ()
-  "每次按键后更新字数。"
-  (when (and (buffer-live-p (current-buffer))
-             (not (minibufferp)))
-    (let ((tick (buffer-chars-modified-tick)))
-      (unless (eq writing--tick tick)
-        (setq writing--tick tick
-              writing--total (writing--count-non-space (point-min) (point-max))))
-      (let ((total writing--total)
-            (sel (and (use-region-p)
-                      (writing--count-non-space (region-beginning) (region-end)))))
-        (setq writing--mode-line-string
-              (if sel
-                  (format " 字数:%d 选中:%d" total sel)
-                (format " 字数:%d" total)))
-        (force-mode-line-update)))))
-
-(add-hook 'post-command-hook #'writing--refresh-mode-line)
-
-;; 直接注入 mode-line-format 右侧（防止重复加载时累积）
-(or (memq 'writing--mode-line-string mode-line-format)
-    (setq-default mode-line-format
-                  (append mode-line-format
-                          '(writing--mode-line-string))))
+;; 在默认 mode-line-format 追加编码和字数
+(let ((enc '(:eval (format " %s"
+                           (upcase (symbol-name
+                                    (coding-system-base
+                                     (or buffer-file-coding-system 'utf-8)))))))
+      (wc  '(:eval (if (use-region-p)
+                       (format " 字数:%d 选中:%d"
+                               (writing--count-non-space (point-min) (point-max))
+                               (writing--count-non-space (region-beginning) (region-end)))
+                     (format " 字数:%d"
+                             (writing--count-non-space (point-min) (point-max)))))))
+  (dolist (item (list enc wc))
+    (or (memq item mode-line-format)
+        (setq-default mode-line-format
+                      (append mode-line-format (list item))))))
 
 
 ;; ============================================================
@@ -122,7 +103,7 @@
 ;; ============================================================
 (use-package olivetti
   :ensure t
-  :bind ("<f8>" . olivetti-mode)
+  :bind ("<f7>" . olivetti-mode)
   :config
   (setq olivetti-body-width 80        ; 约 40 个中文字符宽
         olivetti-minimum-body-width 60
@@ -183,10 +164,13 @@
 ;; 杂项
 ;; ============================================================
 (setq sentence-end-double-space nil)  ; 句号后一个空格即可
-(setq-default indent-tabs-mode nil)   ; 不用 tab，用空格
+(setq-default indent-tabs-mode nil     ; 不用 tab，用空格
+               tab-width 4               ; tab 宽度 4 字符
+               standard-indent 4)        ; 默认缩进 4 空格
 (show-paren-mode 1)                   ; 高亮匹配的括号
 (column-number-mode 1)                ; 在 mode line 显示列号
 (setq ring-bell-function 'ignore)     ; 关闭提示音
+(global-set-key (kbd "C-u") (lambda () (interactive) (kill-line 0)))  ; 删光标前到行首
 (setq x-stretch-cursor nil)           ; 光标仅覆盖字符区域，不延伸到行间距
 ;; 启动完成后设置下划线光标
 (add-hook 'window-setup-hook
