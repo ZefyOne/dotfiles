@@ -1,6 +1,9 @@
 elpa/
 eln-cache/
 backups/
-*.desktop
+*.desktop*
 places
+rime
+custom.el
+auto-save-list/
 \#*\#

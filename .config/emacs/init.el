@@ -62,7 +62,8 @@
 ;; ============================================================
 ;; 备份与自动保存
 ;; ============================================================
-(make-directory "~/.config/emacs/backups/" t)      ; 确保备份目录存在
+(unless (file-exists-p "~/.config/emacs/backups/")
+  (make-directory "~/.config/emacs/backups/" t))   ; 确保备份目录存在
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups/"))
       auto-save-file-name-transforms '((".*" "~/.config/emacs/backups/" t))
       auto-save-list-file-prefix "~/.config/emacs/backups/sessions-")
@@ -109,10 +110,11 @@
 
 (add-hook 'post-command-hook #'writing--refresh-mode-line)
 
-;; 直接注入 mode-line-format 右侧
-(setq-default mode-line-format
-              (append mode-line-format
-                      '(writing--mode-line-string)))
+;; 直接注入 mode-line-format 右侧（防止重复加载时累积）
+(or (memq 'writing--mode-line-string mode-line-format)
+    (setq-default mode-line-format
+                  (append mode-line-format
+                          '(writing--mode-line-string))))
 
 
 ;; ============================================================
@@ -144,7 +146,7 @@
     (set-frame-position frame
                         (/ (- sw fw) 2)
                         (/ (- sh fh) 2))))
-(add-hook 'window-setup-hook #'center-frame-callback t)
+(add-hook 'window-setup-hook #'center-frame-callback)
 
 ;; ============================================================
 ;; 会话恢复 — 启动时自动打开上次的文件
@@ -166,17 +168,16 @@
 (global-set-key (kbd "C-c C-p") 'tab-line-switch-to-prev-tab)
 
 ;; ============================================================
-;; 输入法兼容 — 中文状态下 C-x <字母> 不受拦截
+;; 中文输入 (rime)
 ;; ============================================================
-;; 方式：把单字母快捷键改成 Ctrl+字母 双键形式
-(global-set-key (kbd "C-x C-b") 'switch-to-buffer)    ; 原 C-x b
-(global-set-key (kbd "C-x C-k") 'kill-buffer)          ; 原 C-x k
-(global-set-key (kbd "C-x C-o") 'other-window)         ; 原 C-x o
-(global-set-key (kbd "C-x C-u") 'undo)                 ; 原 C-x u
-(global-set-key (kbd "C-x C-h") 'mark-whole-buffer)    ; 原 C-x h
-(global-set-key (kbd "C-x C-z") 'repeat)               ; 原 C-x z
-;; C-x C-s = 保存，已存在且能用，不改
-;; C-x s = 全部保存，保留不改
+(use-package rime
+  :ensure t
+  :custom
+  (rime-user-data-dir "~/.config/emacs/rime/")
+  (rime-show-candidate 'minibuffer)
+  (default-input-method "rime")
+  :bind
+  ("C-\\" . toggle-input-method))
 
 ;; ============================================================
 ;; 杂项
@@ -191,7 +192,6 @@
 (add-hook 'window-setup-hook
           (lambda ()
             (set-frame-parameter nil 'cursor-type 'hbar)
-            (set-default 'cursor-type '(hbar . 2)))
-          t)
+            (set-default 'cursor-type '(hbar . 2))))
 (setq read-file-name-completion-ignore-case t)  ; 文件名补全忽略大小写
 (setq read-buffer-completion-ignore-case t)      ; 缓冲区名补全忽略大小写
