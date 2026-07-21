@@ -182,8 +182,26 @@
   (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
   (define-key evil-insert-state-map (kbd "C-n") 'next-line)
   (define-key evil-insert-state-map (kbd "C-u") (lambda () (interactive)
-                                                   (kill-line 0))))
+                                                   (kill-line 0)))
+  ;; C-k 删除光标到逻辑行尾（无视 visual-line-mode 软换行）
+  (define-key evil-insert-state-map (kbd "C-k")
+    (lambda () (interactive)
+      (let ((end (save-excursion (end-of-line) (point))))
+        (when (> end (point))
+          (kill-region (point) end))))))
   
+
+
+;; ============================================================
+;; 文件管理器 (dirvish 替代 dired)
+;; ============================================================
+(use-package dirvish
+  :ensure t
+  :config
+  (dirvish-override-dired-mode)
+  (setq dirvish-mode-line-height 18
+        dirvish-hide-details t
+        dirvish-use-header-line t))
 
 ;; ============================================================
 ;; 杂项
@@ -205,3 +223,5 @@
             (set-default 'cursor-type '(hbar . 2))))
 (setq read-file-name-completion-ignore-case t)  ; 文件名补全忽略大小写
 (setq read-buffer-completion-ignore-case t)      ; 缓冲区名补全忽略大小写
+
+
