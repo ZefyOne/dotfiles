@@ -88,12 +88,9 @@
 (define-prefix-command 'my-leader-map)
 (define-key evil-normal-state-map (kbd "SPC") my-leader-map)
 
-;; SPC f — 文件操作
-(define-prefix-command 'my-file-prefix-map)
-(define-key my-leader-map (kbd "f") my-file-prefix-map)
-
-(define-key my-file-prefix-map (kbd "t") 'my/treemacs)
-(define-key my-file-prefix-map (kbd "T") 'treemacs-find-file)
+;; SPC e — 文件树
+(define-key my-leader-map (kbd "e") 'my/treemacs)
+(define-key my-leader-map (kbd "E") 'treemacs-find-file)
 
 ;; SPC p — 项目操作
 (define-prefix-command 'my-project-prefix-map)
@@ -102,5 +99,8 @@
 (define-key my-project-prefix-map (kbd "t") 'my/treemacs-project-toggle)
 (define-key my-project-prefix-map (kbd "f") 'projectile-find-file)
 (define-key my-project-prefix-map (kbd "p") 'projectile-switch-project)
+
+;; 在 treemacs 状态下也支持 SPC 快捷键
+(define-key evil-treemacs-state-map (kbd "SPC") my-leader-map)
 
 (provide 'filetree)
