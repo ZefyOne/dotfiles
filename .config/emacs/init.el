@@ -206,7 +206,8 @@
   (dirvish-override-dired-mode)
   (setq dirvish-mode-line-height 18
         dirvish-hide-details t
-        dirvish-use-header-line t))
+        dirvish-use-header-line t
+        dirvish-reuse-session nil))
 
 ;; ============================================================
 ;; 杂项
