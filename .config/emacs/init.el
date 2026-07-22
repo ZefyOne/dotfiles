@@ -46,3 +46,4 @@
 (require 'vim)
 (require 'writing)
 (require 'keymaps)
+(require 'filetree)
