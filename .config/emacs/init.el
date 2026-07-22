@@ -47,3 +47,4 @@
 (require 'writing)
 (require 'keymaps)
 (require 'filetree)
+(require 'my-org)

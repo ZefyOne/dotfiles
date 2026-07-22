@@ -1,3 +1,5 @@
 * Default
 ** .dotfiles
  - path :: ~/.dotfiles
+** Script
+ - path :: ~/Documents/Script
