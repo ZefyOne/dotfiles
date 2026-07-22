@@ -161,18 +161,22 @@
   :bind
   ("C-\\" . toggle-input-method))
 
+;; 文件后缀列表，在这里面的都会激活rime
+(defvar my-rime-extensions '("md" "txt" "org")
+  "文件后缀，打开时自动激活 rime。")
+
 ;; 所有 buffer 默认启用 rime
 (run-with-idle-timer 1 nil
   (lambda ()
     (require 'rime)
     (dolist (b (buffer-list))
       (with-current-buffer b
-        (activate-input-method "rime")))))
+        (when (and (buffer-file-name)
+                   (member (file-name-extension (buffer-file-name))
+                           my-rime-extensions))
+          (activate-input-method "rime"))))))
 
 ;; 新打开的文件也启用
-(defvar my-rime-extensions '("md" "txt" "org")
-  "文件后缀，打开时自动激活 rime。")
-
 (add-hook 'find-file-hook
           (lambda ()
             (when (and (buffer-file-name)
