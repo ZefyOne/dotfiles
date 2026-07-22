@@ -157,8 +157,24 @@
   (rime-user-data-dir "~/.config/emacs/rime/")
   (rime-show-candidate 'minibuffer)
   (default-input-method "rime")
+  (rime-disable-predicates '(evil-normal-state-p))
   :bind
   ("C-\\" . toggle-input-method))
+
+;; 所有 buffer 默认启用 rime
+(run-with-idle-timer 1 nil
+  (lambda ()
+    (require 'rime)
+    (dolist (b (buffer-list))
+      (with-current-buffer b
+        (activate-input-method "rime")))))
+
+;; 新打开的文件也启用
+(add-hook 'find-file-hook
+          (lambda ()
+            (unless current-input-method
+              (require 'rime)
+              (activate-input-method "rime"))))
 
 ;; ============================================================
 ;; Vim 模拟 (evil)
