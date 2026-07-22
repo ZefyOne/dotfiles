@@ -11,6 +11,7 @@
         org-default-notes-file "~/org/notes.org"
         org-log-done 'time
         org-startup-with-inline-images t
+        org-startup-indented t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
         org-image-actual-width nil
@@ -53,7 +54,14 @@
 ;; ============================================================
 (use-package org-superstar
   :ensure t
-  :hook (org-mode . org-superstar-mode))
+  :hook (org-mode . org-superstar-mode)
+  :config
+  ;; 列表项符号渲染：- → •, + → ➤, * → •
+  (setq org-superstar-prettify-item-bullets t
+        org-superstar-item-bullet-alist
+        '((?* . ?•)
+          (?+ . ?➤)
+          (?- . ?⬤))))
 
 ;; ============================================================
 ;; org-download — 拖拽/粘贴图片到附件
