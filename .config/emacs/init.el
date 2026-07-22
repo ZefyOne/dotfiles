@@ -1,259 +1,48 @@
-;;; init.el — 写作向 Emacs 配置
+;;; init.el — 入口文件
+;;; 基础设施（包管理、备份、会话恢复）+ 加载各模块
 
 ;; ============================================================
-;; 编码
+;; 自定义设置（Customize UI 存到这里）
 ;; ============================================================
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(set-selection-coding-system 'utf-8-unix)
-(setq locale-coding-system 'utf-8-unix)
-(setq file-name-coding-system 'utf-8-unix)
-(prefer-coding-system 'utf-8-unix)
-
-;; 自定义设置存到 XDG 目录，远离 ~/.emacs.d
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file t)
-
-;; 确保默认字体不受之前 session 残留设置影响
-(set-face-attribute 'default nil
-                    :family "Noto Sans Mono CJK SC"
-                    :height 190
-                    :weight 'normal)     ; 加宽字间距
-
-(setq-default line-spacing nil)             ; 无额外行间距
 
 ;; ============================================================
 ;; 包管理
 ;; ============================================================
 (require 'package)
-(setq package-user-dir "~/.config/emacs/elpa")    ; 包安装目录，远离 ~/.emacs.d
+(setq package-user-dir "~/.config/emacs/elpa")
 (setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
 ;; ============================================================
-;; 界面 — 消除干扰
-;; ============================================================
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(setq inhibit-startup-screen t
-      initial-scratch-message nil)
-
-;; ============================================================
-;; 编辑器行为
-;; ============================================================
-(global-visual-line-mode 1)          ; 软换行，不插入实际换行符
-(global-display-line-numbers-mode 1) ; 显示行号
-(global-set-key (kbd "C-e") 'end-of-line)    ; C-e 走逻辑行尾而非视觉行尾
-(delete-selection-mode 1)            ; 选中后打字直接替换
-(save-place-mode 1)                  ; 记住上次编辑位置
-(global-auto-revert-mode 1)          ; 文件外部变更时自动刷新
-(setq-default fill-column 80)        ; 默认填充列宽
-
-;; 中文引号自动配对
-(setq electric-pair-pairs
-      '((?\" . ?\")
-        (?「 . ?」)
-        (?' . ?')
-        (?【 . ?】)
-        (?《 . ?》)))
-(electric-pair-mode 1)
-
-;; ============================================================
 ;; 备份与自动保存
 ;; ============================================================
 (unless (file-exists-p "~/.config/emacs/backups/")
-  (make-directory "~/.config/emacs/backups/" t))   ; 确保备份目录存在
+  (make-directory "~/.config/emacs/backups/" t))
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups/"))
       auto-save-file-name-transforms '((".*" "~/.config/emacs/backups/" t))
       auto-save-list-file-prefix "~/.config/emacs/backups/sessions-")
 
-(setq auto-save-timeout 120          ; 空闲 2 分钟后自动保存
-      auto-save-interval 300)        ; 或输入 300 个字符后保存
+(setq auto-save-timeout 120
+      auto-save-interval 300)
 
 ;; ============================================================
-;; 字数统计
-;; ============================================================
-(defun writing--count-non-space (begin end)
-  "计算区域内的非空白字符数（标点也算，空白不算）。"
-  (- (- end begin)
-     (how-many "[[:space:]]" begin end)))
-
-;; 在默认 mode-line-format 追加编码和字数
-(let ((enc '(:eval (format " %s"
-                           (upcase (symbol-name
-                                    (coding-system-base
-                                     (or buffer-file-coding-system 'utf-8)))))))
-      (wc  '(:eval (if (use-region-p)
-                       (format " 字数:%d 选中:%d"
-                               (writing--count-non-space (point-min) (point-max))
-                               (writing--count-non-space (region-beginning) (region-end)))
-                     (format " 字数:%d"
-                             (writing--count-non-space (point-min) (point-max)))))))
-  (dolist (item (list enc wc))
-    (or (memq item mode-line-format)
-        (setq-default mode-line-format
-                      (append mode-line-format (list item))))))
-
-
-;; ============================================================
-;; 专注模式 (olivetti)
-;; ============================================================
-(use-package olivetti
-  :ensure t
-  :bind ("<f7>" . olivetti-mode)
-  :config
-  (setq olivetti-body-width 80        ; 约 40 个中文字符宽
-        olivetti-minimum-body-width 60
-        olivetti-recall-visual-line-mode-entry-state t))
-
-;; ============================================================
-;; 外观
-;; ============================================================
-(setq default-frame-alist
-      '((width . 100)      ; 窗口宽 100 字符
-        (height . 35)))    ; 窗口高 35 行
-
-(defun center-frame-callback ()
-  "将窗口居中。"
-  (interactive)
-  (let* ((frame (selected-frame))
-         (fw (* 100 (frame-char-width frame)))
-         (fh (* 35 (frame-char-height frame)))
-         (sw (display-pixel-width))
-         (sh (display-pixel-height)))
-    (set-frame-position frame
-                        (/ (- sw fw) 2)
-                        (/ (- sh fh) 2))))
-(add-hook 'window-setup-hook #'center-frame-callback)
-
-;; ============================================================
-;; 会话恢复 — 启动时自动打开上次的文件
+;; 会话恢复
 ;; ============================================================
 (desktop-save-mode 1)
 (setq desktop-path '("~/.config/emacs/"))
 (setq desktop-dirname "~/.config/emacs/")
-(setq desktop-save t)                 ; 退出时不询问，自动保存
+(setq desktop-save t)
 (setq desktop-auto-save-timeout 300)
 
-;; 高亮当前行
-(global-hl-line-mode 1)
-
 ;; ============================================================
-;; 标签栏 — 浏览器风格，每个文件一个标签
+;; 加载模块（顺序有依赖：options → ui → vim → writing → keymaps）
 ;; ============================================================
-(global-tab-line-mode 1)
-(global-set-key (kbd "C-c C-n") 'tab-line-switch-to-next-tab)
-(global-set-key (kbd "C-c C-p") 'tab-line-switch-to-prev-tab)
-
-;; ============================================================
-;; 中文输入 (rime)
-;; ============================================================
-(use-package rime
-  :ensure t
-  :custom
-  (rime-user-data-dir "~/.config/emacs/rime/")
-  (rime-show-candidate 'minibuffer)
-  (default-input-method "rime")
-  (rime-disable-predicates '(evil-normal-state-p))
-  :bind
-  ("C-\\" . toggle-input-method))
-
-;; 文件后缀列表，在这里面的都会激活rime
-(defvar my-rime-extensions '("md" "txt" "org")
-  "文件后缀，打开时自动激活 rime。")
-
-;; 所有 buffer 默认启用 rime
-(run-with-idle-timer 1 nil
-  (lambda ()
-    (require 'rime)
-    (dolist (b (buffer-list))
-      (with-current-buffer b
-        (when (and (buffer-file-name)
-                   (member (file-name-extension (buffer-file-name))
-                           my-rime-extensions))
-          (activate-input-method "rime"))))))
-
-;; 新打开的文件也启用
-(add-hook 'find-file-hook
-          (lambda ()
-            (when (and (buffer-file-name)
-                       (member (file-name-extension (buffer-file-name))
-                               my-rime-extensions)
-                       (not current-input-method))
-              (require 'rime)
-              (activate-input-method "rime"))))
-
-;; ============================================================
-;; Vim 模拟 (evil)
-;; ============================================================
-(use-package evil
-  :ensure t
-  :custom
-  (evil-undo-system 'undo-redo)       ; Vim 风格的 u / C-r 撤销重做
-  :config
-  (evil-mode 1)
-  ;; H/L 切换标签页
-  (define-key evil-normal-state-map (kbd "H") 'tab-line-switch-to-prev-tab)
-  (define-key evil-normal-state-map (kbd "L") 'tab-line-switch-to-next-tab)
-  ;; n 模式 C-u 上翻屏
-  (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-  ;; j/k 按视觉行移动（折行时逐屏走，不跳行）
-  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-  ;; n 模式 C-r 重做
-  (define-key evil-normal-state-map (kbd "C-r") 'evil-redo)
-  ;; n/i 模式下 C-e 到行尾
-  (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
-  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
-  (define-key evil-insert-state-map (kbd "C-l") 'delete-char)
-  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
-  (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
-  (define-key evil-insert-state-map (kbd "C-n") 'next-line)
-  (define-key evil-insert-state-map (kbd "C-u") (lambda () (interactive)
-                                                   (kill-line 0)))
-  ;; C-k 删除光标到逻辑行尾（无视 visual-line-mode 软换行）
-  (define-key evil-insert-state-map (kbd "C-k")
-    (lambda () (interactive)
-      (let ((end (save-excursion (end-of-line) (point))))
-        (when (> end (point))
-          (kill-region (point) end))))))
-  
-
-
-;; ============================================================
-;; 文件管理器 (dirvish 替代 dired)
-;; ============================================================
-(use-package dirvish
-  :ensure t
-  :config
-  (dirvish-override-dired-mode)
-  (setq dirvish-mode-line-height 18
-        dirvish-hide-details t
-        dirvish-use-header-line t
-        dirvish-reuse-session nil))
-
-;; ============================================================
-;; 杂项
-;; ============================================================
-(setq sentence-end-double-space nil)  ; 句号后一个空格即可
-(setq-default indent-tabs-mode nil     ; 不用 tab，用空格
-               tab-width 4               ; tab 宽度 4 字符
-               standard-indent 4)        ; 默认缩进 4 空格
-(show-paren-mode 1)                   ; 高亮匹配的括号
-(column-number-mode 1)                ; 在 mode line 显示列号
-(setq ring-bell-function 'ignore)     ; 关闭提示音
-(global-set-key (kbd "<f2>") (lambda () (interactive)
-                               (find-file "~/.config/emacs/init.el")))
-(setq x-stretch-cursor nil)           ; 光标仅覆盖字符区域，不延伸到行间距
-;; 启动完成后设置下划线光标
-(add-hook 'window-setup-hook
-          (lambda ()
-            (set-frame-parameter nil 'cursor-type 'hbar)
-            (set-default 'cursor-type '(hbar . 2))))
-(setq read-file-name-completion-ignore-case t)  ; 文件名补全忽略大小写
-(setq read-buffer-completion-ignore-case t)      ; 缓冲区名补全忽略大小写
-
-
+(add-to-list 'load-path "~/.config/emacs/modules")
+(require 'options)
+(require 'ui)
+(require 'vim)
+(require 'writing)
+(require 'keymaps)
