@@ -165,6 +165,8 @@
 ;; ============================================================
 (use-package evil
   :ensure t
+  :custom
+  (evil-undo-system 'undo-redo)       ; Vim 风格的 u / C-r 撤销重做
   :config
   (evil-mode 1)
   ;; H/L 切换标签页
@@ -175,9 +177,12 @@
   ;; j/k 按视觉行移动（折行时逐屏走，不跳行）
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  ;; n 模式 C-r 重做
+  (define-key evil-normal-state-map (kbd "C-r") 'evil-redo)
   ;; n/i 模式下 C-e 到行尾
   (define-key evil-normal-state-map (kbd "C-e") 'end-of-line)
   (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-insert-state-map (kbd "C-l") 'delete-char)
   (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
   (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
   (define-key evil-insert-state-map (kbd "C-n") 'next-line)
