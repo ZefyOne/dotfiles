@@ -170,9 +170,15 @@
         (activate-input-method "rime")))))
 
 ;; 新打开的文件也启用
+(defvar my-rime-extensions '("md" "txt" "org")
+  "文件后缀，打开时自动激活 rime。")
+
 (add-hook 'find-file-hook
           (lambda ()
-            (unless current-input-method
+            (when (and (buffer-file-name)
+                       (member (file-name-extension (buffer-file-name))
+                               my-rime-extensions)
+                       (not current-input-method))
               (require 'rime)
               (activate-input-method "rime"))))
 
