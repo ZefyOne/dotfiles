@@ -38,13 +38,13 @@
 (setq desktop-auto-save-timeout 300)
 
 ;; ============================================================
-;; 加载模块（顺序有依赖：options → ui → vim → writing → keymaps）
+;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
 ;; ============================================================
 (add-to-list 'load-path "~/.config/emacs/modules")
 (require 'options)
 (require 'ui)
 (require 'vim)
 (require 'writing)
-(require 'keymaps)
 (require 'filetree)
 (require 'my-org)
+(require 'keymaps)
