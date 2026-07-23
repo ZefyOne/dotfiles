@@ -10,12 +10,15 @@
   (setq org-directory "~/org"
         org-default-notes-file "~/org/notes.org"
         org-log-done 'time
+        org-adapt-indentation nil
         org-startup-with-inline-images t
         org-startup-indented t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
         org-image-actual-width nil
         org-imenu-depth 8)
+  ;; 关闭 electric-indent-mode 防止 RET 后自动插入制表符
+  (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))
   :config
   ;; 代码块执行后刷新内联图片
   (add-hook 'org-babel-after-execute-hook
