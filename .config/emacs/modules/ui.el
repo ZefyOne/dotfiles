@@ -61,9 +61,15 @@
   :ensure t
   :config
   ;; 使用 doom-one，可换成你喜欢的
-  (load-theme 'doom-one t)
+  (load-theme 'doom-earl-grey t)
   ;; 更丰富的语法高亮（org-mode 等）
-  (doom-themes-org-config))
+  (doom-themes-org-config)
+  ;; 去掉当前行号的背景框（主题设了 inherit hl-line）
+  (add-hook 'after-load-theme-hook
+            (lambda ()
+              (set-face-attribute 'line-number-current-line nil
+                                  :background 'unspecified))
+            :depth 90))
 
 ;; ============================================================
 ;; 文件管理器 (dirvish)

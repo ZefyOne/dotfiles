@@ -276,4 +276,54 @@
     (kbd "c") 'org-edit-src-exit
     (kbd "k") 'org-edit-src-abort))
 
+;; ============================================================
+;; SPC t — 主题浏览（光标移动即时切换）
+;; ============================================================
+
+(define-prefix-command 'my-theme-prefix-map)
+(put 'my-theme-prefix-map 'which-key-description "Theme")
+(define-key my-leader-map (kbd "t") my-theme-prefix-map)
+
+(defvar my/theme-preview-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "j") 'next-line)
+    (define-key map (kbd "k") 'previous-line)
+    (define-key map (kbd "q") 'kill-this-buffer)
+    map)
+  "Theme preview mode keymap.")
+
+(define-minor-mode my/theme-preview-mode
+  "上下移动光标即时切换主题，q 退出。"
+  :keymap my/theme-preview-mode-map
+  (if my/theme-preview-mode
+      (add-hook 'post-command-hook #'my/theme-preview--at-point nil t)
+    (remove-hook 'post-command-hook #'my/theme-preview--at-point t)
+    (when (get-buffer "*Themes*")
+      (kill-buffer "*Themes*"))))
+
+(defun my/theme-preview--at-point ()
+  "加载光标所在行的主题。"
+  (when-let* ((theme (get-text-property (point) 'theme)))
+    (ignore-errors (load-theme theme t))))
+
+(defun my/browse-themes ()
+  "打开主题浏览缓冲区，上下移动光标即时切换。"
+  (interactive)
+  (let* ((themes (custom-available-themes))
+         (buf (get-buffer-create "*Themes*")))
+    (with-current-buffer buf
+      (let ((inhibit-read-only t))
+        (erase-buffer)
+        (dolist (theme (sort themes #'string<))
+          (insert (propertize (format "%s\n" theme) 'theme theme)))
+        (goto-char (point-min))
+        (my/theme-preview-mode)
+        (setq-local cursor-type nil
+                    buffer-read-only t)))
+    (display-buffer buf)
+    (my/theme-preview--at-point)))
+
+(define-key my-theme-prefix-map (kbd "b") 'my/browse-themes)
+;;   ^^ SPC t b 打开主题浏览器
+
 (provide 'keymaps)

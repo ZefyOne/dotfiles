@@ -36,6 +36,11 @@
 (setq desktop-dirname "~/.config/emacs/")
 (setq desktop-save t)
 (setq desktop-auto-save-timeout 300)
+;; 不让 desktop 保存颜色相关参数，避免覆盖主题
+(require 'frameset)
+(dolist (p '(background-color foreground-color background-mode
+              cursor-color mouse-color border-color))
+  (push (cons p :never) frameset-filter-alist))
 
 ;; ============================================================
 ;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
