@@ -99,10 +99,72 @@
 (define-key my-project-prefix-map (kbd "t") 'my/treemacs-project-toggle)
 (define-key my-project-prefix-map (kbd "f") 'projectile-find-file)
 (define-key my-project-prefix-map (kbd "p") 'projectile-switch-project)
+(define-key my-project-prefix-map (kbd "b") 'projectile-switch-to-buffer)
+;;   ^^ SPC p b 项目内切换缓冲区
+(define-key my-project-prefix-map (kbd "d") 'projectile-find-dir)
+;;   ^^ SPC p d 项目内查找目录
+(define-key my-project-prefix-map (kbd "r") 'projectile-recentf)
+;;   ^^ SPC p r 项目内最近文件
+(define-key my-project-prefix-map (kbd "R") 'projectile-replace)
+;;   ^^ SPC p R 项目内文本替换
+(define-key my-project-prefix-map (kbd "D") 'projectile-dired)
+;;   ^^ SPC p D 项目根打开 dired
 
 ;; 在 treemacs 状态下也支持 SPC 快捷键
 (with-eval-after-load 'treemacs-evil
   (define-key evil-treemacs-state-map (kbd "SPC") my-leader-map))
+
+;; ============================================================
+;; SPC f — 文件查找与文件操作 (Spacemacs 风格)
+;; ============================================================
+
+(define-prefix-command 'my-file-prefix-map)
+(put 'my-file-prefix-map 'which-key-description "Files")
+(define-key my-leader-map (kbd "f") my-file-prefix-map)
+
+;; SPC f f — 查找文件（vertico 增强补全，支持模糊匹配）
+(define-key my-file-prefix-map (kbd "f") 'find-file)
+;; SPC f r — 最近打开的文件
+(define-key my-file-prefix-map (kbd "r") 'consult-recent-file)
+;; SPC f L — 用 locate 搜索文件
+(define-key my-file-prefix-map (kbd "L") 'consult-locate)
+;; SPC f l — 以字面方式打开（不启用任何 major mode）
+(define-key my-file-prefix-map (kbd "l") 'find-file-literally)
+;; SPC f i — 插入文件内容到当前缓冲区
+(define-key my-file-prefix-map (kbd "i") 'insert-file)
+
+;; SPC f s — 保存
+(define-key my-file-prefix-map (kbd "s") 'save-buffer)
+;; SPC f S — 保存所有缓冲区
+(define-key my-file-prefix-map (kbd "S") 'evil-write-all)
+;; SPC f c — 另存为
+(define-key my-file-prefix-map (kbd "c") 'my/save-as)
+;; SPC f R — 重命名
+(define-key my-file-prefix-map (kbd "R") 'my/rename-current-buffer-file)
+;; SPC f d — 删除（需确认）
+(define-key my-file-prefix-map (kbd "d") 'my/delete-current-buffer-file)
+;; SPC f D — 直接删除（不确认）
+(define-key my-file-prefix-map (kbd "D") 'my/delete-current-buffer-file-yes)
+;; SPC f E — 用 sudo 编辑
+(define-key my-file-prefix-map (kbd "E") 'my/sudo-edit)
+;; SPC f o — 在外部程序打开
+(define-key my-file-prefix-map (kbd "o") 'my/open-in-external-app)
+
+;; SPC f y — 复制路径子前缀
+(define-prefix-command 'my-file-yank-prefix-map)
+(put 'my-file-yank-prefix-map 'which-key-description "Yank/Copy")
+(define-key my-file-prefix-map (kbd "y") my-file-yank-prefix-map)
+
+(define-key my-file-yank-prefix-map (kbd "y") 'my/copy-file-path)
+;;   ^^ SPC f y y 复制文件完整路径
+(define-key my-file-yank-prefix-map (kbd "n") 'my/copy-file-name)
+;;   ^^ SPC f y n 复制文件名
+(define-key my-file-yank-prefix-map (kbd "N") 'my/copy-file-name-base)
+;;   ^^ SPC f y N 复制文件名（不含扩展名）
+(define-key my-file-yank-prefix-map (kbd "d") 'my/copy-directory-path)
+;;   ^^ SPC f y d 复制目录路径
+(define-key my-file-yank-prefix-map (kbd "l") 'my/copy-file-path-with-line)
+;;   ^^ SPC f y l 复制文件路径+行号
 
 ;; ============================================================
 ;; SPC a — Applications（Spacemacs 风格）
