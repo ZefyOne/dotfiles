@@ -6,4 +6,10 @@ places
 rime
 custom.el
 auto-save-list/
+.cache/
+undo-fu-session/
+transient/
+recentf
+projectile-bookmarks.eld
+projectile-frecency.eld
 \#*\#
