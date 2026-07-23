@@ -86,6 +86,12 @@
         (kill-region (point) end)))))
 ;;   ^^ C-k 删除光标到逻辑行尾（无视 visual-line-mode 软换行）
 
+(define-key evil-insert-state-map (kbd "C-j")   'newline)
+;;   ^^ C-j 换行，不自动缩进
+
+(define-key evil-insert-state-map (kbd "C-h")   'delete-backward-char)
+;;   ^^ C-h 删除前一个字符（i 模式专用，n 模式不变）
+
 
 
 
