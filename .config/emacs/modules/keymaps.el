@@ -19,10 +19,13 @@
 ;;   ^^ F2 快速打开 init.el
 
 (global-set-key (kbd "<f7>")               'olivetti-mode)
-;;   ^^ F7 切换专注模式 (olivetti)
+;;   ^^ F7 切换码字专注模式 (olivetti)
 
 (global-set-key (kbd "C-\\")               'toggle-input-method)
 ;;   ^^ C-\ 切换输入法 (rime)
+
+
+
 
 ;; ============================================================
 ;; Evil Normal 状态快捷键
@@ -48,6 +51,9 @@
 
 (define-key evil-normal-state-map (kbd "C-e")   'end-of-line)
 ;;   ^^ C-e 到逻辑行尾
+
+
+
 
 ;; ============================================================
 ;; Evil Insert 状态快捷键
@@ -80,25 +86,47 @@
         (kill-region (point) end)))))
 ;;   ^^ C-k 删除光标到逻辑行尾（无视 visual-line-mode 软换行）
 
+
+
+
 ;; ============================================================
-;; Leader 键 (SPC) — Spacemacs 风格快捷键
+;; Leader 键 (SPC) — 前缀定义
 ;; ============================================================
+
 (define-key evil-normal-state-map (kbd "SPC") nil)
 
 (define-prefix-command 'my-leader-map)
 (define-key evil-normal-state-map (kbd "SPC") my-leader-map)
 
-;; SPC e — 文件树
-(define-key my-leader-map (kbd "e") 'my/treemacs)
-(define-key my-leader-map (kbd "E") 'treemacs-find-file)
 
-;; SPC p — 项目操作
+
+
+;; ============================================================
+;; SPC e — 文件树
+;; ============================================================
+
+(define-key my-leader-map (kbd "e") 'my/treemacs)
+;;   ^^ SPC e 打开 treemacs 文件树
+
+(define-key my-leader-map (kbd "E") 'treemacs-find-file)
+;;   ^^ SPC E 在文件树中定位当前文件
+
+
+
+
+;; ============================================================
+;; SPC p — 项目管理
+;; ============================================================
+
 (define-prefix-command 'my-project-prefix-map)
 (define-key my-leader-map (kbd "p") my-project-prefix-map)
 
 (define-key my-project-prefix-map (kbd "t") 'my/treemacs-project-toggle)
+;;   ^^ SPC p t 在项目根打开/切换 treemacs
 (define-key my-project-prefix-map (kbd "f") 'projectile-find-file)
+;;   ^^ SPC p f 项目内查找文件
 (define-key my-project-prefix-map (kbd "p") 'projectile-switch-project)
+;;   ^^ SPC p p 切换项目
 (define-key my-project-prefix-map (kbd "b") 'projectile-switch-to-buffer)
 ;;   ^^ SPC p b 项目内切换缓冲区
 (define-key my-project-prefix-map (kbd "d") 'projectile-find-dir)
@@ -114,43 +142,50 @@
 (with-eval-after-load 'treemacs-evil
   (define-key evil-treemacs-state-map (kbd "SPC") my-leader-map))
 
+
+
+
 ;; ============================================================
-;; SPC f — 文件查找与文件操作 (Spacemacs 风格)
+;; SPC f — 文件查找与操作
 ;; ============================================================
 
 (define-prefix-command 'my-file-prefix-map)
 (put 'my-file-prefix-map 'which-key-description "Files")
 (define-key my-leader-map (kbd "f") my-file-prefix-map)
 
-;; SPC f f — 查找文件（vertico 增强补全，支持模糊匹配）
+;; 查找
 (define-key my-file-prefix-map (kbd "f") 'find-file)
-;; SPC f r — 最近打开的文件
+;;   ^^ SPC f f 查找文件（vertico 增强补全，支持模糊匹配）
 (define-key my-file-prefix-map (kbd "r") 'consult-recent-file)
-;; SPC f L — 用 locate 搜索文件
+;;   ^^ SPC f r 最近打开的文件
 (define-key my-file-prefix-map (kbd "L") 'consult-locate)
-;; SPC f l — 以字面方式打开（不启用任何 major mode）
+;;   ^^ SPC f L 用 locate 搜索文件
 (define-key my-file-prefix-map (kbd "l") 'find-file-literally)
-;; SPC f i — 插入文件内容到当前缓冲区
+;;   ^^ SPC f l 以字面方式打开（不启用 major mode）
 (define-key my-file-prefix-map (kbd "i") 'insert-file)
+;;   ^^ SPC f i 插入文件内容到当前缓冲区
 
-;; SPC f s — 保存
+;; 保存
 (define-key my-file-prefix-map (kbd "s") 'save-buffer)
-;; SPC f S — 保存所有缓冲区
+;;   ^^ SPC f s 保存
 (define-key my-file-prefix-map (kbd "S") 'evil-write-all)
-;; SPC f c — 另存为
-(define-key my-file-prefix-map (kbd "c") 'my/save-as)
-;; SPC f R — 重命名
-(define-key my-file-prefix-map (kbd "R") 'my/rename-current-buffer-file)
-;; SPC f d — 删除（需确认）
-(define-key my-file-prefix-map (kbd "d") 'my/delete-current-buffer-file)
-;; SPC f D — 直接删除（不确认）
-(define-key my-file-prefix-map (kbd "D") 'my/delete-current-buffer-file-yes)
-;; SPC f E — 用 sudo 编辑
-(define-key my-file-prefix-map (kbd "E") 'my/sudo-edit)
-;; SPC f o — 在外部程序打开
-(define-key my-file-prefix-map (kbd "o") 'my/open-in-external-app)
+;;   ^^ SPC f S 保存所有缓冲区
 
-;; SPC f y — 复制路径子前缀
+;; 操作
+(define-key my-file-prefix-map (kbd "c") 'my/save-as)
+;;   ^^ SPC f c 另存为
+(define-key my-file-prefix-map (kbd "R") 'my/rename-current-buffer-file)
+;;   ^^ SPC f R 重命名
+(define-key my-file-prefix-map (kbd "d") 'my/delete-current-buffer-file)
+;;   ^^ SPC f d 删除（需确认）
+(define-key my-file-prefix-map (kbd "D") 'my/delete-current-buffer-file-yes)
+;;   ^^ SPC f D 直接删除（不确认）
+(define-key my-file-prefix-map (kbd "E") 'my/sudo-edit)
+;;   ^^ SPC f E 用 sudo 编辑
+(define-key my-file-prefix-map (kbd "o") 'my/open-in-external-app)
+;;   ^^ SPC f o 在外部程序打开
+
+;; SPC f y — 复制路径
 (define-prefix-command 'my-file-yank-prefix-map)
 (put 'my-file-yank-prefix-map 'which-key-description "Yank/Copy")
 (define-key my-file-prefix-map (kbd "y") my-file-yank-prefix-map)
@@ -166,9 +201,13 @@
 (define-key my-file-yank-prefix-map (kbd "l") 'my/copy-file-path-with-line)
 ;;   ^^ SPC f y l 复制文件路径+行号
 
+
+
+
 ;; ============================================================
-;; SPC a — Applications（Spacemacs 风格）
+;; SPC a — 应用程序
 ;; ============================================================
+
 (define-prefix-command 'my-apps-prefix-map)
 (put 'my-apps-prefix-map 'which-key-description "Applications")
 (define-key my-leader-map (kbd "a") my-apps-prefix-map)
@@ -190,9 +229,13 @@
 ;; SPC a o # — 阻塞项目
 (define-key my-org-apps-prefix-map (kbd "#") 'org-agenda-list-stuck-projects)
 
+
+
+
 ;; ============================================================
 ;; Org-mode 快捷键
 ;; ============================================================
+
 (with-eval-after-load 'org
   ;; Normal state 下 RET 打开链接
   (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)
