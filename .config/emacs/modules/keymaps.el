@@ -52,6 +52,9 @@
 (define-key evil-normal-state-map (kbd "C-e")   'end-of-line)
 ;;   ^^ C-e 到逻辑行尾
 
+(define-key evil-normal-state-map [escape]      'keyboard-quit)
+;;   ^^ ESC 在 n 模式也触发 C-g（取消选中、取消 minibuffer 等）
+
 
 
 
@@ -107,6 +110,7 @@
 
 
 
+
 ;; ============================================================
 ;; SPC e — 文件树
 ;; ============================================================
@@ -155,13 +159,13 @@
 ;; SPC f — 文件查找与操作
 ;; ============================================================
 
+(define-key my-leader-map (kbd "SPC") 'find-file)
+;;   ^^ SPC SPC 查找文件
+
 (define-prefix-command 'my-file-prefix-map)
 (put 'my-file-prefix-map 'which-key-description "Files")
 (define-key my-leader-map (kbd "f") my-file-prefix-map)
 
-;; 查找
-(define-key my-file-prefix-map (kbd "f") 'find-file)
-;;   ^^ SPC f f 查找文件（vertico 增强补全，支持模糊匹配）
 (define-key my-file-prefix-map (kbd "r") 'consult-recent-file)
 ;;   ^^ SPC f r 最近打开的文件
 (define-key my-file-prefix-map (kbd "L") 'consult-locate)
