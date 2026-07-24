@@ -95,6 +95,9 @@
 (define-key evil-insert-state-map (kbd "C-h")   'delete-backward-char)
 ;;   ^^ C-h 删除前一个字符（i 模式专用，n 模式不变）
 
+(define-key evil-insert-state-map (kbd "C-y")   'yank)
+;;   ^^ C-y 粘贴（从 kill ring 恢复）
+
 
 
 
