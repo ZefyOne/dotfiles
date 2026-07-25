@@ -32,7 +32,8 @@
   :init
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
-        completion-category-overrides '((file (styles orderless partial-completion)))))
+        completion-category-overrides '((file (styles orderless partial-completion))
+                                        (elisp (styles basic)))))
 
 ;; ============================================================
 ;; 在当前目录下搜索文件（fd 列文件 + vertico minibuffer + orderless 模糊匹配）
