@@ -7,7 +7,18 @@
 (use-package vertico
   :ensure t
   :init
-  (vertico-mode 1))
+  (vertico-mode 1)
+  :config
+  ;; 按类型分组，让候选列表更清晰
+  (setq vertico-group-format "  %s  "))
+
+;; ============================================================
+;; Marginalia — 补全候选注解（文件大小、日期、类型等）
+;; ============================================================
+(use-package marginalia
+  :ensure t
+  :config
+  (marginalia-mode 1))
 
 ;; ============================================================
 ;; Orderless — 模糊匹配（输入空格分割的关键词即可筛选）
@@ -20,27 +31,24 @@
         completion-category-overrides '((file (styles orderless partial-completion)))))
 
 ;; ============================================================
-;; Consult — 增强的查找命令（recentf、locate、grep 等）
+;; 在当前目录下搜索文件（fd 列文件 + vertico minibuffer + orderless 模糊匹配）
 ;; ============================================================
-(use-package consult
-  :ensure t
-  :defer t)
-
-;; ============================================================
-;; fzf — 用系统 fzf 搜索文件
-;; ============================================================
-(use-package fzf
-  :ensure t
-  :config
-  (setq fzf/window-height 15
-        fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"))
-
-(defun my/fzf-find-file ()
-  "用 fzf 在当前 buffer 所在目录搜索文件并打开。"
+(defun my/fzf-files-in-dir ()
+  "用 fd 列出当前目录下所有文件，vertico minibuffer 搜索打开。
+Orderless 提供类似 fzf 的空格分词模糊匹配。"
   (interactive)
-  (fzf-find-file (if (buffer-file-name)
-                     (file-name-directory (buffer-file-name))
-                   default-directory)))
+  (let* ((dir (if (buffer-file-name)
+                  (file-name-directory (buffer-file-name))
+                default-directory))
+         (files (split-string
+                 (shell-command-to-string
+                  (format "fd -t f --color never . %s"
+                          (shell-quote-argument dir)))
+                 "\n" t)))
+    (if (null files)
+        (user-error "当前目录没有文件")
+      (let ((selected (completing-read "搜索文件: " files nil t)))
+        (find-file (expand-file-name selected dir))))))
 
 ;; ============================================================
 ;; 最近文件 (built-in)

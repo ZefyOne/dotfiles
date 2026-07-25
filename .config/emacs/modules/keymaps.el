@@ -165,17 +165,17 @@
 ;; SPC f — 文件查找与操作
 ;; ============================================================
 
-(define-key my-leader-map (kbd "SPC") 'my/fzf-find-file)
-;;   ^^ SPC SPC 用 fzf 在当前 buffer 所在目录搜索文件
+(define-key my-leader-map (kbd "SPC") 'my/fzf-files-in-dir)
+;;   ^^ SPC SPC 在当前目录搜索文件（fd + vertico minibuffer）
 
 (define-prefix-command 'my-file-prefix-map)
 (put 'my-file-prefix-map 'which-key-description "Files")
 (define-key my-leader-map (kbd "f") my-file-prefix-map)
 
-(define-key my-file-prefix-map (kbd "r") 'consult-recent-file)
+(define-key my-file-prefix-map (kbd "r") 'recentf-open-files)
 ;;   ^^ SPC f r 最近打开的文件
-(define-key my-file-prefix-map (kbd "L") 'consult-locate)
-;;   ^^ SPC f L 用 locate 搜索文件
+;; (define-key my-file-prefix-map (kbd "L") 'consult-locate)
+;;   ^^ SPC f L 已移除（consult 不再使用）
 (define-key my-file-prefix-map (kbd "l") 'find-file-literally)
 ;;   ^^ SPC f l 以字面方式打开（不启用 major mode）
 (define-key my-file-prefix-map (kbd "i") 'insert-file)
