@@ -92,7 +92,15 @@
   (global-company-mode)
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1
-        company-backends '(company-elisp
-                           company-files)))
+        company-backends '(company-capf
+                           company-files))
+  ;; emacs-lisp-mode 用前缀匹配，不受全局 orderless 影响
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (setq-local completion-styles '(basic))))
+  ;; TAB 确认选中项，回车也一样
+  (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection))
+
 
 (provide 'ui)
