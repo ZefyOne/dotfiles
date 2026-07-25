@@ -57,4 +57,6 @@
 
 (add-to-list 'load-path "/home/zefy/Desktop/blink-search")
 
+(setq blink-search-python-command "~/.config/emacs/.python-env/bin/python3")
+
 (require 'blink-search)
