@@ -97,6 +97,9 @@
   :config
   (setq lsp-bridge-python-command "/home/zefy/.config/emacs/.python-env/bin/python")
   (add-to-list 'lsp-bridge-default-mode-hooks 'emacs-lisp-mode-hook)
+  ;; Evil 下 C-n/C-p 不经过 [remap next-line]，显式绑定
+  (define-key acm-mode-map (kbd "C-n") 'acm-select-next)
+  (define-key acm-mode-map (kbd "C-p") 'acm-select-prev)
   (global-lsp-bridge-mode))
 
 

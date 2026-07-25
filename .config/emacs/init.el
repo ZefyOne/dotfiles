@@ -42,7 +42,8 @@
 ;; 不让 desktop 保存颜色相关参数，避免覆盖主题
 (require 'frameset)
 (dolist (p '(background-color foreground-color background-mode
-              cursor-color mouse-color border-color))
+              cursor-color mouse-color border-color
+              menu-bar-lines tool-bar-lines tab-bar-lines))
   (push (cons p :never) frameset-filter-alist))
 
 ;; ============================================================
