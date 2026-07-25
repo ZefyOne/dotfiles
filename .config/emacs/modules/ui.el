@@ -39,13 +39,11 @@
       initial-scratch-message nil)
 
 ;; ============================================================
-;; 光标
+;; 光标（evil 状态自动切换）
 ;; ============================================================
-(setq x-stretch-cursor nil)
-(add-hook 'window-setup-hook
-          (lambda ()
-            (set-frame-parameter nil 'cursor-type 'hbar)
-            (set-default 'cursor-type '(hbar . 2))))
+(setq x-stretch-cursor nil
+      evil-normal-state-cursor '(box . 2)
+      evil-insert-state-cursor '(hbar . 2))
 
 ;; 高亮当前行 — 已禁用
 
