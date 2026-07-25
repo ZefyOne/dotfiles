@@ -32,7 +32,15 @@
 (use-package fzf
   :ensure t
   :config
-  (setq fzf/window-height 15))
+  (setq fzf/window-height 15
+        fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"))
+
+(defun my/fzf-find-file ()
+  "用 fzf 在当前 buffer 所在目录搜索文件并打开。"
+  (interactive)
+  (fzf-find-file (if (buffer-file-name)
+                     (file-name-directory (buffer-file-name))
+                   default-directory)))
 
 ;; ============================================================
 ;; 最近文件 (built-in)

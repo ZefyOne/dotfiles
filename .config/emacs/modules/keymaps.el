@@ -165,8 +165,8 @@
 ;; SPC f — 文件查找与操作
 ;; ============================================================
 
-(define-key my-leader-map (kbd "SPC") 'consult-fd)
-;;   ^^ SPC SPC 搜索文件（vertico 界面 + fd 引擎 + orderless 模糊过滤）
+(define-key my-leader-map (kbd "SPC") 'my/fzf-find-file)
+;;   ^^ SPC SPC 用 fzf 在当前 buffer 所在目录搜索文件
 
 (define-prefix-command 'my-file-prefix-map)
 (put 'my-file-prefix-map 'which-key-description "Files")
