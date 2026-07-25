@@ -83,4 +83,16 @@
         dirvish-use-header-line t
         dirvish-reuse-session nil))
 
+;; ============================================================
+;; 补全 (Corfu)
+;; ============================================================
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode)
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 1
+        company-backends '(company-elisp
+                           company-files)))
+
 (provide 'ui)
