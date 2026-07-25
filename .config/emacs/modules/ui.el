@@ -84,16 +84,19 @@
         dirvish-reuse-session nil))
 
 ;; ============================================================
-;; 补全 (Corfu)
+;; 补全 (lsp-bridge)
 ;; ============================================================
 (use-package yasnippet
-  :ensure t)
+  :ensure t
+  :config
+  (yas-global-mode 1))
 
 (use-package lsp-bridge
   :load-path "~/.config/emacs/lsp-bridge/"
   :after yasnippet
   :config
   (setq lsp-bridge-python-command "/home/zefy/.config/emacs/.python-env/bin/python")
+  (add-to-list 'lsp-bridge-default-mode-hooks 'emacs-lisp-mode-hook)
   (global-lsp-bridge-mode))
 
 
