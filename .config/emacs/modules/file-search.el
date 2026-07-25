@@ -10,7 +10,11 @@
   (vertico-mode 1)
   :config
   ;; 按类型分组，让候选列表更清晰
-  (setq vertico-group-format "  %s  "))
+  (setq vertico-group-format "  %s  ")
+
+  ;; minibuffer 里复用 i 模式的编辑键习惯
+  (define-key vertico-map (kbd "C-u") (lambda () (interactive) (kill-line 0)))
+  (define-key vertico-map (kbd "C-w") 'backward-kill-word))
 
 ;; ============================================================
 ;; Marginalia — 补全候选注解（文件大小、日期、类型等）
@@ -34,21 +38,22 @@
 ;; 在当前目录下搜索文件（fd 列文件 + vertico minibuffer + orderless 模糊匹配）
 ;; ============================================================
 (defun my/fzf-files-in-dir ()
-  "用 fd 列出当前目录下所有文件，vertico minibuffer 搜索打开。
-Orderless 提供类似 fzf 的空格分词模糊匹配。"
+  "用 fd 从项目根（或当前目录）列文件，vertico minibuffer 搜索打开。
+向上找 .git 确定项目根，找不到则在当前目录搜索。"
   (interactive)
-  (let* ((dir (if (buffer-file-name)
-                  (file-name-directory (buffer-file-name))
-                default-directory))
+  (let* ((dir (expand-file-name (if (buffer-file-name)
+                                    (file-name-directory (buffer-file-name))
+                                  default-directory)))
+         (root (expand-file-name (or (locate-dominating-file dir ".git") dir)))
          (files (split-string
                  (shell-command-to-string
                   (format "fd -t f --color never . %s"
-                          (shell-quote-argument dir)))
+                          (shell-quote-argument root)))
                  "\n" t)))
     (if (null files)
-        (user-error "当前目录没有文件")
+        (user-error "搜索范围没有文件")
       (let ((selected (completing-read "搜索文件: " files nil t)))
-        (find-file (expand-file-name selected dir))))))
+        (find-file (expand-file-name selected root))))))
 
 ;; ============================================================
 ;; 最近文件 (built-in)
