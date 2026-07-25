@@ -47,7 +47,7 @@
          (root (expand-file-name (or (locate-dominating-file dir ".git") dir)))
          (files (split-string
                  (shell-command-to-string
-                  (format "fd -t f --color never . %s"
+                  (format "fd -H -t f --color never . %s"
                           (shell-quote-argument root)))
                  "\n" t)))
     (if (null files)
