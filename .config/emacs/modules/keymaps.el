@@ -98,6 +98,9 @@
 (define-key evil-insert-state-map (kbd "C-y")   'yank)
 ;;   ^^ C-y 粘贴（从 kill ring 恢复）
 
+(define-key evil-insert-state-map (kbd "C-o")   'open-line)
+;;   ^^ C-o 插入新行并保持光标不动（i 模式专用）
+
 
 
 
