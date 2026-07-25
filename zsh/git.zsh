@@ -84,3 +84,17 @@ pushall() {
 
   cd "$orig"
 }
+
+commitall() {
+  local dirs=(
+    ~/.dotfiles
+    ~/Documents/Script
+    ~/Documents/KnowledgeSystem
+    ~/Documents/Novel
+  )
+  for d in $dirs; do
+    echo "\033[1;33m  ── $d ──\033[0m"
+    (cd "$d" && git add . && git commit -m "$(date "+%Y-%m-%d %H:%M")")
+    echo
+  done
+}

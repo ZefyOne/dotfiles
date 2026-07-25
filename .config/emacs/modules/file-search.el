@@ -17,7 +17,7 @@
   :init
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
-        completion-category-overrides '((file (styles partial-completion)))))
+        completion-category-overrides '((file (styles orderless partial-completion)))))
 
 ;; ============================================================
 ;; Consult — 增强的查找命令（recentf、locate、grep 等）
