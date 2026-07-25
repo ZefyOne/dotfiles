@@ -4,20 +4,26 @@
 #   git add .
 #   git commit -m "$(date "+%Y-%m-%d %H:%M")"
 # }
-
 commit() {
-  local -A repos=(
-    script /home/zefy/Documents/Script/
-    know   /home/zefy/Documents/KnowledgeSystem/
-    dotfiles  /home/zefy/.dotfiles
-    novel   /home/zefy/Documents/Novel/
-  )
+  local repo
 
-  local repo="${repos[$1]}"
-  if [[ -z "$repo" ]]; then
-    echo "错误：未知的仓库别名 '$1'"
-    echo "可用别名：${(@k)repos}"
-    return 1
+  # 如果没有参数，使用当前目录
+  if [[ -z "$1" ]]; then
+    repo="$PWD"
+    echo "未指定仓库，将提交当前目录：$repo"
+  else
+    local -A repos=(
+      script /home/zefy/Documents/Script/
+      know   /home/zefy/Documents/KnowledgeSystem/
+      dotfiles  /home/zefy/.dotfiles
+      novel   /home/zefy/Documents/Novel/
+    )
+    repo="${repos[$1]}"
+    if [[ -z "$repo" ]]; then
+      echo "错误：未知的仓库别名 '$1'"
+      echo "可用别名：${(@k)repos}"
+      return 1
+    fi
   fi
 
   cd "$repo" && git add . && git commit -m "$(date "+%Y-%m-%d %H:%M")"
