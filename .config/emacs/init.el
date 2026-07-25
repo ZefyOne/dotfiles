@@ -54,3 +54,7 @@
 (require 'my-org)
 (require 'file-search)
 (require 'keymaps)
+
+(add-to-list 'load-path "/home/zefy/Desktop/blink-search")
+
+(require 'blink-search)
