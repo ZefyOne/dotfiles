@@ -31,11 +31,11 @@
 ;; Evil Normal 状态快捷键
 ;; ============================================================
 
-(define-key evil-normal-state-map (kbd "H")     'tab-line-switch-to-prev-tab)
-;;   ^^ H 标签栏：上一个标签
+(define-key evil-normal-state-map (kbd "C-M-p")  'tab-line-switch-to-prev-tab)
+;;   ^^ C-M-p 标签栏：上一个标签
 
-(define-key evil-normal-state-map (kbd "L")     'tab-line-switch-to-next-tab)
-;;   ^^ L 标签栏：下一个标签
+(define-key evil-normal-state-map (kbd "C-M-n")  'tab-line-switch-to-next-tab)
+;;   ^^ C-M-n 标签栏：下一个标签
 
 (define-key evil-normal-state-map (kbd "C-u")   'evil-scroll-up)
 ;;   ^^ C-u 向上翻屏
