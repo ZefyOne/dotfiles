@@ -56,6 +56,7 @@
 (require 'writing)
 (require 'filetree)
 (require 'my-org)
+(require 'lsp)
 (require 'file-search)
 (require 'keymaps)
 
