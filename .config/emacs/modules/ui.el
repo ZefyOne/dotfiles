@@ -1,4 +1,4 @@
-;;; ui.el — 界面与外观
+;;; ui.el — 界面与外观  -*- lexical-binding: t -*-
 
 ;; ============================================================
 ;; 字体
@@ -92,26 +92,10 @@
   (global-company-mode)
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 2
-        company-backends '(company-capf
-                           company-files))
+        company-backends '(company-files))
   ;; TAB 确认选中项
   (define-key company-active-map (kbd "TAB") 'company-complete-selection)
-  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-
-  ;; Elisp 补全强制前缀匹配，不让 orderless 干扰
-  (defun my/elisp-completion-basic ()
-    "`completion-at-point-function' with basic (prefix) matching."
-    (when-let ((spec (elisp-completion-at-point)))
-      (let ((table (nth 2 spec)))
-        (setf (nth 2 spec)
-              (lambda (str pred action)
-                (let ((completion-styles '(basic)))
-                  (funcall table str pred action))))
-        spec)))
-  (add-hook 'emacs-lisp-mode-hook
-            (lambda ()
-              (add-hook 'completion-at-point-functions
-                        #'my/elisp-completion-basic nil 'local))))
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection))
 
 
 
