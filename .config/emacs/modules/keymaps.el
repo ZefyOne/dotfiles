@@ -101,6 +101,11 @@
 (define-key evil-insert-state-map (kbd "C-o")   'open-line)
 ;;   ^^ C-o 插入新行并保持光标不动（i 模式专用）
 
+(define-key evil-insert-state-map (kbd "C-M-n") 'tab-line-switch-to-next-tab)
+;;   ^^ C-M-n 标签栏：下一个标签（i 模式）
+(define-key evil-insert-state-map (kbd "C-M-p") 'tab-line-switch-to-prev-tab)
+;;   ^^ C-M-p 标签栏：上一个标签（i 模式）
+
 
 
 
