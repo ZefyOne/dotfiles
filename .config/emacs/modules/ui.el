@@ -84,23 +84,34 @@
         dirvish-reuse-session nil))
 
 ;; ============================================================
-;; 补全 (lsp-bridge)
+;; 补全 (Company)
 ;; ============================================================
-(use-package yasnippet
+(use-package company
   :ensure t
   :config
-  (yas-global-mode 1))
+  (global-company-mode)
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 2
+        company-backends '(company-capf
+                           company-files))
+  ;; TAB 确认选中项
+  (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
 
-(use-package lsp-bridge
-  :load-path "~/.config/emacs/lsp-bridge/"
-  :after yasnippet
-  :config
-  (setq lsp-bridge-python-command "/home/zefy/.config/emacs/.python-env/bin/python")
-  (add-to-list 'lsp-bridge-default-mode-hooks 'emacs-lisp-mode-hook)
-  ;; Evil 下 C-n/C-p 不经过 [remap next-line]，显式绑定
-  (define-key acm-mode-map (kbd "C-n") 'acm-select-next)
-  (define-key acm-mode-map (kbd "C-p") 'acm-select-prev)
-  (global-lsp-bridge-mode))
+  ;; Elisp 补全强制前缀匹配，不让 orderless 干扰
+  (defun my/elisp-completion-basic ()
+    "`completion-at-point-function' with basic (prefix) matching."
+    (when-let ((spec (elisp-completion-at-point)))
+      (let ((table (nth 2 spec)))
+        (setf (nth 2 spec)
+              (lambda (str pred action)
+                (let ((completion-styles '(basic)))
+                  (funcall table str pred action))))
+        spec)))
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (add-hook 'completion-at-point-functions
+                        #'my/elisp-completion-basic nil 'local))))
 
 
 
