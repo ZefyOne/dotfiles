@@ -32,8 +32,7 @@
   :init
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
-        completion-category-overrides '((file (styles orderless partial-completion))
-                                        (elisp (styles basic)))))
+        completion-category-overrides '((file (styles orderless partial-completion)))))
 
 ;; ============================================================
 ;; 在当前目录下搜索文件（fd 列文件 + vertico minibuffer + orderless 模糊匹配）
@@ -128,6 +127,11 @@
               (projectile-invalidate-cache))
             (message "文件已删除: %s" filename))
         (message "取消删除")))))
+
+(defun my/delete-current-buffer-file-yes (&optional arg)
+  "删除当前关联文件并杀掉缓冲区，不确认。"
+  (interactive)
+  (my/delete-current-buffer-file t))
 
 (defun my/rename-current-buffer-file (&optional arg)
   "重命名当前文件。
