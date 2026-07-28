@@ -61,4 +61,5 @@
 (require 'keymaps)
 
 ;; 主题加载
-(load-theme 'doom-dracula t)
+; (load-theme 'doom-dracula t)
+(load-theme 'doom-earl-grey t)
