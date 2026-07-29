@@ -60,6 +60,31 @@
 (require 'file-search)
 (require 'keymaps)
 
+
+
+;; ============================================================
+;; eaf框架
+;; ============================================================
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(setq eaf-python-command "/home/zefy/.emacs.d/.python-env/bin/python")
+
+(require 'eaf)
+(require 'eaf-video-player)
+(require 'eaf-pdf-viewer)
+(require 'eaf-js-video-player)
+(require 'eaf-git)
+(require 'eaf-image-viewer)
+(require 'eaf-browser)
+(require 'eaf-camera)
+(require 'eaf-org-previewer)
+(require 'eaf-file-manager)
+(require 'eaf-rss-reader)
+(require 'eaf-terminal)
+(require 'eaf-music-player)
+(require 'eaf-markdown-previewer)
+
+
 ;; 主题加载
 ; (load-theme 'doom-dracula t)
 (load-theme 'doom-earl-grey t)
+
