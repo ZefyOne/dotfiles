@@ -98,7 +98,7 @@
 
 ; 给浏览器插件换搜索引擎
 (setq eaf-browser-default-search-engine "bing")
-
+; (setenv "QT_MEDIA_BACKEND" "gstreamer")
 ;; 主题加载
 ; (load-theme 'doom-dracula t)
 (load-theme 'doom-earl-grey t)
