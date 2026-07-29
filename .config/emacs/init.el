@@ -4,14 +4,14 @@
 ;; ============================================================
 ;; 自定义设置（Customize UI 存到这里）
 ;; ============================================================
-(setq custom-file "~/.config/emacs/custom.el")
+(setq custom-file "~/.dotfiles/.config/emacs/custom.el")
 (load custom-file t)
 
 ;; ============================================================
 ;; 包管理
 ;; ============================================================
 (require 'package)
-(setq package-user-dir "~/.config/emacs/elpa")
+(setq package-user-dir "~/.dotfiles/.config/emacs/elpa")
 (setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
@@ -22,11 +22,11 @@
 ;; ============================================================
 ;; 备份与自动保存
 ;; ============================================================
-(unless (file-exists-p "~/.config/emacs/backups/")
-  (make-directory "~/.config/emacs/backups/" t))
-(setq backup-directory-alist '(("." . "~/.config/emacs/backups/"))
-      auto-save-file-name-transforms '((".*" "~/.config/emacs/backups/" t))
-      auto-save-list-file-prefix "~/.config/emacs/backups/sessions-")
+(unless (file-exists-p "~/.dotfiles/.config/emacs/backups/")
+  (make-directory "~/.dotfiles/.config/emacs/backups/" t))
+(setq backup-directory-alist '(("." . "~/.dotfiles/.config/emacs/backups/"))
+      auto-save-file-name-transforms '((".*" "~/.dotfiles/.config/emacs/backups/" t))
+      auto-save-list-file-prefix "~/.dotfiles/.config/emacs/backups/sessions-")
 
 (setq auto-save-timeout 120
       auto-save-interval 300)
@@ -35,8 +35,8 @@
 ;; 会话恢复
 ;; ============================================================
 (desktop-save-mode 1)
-(setq desktop-path '("~/.config/emacs/"))
-(setq desktop-dirname "~/.config/emacs/")
+(setq desktop-path '("~/.dotfiles/.config/emacs/"))
+(setq desktop-dirname "~/.dotfiles/.config/emacs/")
 (setq desktop-save t)
 (setq desktop-auto-save-timeout 300)
 ;; 不让 desktop 保存颜色相关参数，避免覆盖主题
@@ -49,7 +49,7 @@
 ;; ============================================================
 ;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
 ;; ============================================================
-(add-to-list 'load-path "~/.config/emacs/modules")
+(add-to-list 'load-path "~/.dotfiles/.config/emacs/modules")
 (require 'options)
 (require 'ui)
 (require 'vim)

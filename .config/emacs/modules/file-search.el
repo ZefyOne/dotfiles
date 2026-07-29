@@ -62,7 +62,7 @@
   :ensure nil
   :init
   (setq recentf-max-saved-items 300
-        recentf-exclude '("~/.config/emacs/elpa/" "/ssh:" "/sudo:"))
+        recentf-exclude '("~/.dotfiles/.config/emacs/elpa/" "/ssh:" "/sudo:"))
   :config
   (recentf-mode 1))
 

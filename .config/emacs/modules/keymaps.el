@@ -15,7 +15,7 @@
 ;;   ^^ C-c C-p 标签栏：上一个标签
 
 (global-set-key (kbd "<f2>")               (lambda () (interactive)
-                                             (find-file "~/.config/emacs/init.el")))
+                                             (find-file "~/.dotfiles/.config/emacs/init.el")))
 ;;   ^^ F2 快速打开 init.el
 
 (global-set-key (kbd "<f7>")               'olivetti-mode)
