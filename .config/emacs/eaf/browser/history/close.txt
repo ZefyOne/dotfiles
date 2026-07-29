@@ -3,3 +3,10 @@ https://www.bilibili.com/video/BV1jEDdBLEM7/?spm_id_from=333.1391.0.0&p=15&vd_so
 https://www.bilibili.com/video/BV1jEDdBLEM7/?spm_id_from=333.1391.0.0&p=15&vd_source=fd4350908b456a55f7494bbfa20f3f60
 https://www.bilibili.com/video/BV1jEDdBLEM7/?spm_id_from=333.1391.0.0&p=15&vd_source=fd4350908b456a55f7494bbfa20f3f60
 https://www.bilibili.com/
+https://www.baidu.com/
+view-source:https://www.bilibili.com/video/BV11tgZ6vEBJ/?vd_source=fd4350908b456a55f7494bbfa20f3f60
+devtools://devtools/bundled/inspector.html
+http://localhost:3000/
+https://www.bilibili.com/
+http://emacs/
+http://www.google.com/search?ie=utf-8&oe=utf-8&q=[emacs]%20⇰%20http://emacs/

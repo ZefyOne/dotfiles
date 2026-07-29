@@ -96,6 +96,8 @@
 (require 'eaf-music-player)
 (require 'eaf-markdown-previewer)
 
+; 给浏览器插件换搜索引擎
+(setq eaf-browser-default-search-engine "bing")
 
 ;; 主题加载
 ; (load-theme 'doom-dracula t)
