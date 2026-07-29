@@ -78,8 +78,8 @@
 ;; ============================================================
 ;; eaf框架
 ;; ============================================================
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-(setq eaf-python-command "/home/zefy/.emacs.d/.python-env/bin/python")
+(add-to-list 'load-path "~/.dotfiles/.config/emacs/site-lisp/emacs-application-framework/")
+(setq eaf-python-command "~/.dotfiles/.config/emacs/.python-env/bin/python")
 
 (require 'eaf)
 (require 'eaf-video-player)
