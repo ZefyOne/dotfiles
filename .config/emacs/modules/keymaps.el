@@ -316,7 +316,7 @@
 (define-key my-leader-map (kbd "l") my-theme-prefix-map)
 
 (defvar my/theme-preview-mode-map
-  (let ((map (make-sparse-keymap))
+  (let ((map (make-sparse-keymap)))
     (define-key map (kbd "j") 'next-line)
     (define-key map (kbd "k") 'previous-line)
     (define-key map (kbd "q") 'kill-this-buffer)
