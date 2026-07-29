@@ -1,2 +1,12 @@
 # 运行时数据
 local/
+eaf/
+site-lisp/
+
+# Emacs 运行时缓存
+.cache/
+eln-cache/
+projectile-frecency.eld
+
+# Emacs 自动保存文件 (#name# 格式)
+[#]*[#]

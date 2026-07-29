@@ -1,1 +1,0 @@
-(("/home/zefy/.dotfiles/" (".config/emacs/.cache/treemacs-persist" 2 1785304458)) ("/home/zefy/Documents/Script/" ("赶海/result.md" 3 1785306649) ("赶海/41-50.org" 3 1785306649)))

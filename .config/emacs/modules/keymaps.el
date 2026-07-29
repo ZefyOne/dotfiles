@@ -123,6 +123,16 @@
 
 
 ;; ============================================================
+;; EAF插件系统
+;; ============================================================
+
+; SPC b 打开浏览器（含历史/搜索）
+(define-key my-leader-map (kbd "b") 'eaf-open-browser-with-history)
+; SPC t 打开终端
+(define-key my-leader-map (kbd "t") 'eaf-open-terminal)
+
+
+;; ============================================================
 ;; SPC e — 文件树
 ;; ============================================================
 
@@ -303,10 +313,10 @@
 
 (define-prefix-command 'my-theme-prefix-map)
 (put 'my-theme-prefix-map 'which-key-description "Theme")
-(define-key my-leader-map (kbd "t") my-theme-prefix-map)
+(define-key my-leader-map (kbd "l") my-theme-prefix-map)
 
 (defvar my/theme-preview-mode-map
-  (let ((map (make-sparse-keymap)))
+  (let ((map (make-sparse-keymap))
     (define-key map (kbd "j") 'next-line)
     (define-key map (kbd "k") 'previous-line)
     (define-key map (kbd "q") 'kill-this-buffer)
