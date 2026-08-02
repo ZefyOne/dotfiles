@@ -35,7 +35,7 @@
 ;; ============================================================
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+(scroll-bar-mode t)
 (setq inhibit-startup-screen t
       initial-scratch-message nil)
 

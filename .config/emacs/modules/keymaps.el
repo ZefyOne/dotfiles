@@ -307,6 +307,11 @@
     (kbd "c") 'org-edit-src-exit
     (kbd "k") 'org-edit-src-abort))
 
+(global-set-key (kbd "C-c l") #'org-store-link) ; 存储链接
+(global-set-key (kbd "C-c a") #'org-agenda)      ; 议程
+(global-set-key (kbd "C-c c") #'org-capture)     ; 捕获
+
+
 ;; ============================================================
 ;; SPC t — 主题浏览（光标移动即时切换）
 ;; ============================================================

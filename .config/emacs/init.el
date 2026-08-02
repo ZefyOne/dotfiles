@@ -103,3 +103,6 @@
 ; (load-theme 'doom-dracula t)
 (load-theme 'doom-earl-grey t)
 
+;(org-babel-do-load-languages
+; 'org-babel-load-languages
+; '((python . t)))
