@@ -2,6 +2,7 @@
 local/
 eaf/
 site-lisp/
+.python-env/
 
 # Emacs 运行时缓存
 .cache/

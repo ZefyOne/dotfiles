@@ -4,14 +4,14 @@
 ;; ============================================================
 ;; 自定义设置（Customize UI 存到这里）
 ;; ============================================================
-(setq custom-file "~/.dotfiles/.config/emacs/local/custom.el")
+(setq custom-file "~/.local/share/emacs/custom.el")
 (load custom-file t)
 
 ;; ============================================================
 ;; 包管理
 ;; ============================================================
 (require 'package)
-(setq package-user-dir "~/.dotfiles/.config/emacs/local/elpa")
+(setq package-user-dir "~/.local/share/emacs/elpa")
 (setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
@@ -22,11 +22,11 @@
 ;; ============================================================
 ;; 备份与自动保存
 ;; ============================================================
-(unless (file-exists-p "~/.dotfiles/.config/emacs/local/backups/")
-  (make-directory "~/.dotfiles/.config/emacs/local/backups/" t))
-(setq backup-directory-alist '(("." . "~/.dotfiles/.config/emacs/local/backups/"))
-      auto-save-file-name-transforms '((".*" "~/.dotfiles/.config/emacs/local/backups/" t))
-      auto-save-list-file-prefix "~/.dotfiles/.config/emacs/local/backups/sessions-")
+(unless (file-exists-p "~/.local/state/emacs/backups/")
+  (make-directory "~/.local/state/emacs/backups/" t))
+(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups/"))
+      auto-save-file-name-transforms '((".*" "~/.local/state/emacs/backups/" t))
+      auto-save-list-file-prefix "~/.local/state/emacs/backups/sessions-")
 
 (setq auto-save-timeout 120
       auto-save-interval 300)
@@ -35,8 +35,8 @@
 ;; 会话恢复
 ;; ============================================================
 (desktop-save-mode 1)
-(setq desktop-path '("~/.dotfiles/.config/emacs/local/state/"))
-(setq desktop-dirname "~/.dotfiles/.config/emacs/local/state/")
+(setq desktop-path '("~/.local/state/emacs/"))
+(setq desktop-dirname "~/.local/state/emacs/")
 (setq desktop-save t)
 (setq desktop-auto-save-timeout 300)
 ;; 不让 desktop 保存颜色相关参数，避免覆盖主题
@@ -49,15 +49,22 @@
 ;; ============================================================
 ;; 其他存储路径（各功能默认写 ~/.emacs.d/，统一集中管理）
 ;; ============================================================
-(setq save-place-file "~/.dotfiles/.config/emacs/local/state/places")
-(setq recentf-save-file "~/.dotfiles/.config/emacs/local/state/recentf")
-(setq tramp-persistency-file-name "~/.dotfiles/.config/emacs/local/state/tramp")
-(setq projectile-bookmarks-file "~/.dotfiles/.config/emacs/local/state/projectile/projectile-bookmarks.eld"
-      projectile-known-projects-file "~/.dotfiles/.config/emacs/local/state/projectile/projectile-known-projects.eld")
-(setq transient-levels-file "~/.dotfiles/.config/emacs/local/state/transient/levels"
-      transient-values-file "~/.dotfiles/.config/emacs/local/state/transient/values"
-      transient-history-file "~/.dotfiles/.config/emacs/local/state/transient/history")
-(setq undo-fu-session-directory "~/.dotfiles/.config/emacs/local/state/undo/")
+(setq save-place-file "~/.local/state/emacs/places")
+(setq recentf-save-file "~/.local/state/emacs/recentf")
+(setq tramp-persistency-file-name "~/.local/state/emacs/tramp")
+(setq projectile-bookmarks-file "~/.local/state/emacs/projectile/projectile-bookmarks.eld"
+      projectile-known-projects-file "~/.local/state/emacs/projectile/projectile-known-projects.eld"
+      projectile-frecency-file "~/.local/state/emacs/projectile/projectile-frecency.eld")
+(setq transient-levels-file "~/.local/state/emacs/transient/levels"
+      transient-values-file "~/.local/state/emacs/transient/values"
+      transient-history-file "~/.local/state/emacs/transient/history")
+(setq undo-fu-session-directory "~/.local/state/emacs/undo/")
+
+;; ============================================================
+;; 缓存路径（native-comp 编译产物 / treemacs 持久状态）
+;; ============================================================
+(add-to-list 'native-comp-eln-load-path "~/.cache/emacs/eln-cache/")
+(setq treemacs-persist-file "~/.cache/emacs/treemacs-persist")
 
 ;; ============================================================
 ;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
@@ -78,8 +85,11 @@
 ;; ============================================================
 ;; eaf框架
 ;; ============================================================
-(add-to-list 'load-path "~/.dotfiles/.config/emacs/site-lisp/emacs-application-framework/")
+(add-to-list 'load-path "~/.local/share/emacs/site-lisp/emacs-application-framework/")
 (setq eaf-python-command "~/.dotfiles/.config/emacs/.python-env/bin/python")
+
+;; EAF 数据目录 → ~/.local/share/emacs/eaf/
+(setq eaf-config-location "~/.local/share/emacs/eaf/")
 
 (require 'eaf)
 (require 'eaf-video-player)
