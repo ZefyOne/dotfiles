@@ -16,6 +16,7 @@
 # Link editor configuration
     ~/.config/nvim: .config/nvim
     ~/.vimrc: .vimrc
+    ~/.emacs.d: .config/emacs
 
 # Link tmux configuration
 - link:
@@ -32,11 +33,6 @@
 - link:
     ~/.config/opencode: .config/opencode
 
-# path
-- link:
-    ~/.local/bin/push: tools/push
-    ~/.local/bin/pushb: tools/pushb
-    ~/.local/bin/pushe: tools/pushe
 
 # Link .local configuration
 # - link:
