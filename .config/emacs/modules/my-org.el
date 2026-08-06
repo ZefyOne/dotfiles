@@ -34,7 +34,9 @@
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
-  (setq evil-org-key-theme '(textobjects navigation additional todo)))
+  ;; return 主题让 RET 在列表内续接（1. → 2.），改完必须重新应用主题
+  (setq evil-org-key-theme '(textobjects navigation additional todo return))
+  (evil-org-set-key-theme))
 
 ;; ============================================================
 ;; org-superstar — 美化标题星号和待办标记
