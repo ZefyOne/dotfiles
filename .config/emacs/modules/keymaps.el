@@ -292,7 +292,9 @@
     (kbd "C-c |")   'org-table-create-with-table.el
     ;; 切换开关
     (kbd "C-c C-x C-l") 'org-latex-preview
-    (kbd "C-c C-x C-i") 'org-toggle-inline-images))
+    (kbd "C-c C-x C-i") 'org-toggle-inline-images)
+  ;; i 模式 C-c b 加粗：选中区域用 * 包裹（org-emphasize 不补空格）
+  (evil-define-key 'insert org-mode-map (kbd "C-c b") 'my/org-bold))
 
 ;; org-capture 的确认/取消快捷键
 (with-eval-after-load 'org-capture
