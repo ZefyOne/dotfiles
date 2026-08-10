@@ -70,8 +70,19 @@
 ;; 加粗 — org-emphasize 封装，i 模式 C-c b
 ;; ============================================================
 (defun my/org-bold ()
-  "Org 加粗。有选中区域用 * 包裹；无选中区域插入一对 ** 光标居中。"
+  "有选中区域时用一对 * 包裹（纯字符插入，不加空格）；
+否则插入 ** 光标居中。"
   (interactive)
-  (org-emphasize ?*))
+  (if (use-region-p)
+      (let ((beg (region-beginning))
+            (end (region-end)))
+        (save-excursion
+          (goto-char end)
+          (insert "*")
+          (goto-char beg)
+          (insert "*"))
+        (deactivate-mark))
+    (insert "**")
+    (backward-char 1)))
 
 (provide 'my-org)
