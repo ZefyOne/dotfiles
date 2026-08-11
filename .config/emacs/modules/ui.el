@@ -85,4 +85,15 @@
 
 
 
+;; ============================================================
+;; M-x居中
+;; ============================================================
+(require 'vertico-posframe)
+(vertico-posframe-mode 1)   ; 命令框居中
+
+(vertico-reverse-mode -1)   ; 内容在下面
+
+;(require 'vertico-posframe)
+
+
 (provide 'ui)

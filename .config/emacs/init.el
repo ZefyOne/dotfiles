@@ -18,10 +18,16 @@
 
 
 ;; ============================================================
-;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
+;; 个人lisp代码，都放在.emacs/lisp/。配置都在modules
 ;; ============================================================
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 (add-to-list 'load-path "~/.dotfiles/.config/emacs/modules")
 
+
+;; ============================================================
+;; 加载模块（keymaps 最后加载，以便引用各模块中的函数）
+;; ============================================================
 (require 'path)
 (require 'options)
 (require 'ui)
@@ -35,7 +41,11 @@
 (require 'keymaps)
 
 
+
+
+
 ;; 主题加载
-; (load-theme 'doom-dracula t)
-(load-theme 'doom-earl-grey t)
+(load-theme 'doom-dracula t)
+; (load-theme 'doom-earl-grey t)
+
 
