@@ -56,6 +56,13 @@
   (default-input-method "rime")
   (rime-disable-predicates '(evil-normal-state-p)))
 
+;; isearch 改用 minibuffer 输入：让 rime 在 isearch 里能正常上屏中文
+;; 若候选显示与 minibuffer 输入抢显示，需把 rime-show-candidate 改为 'posframe
+(use-package isearch-mb
+  :ensure t
+  :config
+  (isearch-mb-mode 1))
+
 (defvar my-rime-extensions '("md" "txt" "org")
   "文件后缀，打开时自动激活 rime。")
 
