@@ -12,8 +12,21 @@
 ;; ============================================================
 (require 'package)
 (setq package-user-dir "~/.local/share/emacs/elpa")
-(setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives
+      '(("gnu"            . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("gnu-ustc"       . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+        ("melpa-ustc"     . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+        ("gnu-official"   . "https://elpa.gnu.org/packages/")
+        ("melpa-official" . "https://melpa.org/packages/")))
+
+(setq package-archive-priorities
+      '(("gnu"            . 10)
+        ("melpa"          . 10)
+        ("gnu-ustc"       . 5)
+        ("melpa-ustc"     . 5)
+        ("gnu-official"   . 1)
+        ("melpa-official" . 1)))
 (package-initialize)
 
 
