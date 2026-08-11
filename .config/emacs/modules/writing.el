@@ -61,7 +61,11 @@
 (use-package isearch-mb
   :ensure t
   :config
-  (isearch-mb-mode 1))
+  (isearch-mb-mode 1)
+  ;; isearch 输入区复用编辑键（与 file-search 的 vertico-map 保持一致）
+  (define-key isearch-mb-minibuffer-map (kbd "C-u")
+    (lambda () (interactive) (kill-line 0)))
+  (define-key isearch-mb-minibuffer-map (kbd "C-w") 'backward-kill-word))
 
 (defvar my-rime-extensions '("md" "txt" "org")
   "文件后缀，打开时自动激活 rime。")
