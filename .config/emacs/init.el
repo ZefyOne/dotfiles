@@ -34,5 +34,9 @@
 ;; 主题加载
 ;; ============================================================
 
-; (load-theme 'doom-dracula t)
-(load-theme 'doom-earl-grey t)
+; (load-theme 'doom-dracula t)      ;; 淡紫色主题
+(load-theme 'doom-earl-grey t)      ;; 淡白色主题
+; (load-theme 'whiteboard t)      ;; 白色主题
+; (load-theme 'doom-flatwhite t)      ;; 淡黄，写作纸一样
+; (load-theme 'doom-gruvbox-light t)      ;; 偏黄，写作纸一样
+; (load-theme 'doom-moonlight t)      ;; 蓝紫色，与nvim类似
