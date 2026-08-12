@@ -3,6 +3,8 @@ local/
 eaf/
 site-lisp/
 .python-env/
+elpa/
+auto-save-list/
 
 # Emacs 运行时缓存
 .cache/
