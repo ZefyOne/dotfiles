@@ -5,7 +5,7 @@
 ;; ============================================================
 (when (file-exists-p "~/.local/share/emacs/site-lisp/emacs-application-framework/")
   (add-to-list 'load-path "~/.local/share/emacs/site-lisp/emacs-application-framework/")
-  (setq eaf-python-command "~/.dotfiles/.config/emacs/.python-env/bin/python")
+  (setq eaf-python-command (expand-file-name ".python-env/bin/python" user-emacs-directory))
 
   ;; EAF 数据目录 → ~/.local/share/emacs/eaf/
   (setq eaf-config-location "~/.local/share/emacs/eaf/")

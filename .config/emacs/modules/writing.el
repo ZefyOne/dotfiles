@@ -51,7 +51,7 @@
 (use-package rime
   :ensure t
   :custom
-  (rime-user-data-dir "~/.dotfiles/.config/emacs/rime/")
+  (rime-user-data-dir (expand-file-name "rime/" user-emacs-directory))
   (rime-show-candidate 'minibuffer)
   (default-input-method "rime")
   (rime-disable-predicates '(evil-normal-state-p)))

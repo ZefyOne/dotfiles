@@ -7,10 +7,10 @@
 (load custom-file t)
 
 ;; ============================================================
-;; 个人lisp代码，都放在.emacs.d/lisp/。配置都在modules
+;; 个人lisp代码，都放在lisp。配置都在modules
 ;; ============================================================
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path "~/.dotfiles/.config/emacs/modules")
+(add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
 
 
 
@@ -30,8 +30,9 @@
 (require 'my-eaf)        ;; EAF 外部应用：浏览器、PDF 阅读器等
 (require 'keymaps)       ;; 快捷键：所有按键绑定（最后加载，引用各模块函数）
 
-
-
+;; ============================================================
 ;; 主题加载
+;; ============================================================
+
 ; (load-theme 'doom-dracula t)
 (load-theme 'doom-earl-grey t)
