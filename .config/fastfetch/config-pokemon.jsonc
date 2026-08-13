@@ -24,52 +24,52 @@
         {
             "type": "kernel",
             "key": " ",
-            "keyColor": "#f5d76e"
+            "keyColor": "yellow"
         },
         {
             "type": "command",
             "key": " ",
-            "keyColor": "#87c7ff",
+            "keyColor": "blue",
             "text": "echo JaKooLit Version: ${DOTS_VERSION}"
         },
         {
             "type": "wm",
             "key": " ",
-            "keyColor": "#f08cf0"
+            "keyColor": "magenta"
         },
         {
             "type": "shell",
             "key": " ",
-            "keyColor": "#f5d76e"
+            "keyColor": "yellow"
         },
         {
             "type": "terminal",
             "key": " ",
-            "keyColor": "#87c7ff"
+            "keyColor": "blue"
         },
         /*
         {
             "type": "packages",
             "key": "󰏖 ",
-            "keyColor": "#f5d76e"
+            "keyColor": "yellow"
         },
         */
         {
             "type": "memory",
             "key": "󰍛 ",
-            "keyColor": "#f08cf0",
+            "keyColor": "magenta",
             // format: used / total
             "format": "{1} / {2}"
         },
         {
             "type": "uptime",
             "key": "󰔛 ",
-            "keyColor": "#8dff8d"
+            "keyColor": "green"
         },
         {
             "type": "command",
             "key": "󱦟 ",
-            "keyColor": "#f08cf0",
+            "keyColor": "magenta",
             "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
         },
         {
