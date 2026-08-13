@@ -5,6 +5,9 @@
 
 (setq package-user-dir "~/.local/share/emacs/elpa")
 
+;; 镜像源下签名文件可能滞后或密钥未被信任，跳过签名校验
+(setq package-check-signature nil)
+
 (setq package-archives
       '(("gnu"            . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("melpa"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")

@@ -29,6 +29,9 @@ source $ZDOTDIR/aliass.zsh
 # git 相关函数
 source $ZDOTDIR/git.zsh
 
+
+# 终端代理
+# source $ZDOTDIR/proxy.zsh
+
 # 启动画面
-# source $ZDOTDIR/splash.zsh
-pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+source $ZDOTDIR/splash.zsh

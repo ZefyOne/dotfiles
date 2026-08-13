@@ -31,6 +31,8 @@
 (setq save-place-file "~/.local/state/emacs/places")
 (setq recentf-save-file "~/.local/state/emacs/recentf")
 (setq tramp-persistency-file-name "~/.local/state/emacs/tramp")
+(unless (file-exists-p "~/.local/state/emacs/projectile/")
+  (make-directory "~/.local/state/emacs/projectile/" t))
 (setq projectile-bookmarks-file "~/.local/state/emacs/projectile/projectile-bookmarks.eld"
       projectile-known-projects-file "~/.local/state/emacs/projectile/projectile-known-projects.eld"
       projectile-frecency-file "~/.local/state/emacs/projectile/projectile-frecency.eld")
