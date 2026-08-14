@@ -31,7 +31,7 @@ source $ZDOTDIR/git.zsh
 
 
 # 终端代理
-# source $ZDOTDIR/proxy.zsh
+source $ZDOTDIR/proxy.zsh
 
 # 启动画面
 source $ZDOTDIR/splash.zsh
