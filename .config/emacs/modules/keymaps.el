@@ -24,6 +24,17 @@
 (global-set-key (kbd "C-\\")               'toggle-input-method)
 ;;   ^^ C-\ 切换输入法 (rime)
 
+(defun my/kill-current-buffer-no-confirm ()
+  "直接删除当前缓冲区，不做任何确认（有未保存修改也会直接丢弃）。"
+  (interactive)
+  (let ((buf (current-buffer)))
+    (set-buffer-modified-p nil)
+    (kill-buffer buf)))
+
+(global-set-key (kbd "M-w") 'my/kill-current-buffer-no-confirm)
+;;   ^^ M-w (Alt-w) 直接删除当前缓冲区，不再确认
+;;       注意：覆盖了默认的复制 (kill-ring-save)
+
 
 
 
