@@ -1,4 +1,4 @@
-;;; vim.el — Vim 模拟
+;;; vim.el — Vim 模拟  -*- lexical-binding: t; -*-
 
 (use-package evil
   :ensure t

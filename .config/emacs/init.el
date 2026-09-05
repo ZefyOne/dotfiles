@@ -1,4 +1,12 @@
-;;; init.el — 入口文件
+;;; init.el — 入口文件  -*- lexical-binding: t; -*-
+
+;; ============================================================
+;; 静音 Emacs 31+ 的 Missing 'lexical-binding' cookie 警告
+;; 第三方包(EAF / evil-org / doom-themes 的 earl-grey)上游仍未补
+;; cookie，属上游未修而非配置问题。只精确屏蔽这一条，不动其它 files 警告。
+;; ============================================================
+(setq warning-suppress-types '((files missing-lexbind-cookie)))
+(setq warning-suppress-log-types '((files missing-lexbind-cookie)))
 
 ;; ============================================================
 ;; 自定义设置（Customize UI 存到这里）

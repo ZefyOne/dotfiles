@@ -1,4 +1,4 @@
-;;; filetree.el — 侧边栏文件树 (Treemacs)
+;;; filetree.el — 侧边栏文件树 (Treemacs)  -*- lexical-binding: t; -*-
 
 ;; ============================================================
 ;; which-key — 按前缀键后弹出可用按键提示
