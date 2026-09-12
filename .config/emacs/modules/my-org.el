@@ -115,6 +115,10 @@
   :config
   (require 'org-roam-dailies) ;; 启用日记功能
   (org-roam-db-autosync-mode)
+  ;; 搜索时，还可以按标签来搜索
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:20}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  
  )
 
 
