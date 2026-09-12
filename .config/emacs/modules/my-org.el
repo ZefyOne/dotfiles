@@ -117,6 +117,7 @@
   (org-roam-db-autosync-mode)
  )
 
+slkasjd
 
 (use-package org-roam-ui
   :ensure t ;; 自动安装
