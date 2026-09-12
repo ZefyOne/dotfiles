@@ -26,6 +26,8 @@
               (when org-inline-image-overlays
                 (org-redisplay-inline-images)))))
 
+
+
 ;; ============================================================
 ;; evil-org — Vim 风格操作
 ;; ============================================================
@@ -37,6 +39,8 @@
   ;; return 主题让 RET 在列表内续接（1. → 2.），改完必须重新应用主题
   (setq evil-org-key-theme '(textobjects navigation additional todo return))
   (evil-org-set-key-theme))
+
+
 
 ;; ============================================================
 ;; org-superstar — 美化标题星号和待办标记
@@ -51,7 +55,10 @@
         '((?* . ?•)
           (?+ . ?➤)
           (?- . ?● ))))
- 
+
+
+
+
 ;; ============================================================
 ;; org-download — 拖拽/粘贴图片到附件
 ;; ============================================================
@@ -84,5 +91,41 @@
         (deactivate-mark))
     (insert "**")
     (backward-char 1)))
+
+
+
+
+
+;; ============================================================
+;; 双链笔记，org-roam
+;; ============================================================
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/roam-notes/")
+  (org-roam-dailies-directory "daily/")
+  (org-roam-db-gc-threshold most-positive-fixnum)
+  :bind (("C-c n f" . org-roam-node-find) ;; 查找笔记
+         ("C-c n i" . org-roam-node-insert) ;; 插入笔记，可以插入新的，也可以是别的现有笔记，实现链接
+         ("C-c n c" . org-roam-capture) ;; 在配置好的目录里创建笔记
+         ("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n u" . org-roam-ui-mode)) ;; 在浏览器打开网状图
+  :bind-keymap
+  ("C-c n d" . org-roam-dailies-map) ;; 日记菜单
+  :config
+  (require 'org-roam-dailies) ;; 启用日记功能
+  (org-roam-db-autosync-mode)
+ )
+
+
+(use-package org-roam-ui
+  :ensure t ;; 自动安装
+  :after org-roam
+  :custom
+  (org-roam-ui-sync-theme t) ;; 同步Emacs主题
+  (org-roam-ui-follow t) ;; 笔记节点跟随
+  (org-roam-ui-update-on-save t)
+)
+
 
 (provide 'my-org)
