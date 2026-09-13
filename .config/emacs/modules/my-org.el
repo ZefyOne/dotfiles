@@ -16,7 +16,10 @@
         org-src-fontify-natively t
         org-src-tab-acts-natively t
         org-image-actual-width nil
-        org-imenu-depth 8)
+        org-imenu-depth 8
+        ;; 隐藏 *加粗* / 斜体 / 等宽 的标记字符，只留渲染结果。
+        ;; 光标走到该处时由 org-appear 临时还原，方便编辑。
+        org-hide-emphasis-markers t)
   ;; 关闭 electric-indent-mode 防止 RET 后自动插入制表符
   (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))
   :config
@@ -80,6 +83,18 @@
 (use-package valign
   :ensure t
   :hook (org-mode . valign-mode))
+
+
+
+;; ============================================================
+;; org-appear — 光标走到标记处时临时把标记字符显示出来
+;; 配合上面的 org-hide-emphasis-markers：平时隐藏、编辑时现身，
+;; 效果同 Obsidian 的实时预览。默认只处理强调标记（* / _ 等），
+;; 链接、上下标等默认不开，需要再调各自的开关。
+;; ============================================================
+(use-package org-appear
+  :ensure t
+  :hook (org-mode . org-appear-mode))
 
 
 
