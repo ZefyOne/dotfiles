@@ -1,0 +1,91 @@
+#+title: Doom Emacs 新机依赖清单
+#+date: 2026-09-16
+#+filetags: :migration:
+
+手动装完 Doom Emacs 之后，把下面这些装上就能跑。输入法部分不在此列。
+
+* 一条命令装完
+
+#+begin_src sh
+sudo pacman -S --needed emacs git ripgrep fd sqlite shellcheck libvterm cmake gcc libtool librime librime-data glog yaml-cpp leveldb marisa opencc gflags snappy ttf-fira-code noto-fonts-cjk ttf-lxgw-wenkai-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common noto-fonts-emoji
+#+end_src
+
+同一条命令，带换行的版本，方便看清分组：
+
+#+begin_src sh
+sudo pacman -S --needed \
+  emacs git ripgrep fd sqlite shellcheck \
+  libvterm cmake gcc libtool \
+  librime librime-data glog yaml-cpp leveldb marisa opencc gflags snappy \
+  ttf-fira-code noto-fonts-cjk ttf-lxgw-wenkai-mono \
+  ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common noto-fonts-emoji
+#+end_src
+
+另外有一个只在 AUR 里，~doom doctor~ 会提示缺：
+
+#+begin_src sh
+paru -S ttf-symbola
+#+end_src
+
+* 分组清单
+
+** Emacs 本体
+
+必须是带 ~--with-modules~ 的编译版本（Arch 官方包满足），别装 ~emacs-nox~。
+
+| 包    | 说明                                  |
+|-------+---------------------------------------|
+| emacs | 31.x，需要 modules / native-comp / harfbuzz |
+
+** 编译动态模块用
+
+~doom sync~ 时会现场编译 rime 和 vterm 两个 .so，缺库就报错。
+
+| 包           | 说明                    |
+|--------------+-------------------------|
+| libvterm     | vterm-module.so 链接它  |
+| cmake        | vterm 的构建系统        |
+| gcc          | 编译                    |
+| libtool      | 编译                    |
+| librime      | librime-emacs.so 链接它 |
+| librime-data | rime 基础方案数据       |
+| glog         | librime 传递依赖        |
+| yaml-cpp     | 同上                    |
+| leveldb      | 同上                    |
+| marisa       | 同上                    |
+| opencc       | 同上                    |
+| gflags       | 同上                    |
+| snappy       | 同上                    |
+
+** 命令行工具
+
+| 包         | 说明                                     |
+|------------+------------------------------------------|
+| git        | straight / magit / vc，另需配好 ~/.gitconfig |
+| ripgrep    | doom doctor、搜索                         |
+| fd         | Doom CLI、~:tools lookup~                 |
+| sqlite     | Emacs 29+ 内置 sqlite 的用户态工具        |
+| shellcheck | ~:checkers syntax~ + ~:lang sh~，缺了是静默不检查 |
+
+** 字体
+
+| 包                            | 说明                                            |
+|-------------------------------+-------------------------------------------------|
+| ttf-fira-code                 | ~doom-font~，要用到 Medium 字重                 |
+| noto-fonts-cjk                | ~doom-variable-pitch-font~ 的 Noto Sans CJK SC  |
+| ttf-lxgw-wenkai-mono          | 中文与全角标点，必须是 *Mono* 版（spacing=dual） |
+| ttf-nerd-fonts-symbols        | nerd-icons，modeline / treemacs 用               |
+| ttf-nerd-fonts-symbols-common | 同上                                            |
+| noto-fonts-emoji              | Emoji                                           |
+| ttf-symbola (AUR)             | Emacs 兜底字体，缺了可能卡顿                    |
+
+注意 ~ttf-lxgw-wenkai-mono~ 别装成非 Mono 的 ~ttf-lxgw-wenkai~，汉字宽度不是英文两倍的话，表格对齐会歪。
+
+* 装完验证
+
+#+begin_src sh
+~/.config/emacs/bin/doom sync
+~/.config/emacs/bin/doom doctor
+#+end_src
+
+~doom doctor~ 输出里没有 ~!~ 就算齐了。

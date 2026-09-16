@@ -88,3 +88,97 @@
 (map! :map org-mode-map :localleader "b v" #'valign-table)
 
 (setq org-modern-table-horizontal nil)          ; 解决分隔线不对齐的问题
+
+
+
+;; ============================================================
+;; 中文行内强调：让 *粗体* 不必在两侧加空格
+;; ============================================================
+;; Org 判定行内标记时要求两侧是「边界字符」，而边界集合是为英文写的：空格、
+;; 制表符、连字符和几个 ASCII 标点。中文词间没有空格，于是 中*文*字 里那个
+;; 星号两边都是汉字，谁都算不上边界，标记直接失效 —— 六个标记 */_~=+ 全中招，
+;; 不只是加粗。
+;;
+;; 上游把边界字符硬编码在解析器里（org-element.el 的
+;; org-element--parse-generic-emphasis，9.8.9 在 3374 行附近），
+;; 对象词法器里也有一份（同文件 263 行的 org-element--object-regexp）。
+;; 而 org-emphasis-regexp-components 从 8.0 起就不再是 defcustom 了，它的
+;; 文档字符串现在写明：
+;;
+;;   WARNING: This variable only affects visual fontification, but does not
+;;   change Org markup.  For example, it does not affect how emphasis markup
+;;   is interpreted on export.
+;;
+;; 所以「只改 org-emphasis-regexp-components」是个半吊子方案：buffer 里汉字
+;; 确实高亮了，导出时星号却原样留着，屏幕和产物对不上。两处都得动：
+;;
+;;   components  → 管 buffer 内的高亮（org-do-emphasis-faces 每次调用时
+;;                 现取 (car org-emphasis-regexp-components) 拼 quick-re）
+;;   advice 覆盖 → 管解析，也就是导出、org-element API 看到的那一份
+;;
+;; 边界放宽成「非 ASCII」而不是硬编码 一-龥 的区间，好处是英文和数字完全不受
+;; 影响：word*rest*、5*3*2 依然不会被误认成强调（实测确认）。
+;;
+;; 已知副作用：边界一放宽，没配对的星号就会被当成起始标记。
+;;   冰淇凌*。 Hello *world*  →  冰淇凌<b>。 Hello *world</b>
+;; 中文里 * 除了强调基本不出现，踩到的概率不高；真遇到就在这个星号后面插一个
+;; 零宽空格（C-x 8 RET 200B）断开，手册 "Escape Character" 一节也是这么建议的。
+;;
+;; advice 必须写在 after! org-element 里：org-element.el 尾部 provide 之前该
+;; 函数已经 defun 完毕，这个时机才保证覆盖的是真的定义 —— 提前 advice-add
+;; 会被随后的 defun 整个冲掉。
+;;
+;; 改完重启 Emacs 生效（org-emph-re 是加载期算出来的）。
+;;
+;; 想验证的话，M-x org-html-export-as-html 导出 中*文*字，
+;; 应当得到 中<b>文</b>字 而不是原样的星号。
+(after! org
+  (setq org-emphasis-regexp-components
+        '("-[:space:]('\"{[:nonascii:]"
+          "-[:space:].,:!?;'\")}\\[[:nonascii:]"
+          "[:space:]" "." 1))
+  (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components))
+
+(after! org-element
+  (defun +org-element--parse-generic-emphasis (mark type)
+    "同 `org-element--parse-generic-emphasis'，但允许非 ASCII 字符作边界。"
+    (save-excursion
+      (let ((origin (point)))
+        (unless (bolp) (forward-char -1))
+        (let ((opening-re
+               (rx-to-string
+                `(seq (or line-start (any space ?- ?\( ?' ?\" ?\{) (not ascii))
+                      ,mark
+                      (not space)))))
+          (when (looking-at-p opening-re)
+            (goto-char (1+ origin))
+            (let ((closing-re
+                   (rx-to-string
+                    `(seq
+                      (not space)
+                      (group ,mark)
+                      (or (any space ?- ?. ?, ?\; ?: ?! ?? ?' ?\" ?\) ?\} ?\\ ?\[)
+                          (not ascii)
+                          line-end)))))
+              (when (re-search-forward closing-re nil t)
+                (let ((closing (match-end 1)))
+                  (goto-char closing)
+                  (let* ((post-blank (skip-chars-forward " \t"))
+                         (contents-begin (1+ origin))
+                         (contents-end (1- closing)))
+                    (org-element-create
+                     type
+                     (append
+                      (list :begin origin
+                            :end (point)
+                            :post-blank post-blank)
+                      (if (memq type '(code verbatim))
+                          (list :value
+                                (org-element-deferred-create
+                                 t #'org-element--substring
+                                 (- contents-begin origin)
+                                 (- contents-end origin)))
+                        (list :contents-begin contents-begin
+                              :contents-end contents-end)))))))))))))
+  (advice-add #'org-element--parse-generic-emphasis
+              :override #'+org-element--parse-generic-emphasis))
