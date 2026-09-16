@@ -13,3 +13,6 @@ obsidianConfig/plugins/realclaudian/data.json
 # zsh auto-generated completion cache
 zsh/.zcompdump*
 
+# doom: symlink target is a machine-specific absolute path
+.config/doom/rime
+

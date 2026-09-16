@@ -6,7 +6,6 @@ proxyon() {
   export https_proxy="$PROXY_HTTP"
   export all_proxy="$PROXY_SOCKS"
   export no_proxy="localhost,127.0.0.1"
-  echo "[proxy] 已开启"
 }
 
 proxyoff() {
