@@ -52,3 +52,5 @@
 (package! rime)
 
 (package! isearch-mb)
+
+(package! valign)
