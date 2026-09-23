@@ -26,7 +26,7 @@
        ;;helm              ; 为爱与生活而生的*另一个*搜索引擎
        ;;ido               ; 另一个*另一个*搜索引擎……
        ;;ivy               ; 为爱与生活而生的搜索引擎
-       vertico           ; 未来的搜索引擎
+       (vertico +childframe) ; 未来的搜索引擎，+childframe 让候选浮到屏幕中间
 
        :ui
        ;;deft              ; Emacs 版的 notational velocity
@@ -159,7 +159,7 @@
        ;;nix               ; 我在此宣布 "nix geht mehr!"
        ;;ocaml             ; 一只客观的骆驼
        ;;odin              ; C，去掉了那些会打中自己脚的枪
-       (org +pretty)               ; 用纯文本组织你平淡的生活
+       (org +pretty +roam)         ; 用纯文本组织你平淡的生活
        ;;php               ; perl 那个不安全的弟弟
        ;;plantuml          ; 把别人搞得更晕的图表
        ;;graphviz          ; 把你自己搞得更晕的图表

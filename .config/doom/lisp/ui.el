@@ -1,10 +1,16 @@
 ;;; ui.el -*- lexical-binding: t; -*-
 
 ;; ============================================================
-;; 补全列表的当前行高亮（M-x、SPC 系列命令、C-s 搜索等）
+;; M-x界面
 ;; ============================================================
 (custom-set-faces!                                                              ; 在M-x中光标行的颜色，淡蓝
   '(vertico-current :background "#ADD8E6" :extend t))
+
+(custom-set-faces!                                                              ; v模式下选中区域的背景色，取出主题的 eg-purple3
+  '(region :background "#D8CAD4" :foreground "#4C4741" :extend t))              ; 想更淡一点可以用 "#CDCBC7"（eg-grey3）
+
+(after! vertico-posframe                                                        ; M-x / 补全候选浮到屏幕中间（vertico-posframe）
+  (setq vertico-posframe-poshandler #'posframe-poshandler-frame-center))
 
 
 ;; ============================================================
@@ -13,7 +19,7 @@
 (setq doom-font (font-spec :family "Fira Code" :size 25 :weight 'medium)
       doom-variable-pitch-font (font-spec :family "Noto Sans CJK SC" :size 25)) ; 设置主要字体，英文和符号是fira code，再加一个兜底
 
-(set-fontset-font t 'han (font-spec :family "LXGW WenKai Mono"))                ; 设置中文字体为这个东西，一个比较知名的楷体，这里面不能用size
+(set-fontset-font t 'han (font-spec :family "LXGW WenKai Mono"))                ; 设置中文字体为霞鹜文楷等宽，一个比较知名的楷体，这里面不能用size
 
 (set-fontset-font t 'cjk-misc (font-spec :family "LXGW WenKai Mono"))           ; 解决中文标点垂直居中的问题，加上就正常了
 
@@ -38,31 +44,3 @@
 ;; 如果 Emacs 还是找不到字体，那多半是字体没装好。字体问题很少是 Doom 的问题！
 
 
-;; ---------- 字体 ----------
-;; 字号 21 = 你原来 set-face-attribute 里 :height 190（也就是 19pt）之上又调大了 2pt，
-;; 想回到原来的大小就写 :size 19。
-;;
-;; 字重用 'medium：系统里没有 Fira Code SemiLight，写 'semi-light 会被 fontconfig
-;; 匹配到 Light，字比预想的细一档。
-
-
-;; Fira Code 不含汉字字形，这里显式指定 han 脚本用哪个字体，否则只能让系统随意兜底。
-;; 霞鹜文楷等宽（LXGW WenKai Mono）——楷体骨架，汉字宽度正好等于两个英文字符
-;; （fontconfig 里 spacing=dual），所以代码注释里中英混排也能对齐。
-;;
-;; 别在这加 :size 或 :weight：一旦写死，中文就不再跟随字号变化和粗体渲染，
-;; 放大字号时会出现「英文变大、中文纹丝不动」的错位。留空让它自己继承。
-
-
-
-
-;; 全角标点必须单独设一次。
-;;
-;; Emacs 的 fontset 是按「script」分槽匹配的，而全角标点（、。，！？：；全角空格……
-;; 的 script 是 `cjk-misc'，跟汉字的 `han' 不是同一个槽 —— 只设 han 管不到标点，
-;; 它们会掉给 fontconfig 兜底。兜底结果依机器而定，这台机器上落到了
-;; Noto Serif CJK TC：台湾规范的标点放在字面框正中央（实测在汉字框 37%~68% 处），
-;; 于是就成了「逗号句号浮在文字中间」。霞鹜文楷自己的标点在汉字框 1%~23% 处，
-;; 也就是底部，所以补上这一行，标点就归位了。
-
-;; ====================================================================
