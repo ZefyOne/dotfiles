@@ -23,8 +23,14 @@
   "变更前记录的 (BEG END COUNT)，供增量计算用。")
 
 (defun +word-count--count (beg end)
-  "统计 BEG 到 END 之间的非空白字符数。"
-  (- (- end beg) (how-many "[[:space:]]" beg end)))
+  "统计 BEG 到 END 之间的非空白字符数。
+
+`how-many' 内部走 re-search-forward，会冲掉匹配数据。本函数被挂在
+全局的 before/after-change-functions 上，若不保护，任何依赖匹配数据
+跨越 buffer 变更的代码都会读到 nil —— org 的 org--align-node-property
+就是这么把属性抽屉写成 \"nil        nil\" 的。"
+  (save-match-data
+    (- (- end beg) (how-many "[[:space:]]" beg end))))
 
 (defun +word-count--region ()
   "选中区域的非空白字符数；没有选区时返回 nil。

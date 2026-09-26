@@ -54,3 +54,15 @@
 (package! isearch-mb)
 
 (package! valign)
+
+;; org-roam-ui —— Obsidian 风格的交互式网状图（2D 圆点 / 3D 球体）。
+;;
+;; 为什么要 unpin：org-roam-ui 要跟 org-roam 的新 API 走（比如它靠
+;; `org-roam-db-map-citations' 是否存在来判断新旧引用格式），而 Doom 习惯把
+;; org-roam 钉在某个固定 commit 上。
+;;
+;; 实测（2026-09）：当前 pin 恰好就是 main 顶端 903bd4e，所以这行**现在不会
+;; 触发任何重新下载或重编译**。它真正的价值在将来 —— 防止 doom upgrade 把
+;; org-roam 钉回更老的版本，导致图里引用链接那块静默降级。
+(unpin! org-roam)
+(package! org-roam-ui)
