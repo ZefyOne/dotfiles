@@ -202,6 +202,21 @@
 ;; (setq +org-roam-auto-backlinks-buffer t)
 
 
+;; 反链侧边栏太宽 —— 覆盖默认宽度。
+;;
+;; Doom 的 contrib/roam.el 里写死了 `:side right, :width 0.33'，也就是帧宽的
+;; 33%，屏幕越宽它越胖。`set-popup-rule!' 是 push 到 `+popup--display-buffer-alist'
+;; 队首，而 `display-buffer-alist' 先匹配先赢，所以这里后定义的规则会盖掉模块自带的。
+;;
+;; 其余参数（`:height :ttl :modeline :quit :slot'）必须原样抄一遍，否则会退回默认值。
+;;
+;; `:width' 传小数是帧宽比例，传整数则是固定的字符列数。宽屏下固定列数更稳，
+;; 比如 `:width 72' 就是恒定 72 列 —— 嫌比例缩放的可以换成整数。
+(after! org-roam
+  (set-popup-rule! "^\\*org-roam\\*$"
+    :side 'right :width 0.22 :height 0.5 :ttl nil :modeline nil :quit nil :slot 1))
+
+
 ;; ============================================================
 ;; 表格视觉对齐（valign）—— 按需触发，不常驻
 ;; ============================================================
