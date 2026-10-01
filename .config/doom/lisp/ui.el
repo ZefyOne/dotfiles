@@ -58,8 +58,12 @@
 ;; line-spacing 是 buffer-local 变量，所以必须用 setq-default 才全局生效。
 ;; 另外它只在图形界面生效，终端里跑 `emacs -nw' 不会有变化。
 ;;
-;; 想只给正文加行距、代码模式保持紧凑，就删掉下面这行改成：
-(add-hook! (org-mode markdown-mode text-mode) (setq-local line-spacing 0.6))
+;; 只给正文加行距，代码模式保持紧凑。
+;; novel-mode 是小说的专用模式（定义在 novel.el）。
+;; text-mode 不在列表里是有意的：它是所有这些模式的共同祖先，hook 会在
+;; 派生模式里一起跑，而系统里有 65+ 个机器生成的 .txt（requirements.txt、
+;; 输入法词库、paste-cache）不需要这个行距。
+(add-hook! (org-mode markdown-mode novel-mode) (setq-local line-spacing 0.6))
 ;; (setq-default line-spacing 0.2)
 
 
