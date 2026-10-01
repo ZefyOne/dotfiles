@@ -217,6 +217,50 @@
     :side 'right :width 0.22 :height 0.5 :ttl nil :modeline nil :quit nil :slot 1))
 
 
+;; 从反链面板跳转时，不要另开一个窗格。
+;;
+;; 症状：在右侧反链里按 RET 打开一张卡片，卡片会在主窗格**下面**多出一个窗格，
+;; 而不是像普通切换缓冲区那样直接替换主窗格的内容。
+;;
+;; 原因是一条三步链条：
+;;   1. 反链里的 RET 经 `org-roam-buffer-visit-thing' 派发到 `org-roam-node-visit'
+;;      （org-roam-mode.el:167 / :359）
+;;   2. `org-roam-node-visit' 固定用 `pop-to-buffer-same-window' 来显示
+;;      （org-roam-node.el:489）
+;;   3. 但侧边栏是 Doom 的 popup 窗口，`+popup--init' 把它设成了 dedicated
+;;      （popup.el:160）；而 `pop-to-buffer-same-window' 拒绝在 dedicated 窗口里
+;;      显示，于是失败并回退成「新开一个窗口」。又因为 `+popup--split-window'
+;;      只在非 popup 窗口上切分（popup.el:128），新窗口就落在主区域下方。
+;;
+;; 所以换键位解决不了（`C-u RET' 走 `switch-to-buffer-other-window'，照样切分）。
+;; 这里的做法是：只在 popup 里跳转时，先把光标切到主窗口，再让 org-roam 原来那套
+;; 逻辑照常跑 —— 此时当前窗口不再是 dedicated，就会正常原地替换。
+;;
+;; 三个命令都要 advice：反链条目、反链下方的预览块、未链接引用走的是三个不同的
+;; 函数（org-roam-mode.el:424 / :608），漏掉的话点预览仍然会多开窗格。
+;;
+;; `+popup-window-p' 判断保证只在 popup 里生效，普通窗口中的跳转行为完全不变。
+(after! org-roam
+  (defun +org-roam--main-window ()
+    "返回当前 frame 里第一个非 popup 窗口，也就是主窗格。"
+    (seq-find (lambda (win) (not (+popup-window-p win)))
+              (window-list nil 'no-minibuf)))
+
+  (defun +org-roam--visit-from-popup-a (fn &rest args)
+    "从反链侧边栏跳转时，先在主窗口里显示，而不是另开一个窗格。"
+    (let ((main (and (+popup-window-p (selected-window))
+                     (+org-roam--main-window))))
+      (when main (select-window main))
+      (apply fn args)))
+
+  ;; `advice-member-p' 判断是为了让 `doom/reload' 反复执行时不会重复叠加 advice。
+  (dolist (cmd '(org-roam-node-visit      ; 反链条目
+                 org-roam-preview-visit   ; 反链下方的预览块
+                 org-roam-grep-visit))    ; 未链接引用 / grep 结果
+    (unless (advice-member-p #'+org-roam--visit-from-popup-a cmd)
+      (advice-add cmd :around #'+org-roam--visit-from-popup-a))))
+
+
 ;; ============================================================
 ;; 表格视觉对齐（valign）—— 按需触发，不常驻
 ;; ============================================================
