@@ -124,6 +124,21 @@ buffer，change 钩子一次都不会触发，缓存无从更新。"
   (when (apply #'derived-mode-p +rime/prose-modes)
     (activate-input-method "rime")))
 
+(declare-function rime-lib-set-option "librime-emacs" (name value))
+
+(defun +rime/force-ascii-punctuation (&rest _)
+  "让 Emacs 侧的 rime 默认使用英文标点。
+
+fcitx5 与 Emacs 共用同一份 rime 配置（`~/.config/doom/rime' 软链到 fcitx5
+的用户目录），但 librime 的 option 存在 context 里，两个进程各持一份，所以
+这里只动 Emacs 进程内的状态，系统输入法不受影响。
+
+之所以直接设 option 而不走方案文件里那条 `toggle: ascii_punct'：rime.el 的
+`rime-input-method' 把 modifier mask 写死成 0，`C-.' 送不进 librime 的
+key_binder，改按键映射也没用。"
+  (when (fboundp 'rime-lib-set-option)
+    (rime-lib-set-option "ascii_punct" t)))
+
 (use-package! rime
   :demand t                  ; 关键:确保 rime 加载并注册输入法
   :custom
@@ -143,6 +158,9 @@ buffer，change 钩子一次都不会触发，缓存无从更新。"
    '("C-f" "C-b" "C-g"
      "<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
   :config
+  ;; `rime-activate' 内部先 `rime-lib-start' 再 `rime-mode 1'，所以 :after 跑
+  ;; 的时候 engine 已经就绪。每次激活都设一遍，幂等。
+  (advice-add 'rime-activate :after #'+rime/force-ascii-punctuation)
   (add-hook 'after-change-major-mode-hook #'+rime/activate-in-prose-buffer))
 
 (use-package! isearch-mb
