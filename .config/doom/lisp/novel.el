@@ -79,6 +79,7 @@
 (add-hook! novel-mode
   (setq-local line-prefix novel-indent)   ; 首行缩进两格
   (ruled-lines-mode +1)                   ; 稿纸线（定义在 ui.el）
+  (writeroom-mode +1)                     ; 专注模式，F7 手动切的就是它
   (display-line-numbers-mode -1))         ; 稿纸视图不要行号，见下
 
 ;; 软换行不在这里开：Doom 核心给所有 text 派生模式都挂了 visual-line-mode
@@ -89,6 +90,12 @@
 ;; 顺序上没问题 —— text-mode-hook 属于 delayed-mode-hooks 先跑，我们的 -1 后落实。
 ;;
 ;; 行距不在这里设 —— ui.el 的「行间距」一节统一管，列表里有 novel-mode。
+;;
+;; 专注模式：F7 那个快捷键挂的是 `+zen/toggle'，Doom 里它只是
+;; `writeroom-mode' 的别名（keymaps.el:37），而那是个 buffer-local 的
+;; minor mode，所以直接挂 hook 就行。Doom 的 zen 模块把「随专注模式一起
+;; 开 text-scale / mixed-pitch」挂在 writeroom-mode-hook 上，自动开和
+;; 手动按 F7 效果一致；打开后照样能按 F7 关掉。
 
 
 ;; ============================================================

@@ -22,7 +22,9 @@
 ;; (setq doom-theme 'doom-flatwhite)
 ;; (setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-earl-grey)      ;; 淡白色主题
-(setq doom-theme 'poet)
+;; (setq doom-theme 'poet)                ;; 原来的米色主题，想换回去就取消注释
+
+(setq doom-theme 'everforest-hard-light)
 
 
 ;; ============================================================
@@ -61,8 +63,9 @@ centaur-tabs 渲染在内置的 `tab-line' face 上,而几乎没主题会覆盖�
         (let* ((dark-p (< (apply #'+ (color-name-to-rgb bg)) 1.5))
                (toward (if dark-p "#ffffff" "#000000"))
                (bar    (my/--mix bg toward 0.06))  ; 标签栏底:比编辑区深/亮一档
-               (sel    (my/--mix fg bg 0.15))      ; 当前标签的文字
-               (dim    (my/--mix fg bg 0.45)))     ; 其余标签的文字,淡一些
+               (sel    (my/--mix fg bg 0.35))      ; 当前标签的文字
+               (dim    (my/--mix fg bg 0.45))      ; 其余标签的文字,淡一些
+               (mark   (my/--mix fg bg 0.15)))     ; 修改标记,比名字实一点才看得见
           (set-face-attribute 'tab-line nil :background bar :foreground dim)
           ;; centaur-tabs 自己那套 face 也得跟上,否则修改标记、关闭按钮会一直
           ;; 用包里写死的深色(#31343E / #3D3C3D),和主题底色打架。
@@ -71,7 +74,7 @@ centaur-tabs 渲染在内置的 `tab-line' face 上,而几乎没主题会覆盖�
                           (centaur-tabs-unselected-modified        (:background ,bar :foreground ,dim))
                           (centaur-tabs-selected                   (:background ,bar :foreground ,sel :weight bold))
                           (centaur-tabs-selected-modified          (:background ,bar :foreground ,sel :weight bold))
-                          (centaur-tabs-modified-marker-selected   (:background ,bar :foreground ,sel))
+                          (centaur-tabs-modified-marker-selected   (:background ,bar :foreground ,mark))
                           (centaur-tabs-modified-marker-unselected (:background ,bar :foreground ,dim))
                           (centaur-tabs-close-selected             (:background ,bar :foreground ,sel))
                           (centaur-tabs-close-unselected           (:background ,bar :foreground ,dim))))

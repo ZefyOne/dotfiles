@@ -69,3 +69,35 @@
 
 (package! poet-theme
   :recipe (:host github :repo "kunalb/poet"))
+
+;; Everforest 主题 —— MELPA 上没有（已核对 melpa.org 全量包名 6324 个，只有
+;; calmer-forest-theme / forest-blue-theme），所以必须走 Git recipe，不能裸写
+;; (package! everforest)。
+;;
+;; 注意这不是 sainnhe 的官方版：官方只做了 Vim/Neovim 和 VS Code（后者也已停更），
+;; Emacs 侧一直是第三方移植 —— 官方 wiki 的 related projects 里也是把 Emacs 和
+;; Doom Emacs 两个端口都归在第三方名下。这个是其中唯一还在维护的；另一个
+;; Cardoso1994/doom-everforest-theme 有 soft/medium 对比度，但 2022-12 后停更。
+;;
+;; sr.ht 是该移植项目自己的主仓库，codeberg 是镜像，两个都能 git ls-remote 通。
+;;
+;; :files 把 everforest.el 排除在构建目录外，这是必须的 —— 上游那个文件第 25
+;; 行有个 `;;;###autoload' cookie，但它后面除了注释什么都没有（本该被标注的
+;; 代码被作者注释掉了）。Emacs 的 loaddefs 生成器读到 cookie 会去 read 下一个
+;; 表达式，直接撞上文件尾，于是 doom sync 报：
+;;
+;;   ("everforest" (end-of-file #<killed buffer>))
+;;
+;; 三个文件里只有 everforest.el 这个是坏的：两个 *-theme.el 的同名 cookie 后面
+;; 跟着真实代码，作用是自注册 custom-theme-load-path。所以只要把这个坏文件剔出
+;; 构建目录，autoloads 就能正常生成，主题也就能像 poet 一样被自动找到 ——
+;; 不需要在 config 里手动 add-to-list（那反而要引用 straight 内部变量，
+;; 而 straight-base-dir 在 config.el 执行时还没绑定）。
+;;
+;; 显式列出两个文件而不是用 (:defaults (:exclude ...))：语义最明确，不依赖
+;; :defaults 的拼接规则。代价是将来上游加了 soft/medium 的新主题文件，这里要
+;; 手动补上。
+(package! everforest
+  :recipe (:repo "https://git.sr.ht/~theorytoe/everforest-theme"
+           :files ("everforest-hard-dark-theme.el"
+                   "everforest-hard-light-theme.el")))

@@ -26,7 +26,17 @@
 
 
 ;; 设置行间距，三种特定文件下，行间距为0.6倍
-(add-hook! (org-mode markdown-mode novel-mode) (setq-local line-spacing 0.6))
+;; 写成 cons 把间距全部放到文字「上方」：行与行之间的视觉间距不变，
+;; 但 hbar 光标（贴行底）就不会掉进行距里，行尾也不会变高。
+;; 注意 cons 两边类型必须一致，写成 (0.6 . 0) 会被当成非法值、行距直接变 0
+;;
+;; :depth -10 是为了抢在 novel.el 那个 hook 之前跑（Doom 的 add-hook! 默认
+;; prepend，加载顺序和作用顺序相反）。novel.el 里会开 writeroom，而 writeroom
+;; 把 line-spacing 列进 writeroom--local-variables 代管：启用时记下当时的值，
+;; 停用（F7）时按记录恢复 —— 记的是裸符号就 kill-local-variable。要是我们设晚
+;; 了，它记的就是裸符号，F7 一关就把这份局部行距清掉，且不会自己回来。
+(add-hook! (org-mode markdown-mode novel-mode) :depth -10
+  (setq-local line-spacing '(0.6 . 0.0)))
 ;; (setq-default line-spacing 0.2)
 
 

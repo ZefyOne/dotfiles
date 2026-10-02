@@ -5,7 +5,7 @@
 ;; options属性
 ;; ============================================================
 (setq display-line-numbers-type t)            ; 行号样式，nil关闭行号，relative相对行号
-; (setq evil-insert-state-cursor '(hbar . 2))   ; 横线光标
+(after! evil (setq evil-insert-state-cursor '(hbar . 2)))  ; 插入态横线光标：只按行底定位，不受 line-spacing 影响（bar/box 都会被撑长）
 (remove-hook 'doom-first-input-hook #'global-hl-line-mode)  ; 关闭光标行高亮
 
 ;; ============================================================
