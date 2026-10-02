@@ -25,44 +25,7 @@
 
 
 
-
-;; Doom 提供五个（可选的）变量来控制字体：
-;;
-;; - `doom-font' -- 使用的主字体
-;; - `doom-variable-pitch-font' -- 非等宽字体（在适用的场景下）
-;; - `doom-big-font' -- 供 `doom-big-font-mode' 使用；适合做演示或直播时用
-;; - `doom-symbol-font' -- 用于符号
-;; - `doom-serif-font' -- 用于 `fixed-pitch-serif' face
-;;
-;; 用 'C-h v doom-font' 查看文档以及更多可接受取值的示例。例如：
-;;
-;; (setq doom-font (font-spec :family "Fira Code" :size 21 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; 如果你或 Emacs 找不到字体，可以用 'M-x describe-font' 查一下，
-;; 用 `M-x eval-region' 执行 elisp 代码，用 'M-x doom/reload-font' 刷新字体设置。
-;; 如果 Emacs 还是找不到字体，那多半是字体没装好。字体问题很少是 Doom 的问题！
-
-
-;; ============================================================
-;; 行间距
-;; ============================================================
-;; 注意这不是行高：行高由上面 doom-font 的 :size 决定，
-;; 这里控制的是行与行之间额外插入的空白。
-
-;; 取值形式：
-;;   浮点  0.2          → 相对行高的比例，跟着字号缩放
-;;   整数  4            → 绝对像素，加在每行下方
-;;   cons  '(0.1 . 0.1) → 分别指定行上方 / 下方的空间
-;;
-;; line-spacing 是 buffer-local 变量，所以必须用 setq-default 才全局生效。
-;; 另外它只在图形界面生效，终端里跑 `emacs -nw' 不会有变化。
-;;
-;; 只给正文加行距，代码模式保持紧凑。
-;; novel-mode 是小说的专用模式（定义在 novel.el）。
-;; text-mode 不在列表里是有意的：它是所有这些模式的共同祖先，hook 会在
-;; 派生模式里一起跑，而系统里有 65+ 个机器生成的 .txt（requirements.txt、
-;; 输入法词库、paste-cache）不需要这个行距。
+;; 设置行间距，三种特定文件下，行间距为0.6倍
 (add-hook! (org-mode markdown-mode novel-mode) (setq-local line-spacing 0.6))
 ;; (setq-default line-spacing 0.2)
 
@@ -70,25 +33,6 @@
 ;; ============================================================
 ;; 稿纸线（每行下方一条虚线）
 ;; ============================================================
-;; 用 M-x ruled-lines-mode 手动开关。
-;;
-;; 两个要素：
-;;   :style dashes  → 虚线样式，也可换 line / dots / wave
-;;   :extend t      → 让线延伸到窗口右边缘，横贯整行；
-;;                    去掉就只有文字底下有线段
-;;
-;; 线的垂直位置由 underline-minimum-offset 控制（基线下方多少像素），
-;; 这个值必须是 buffer-local 设置的，1:1 对应像素。
-;;
-;; 颜色取了 doom-earl-grey 自带的 shadow 色，比中性灰更贴合暖色调。
-;; 由浅到深： #c8c8c8（中性灰）→ #AEABA6（主题 fringe）
-;;           → #9E9A95（主题 shadow，当前）→ #7A756D（接近正文字色）
-;;
-;; 不要动 x-underline-at-descent-line。它会把线推到行的最底部，
-;; 并且额外叠加 line-spacing 的像素 —— 文档里那句 "moves the underline
-;; lower by that many pixels" 是真的。后果是虚线紧贴下一行文字的顶部，
-;; 看着离上一行很远、离下一行很近。保持默认 nil 即可。
-
 (defvar ruled-lines-offset 15
   "稿纸线画在基线下方的像素数。改大往下移，改小往上移。")
 

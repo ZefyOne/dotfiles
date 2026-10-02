@@ -5,8 +5,8 @@
 ;; options属性
 ;; ============================================================
 (setq display-line-numbers-type t)            ; 行号样式，nil关闭行号，relative相对行号
-(setq evil-insert-state-cursor '(hbar . 2))   ; 横线光标
-
+; (setq evil-insert-state-cursor '(hbar . 2))   ; 横线光标
+(remove-hook 'doom-first-input-hook #'global-hl-line-mode)  ; 关闭光标行高亮
 
 ;; ============================================================
 ;; 中文软换行

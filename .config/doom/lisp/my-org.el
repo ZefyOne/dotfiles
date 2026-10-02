@@ -21,38 +21,11 @@
 (setq org-directory "~/org/")
 
 
-;; ============================================================
 ;; org-roam —— 卡片盒
-;; ============================================================
-;; 需要在 init.el 里开 (org +pretty +roam)，否则这段不生效。
-;;
-;; Doom 的 contrib/roam.el 已经替我们处理了：
-;;   - 数据库自动同步（org-roam-db-autosync-mode）、延迟建库
-;;   - 反链缓冲区、弹出规则、候选模板
-;; 它唯一留给用户的设置就是下面这个目录。
-;;
-;; 必须在 org-roam 加载之前设好，所以放顶层，不要包进 after!。
-;; （config.el 开头那条"目录类变量是例外"说的就是这种情况）
 (setq org-roam-directory (expand-file-name "~/Documents/zettelkasten/"))
 
 
-;; ----------------------------------------
 ;; 闪念笔记落点：inbox.org
-;; ----------------------------------------
-;; 复用 Doom 自己的 "n"（Personal notes）模板，它的形状正好合适：
-;;
-;;   ("n" "Personal notes" entry
-;;    (file+headline +org-capture-notes-file "Inbox")
-;;    "* %u %?\n%i\n%a" :prepend t)
-;;
-;;   %u  时间戳        %?  光标落点
-;;   %i  初始内容      %a  注解：自动记下你捕获时所在的位置
-;;
-;; `%a' 是关键——在卡片里按 SPC n n n，新条目末尾会自动带上指向那张卡的
-;; 链接，日后处理闪念时知道它从哪来的。
-;;
-;; 模板里存的是 `+org-capture-notes-file' 这个**符号**而不是它的值，
-;; capture 时才求值，所以在这里改指向就行，不用动模板本身。
 (setq +org-capture-notes-file
       (expand-file-name "~/Documents/zettelkasten/inbox.org"))
 
@@ -64,25 +37,7 @@
   (find-file +org-capture-notes-file))
 
 
-;; ----------------------------------------
 ;; 网状图：org-roam-ui
-;; ----------------------------------------
-;; 浏览器里的力导向图，观感对标 Obsidian 的 graph view —— 2D 模式画的就是
-;; **圆点**，节点大小随链接数变化，标签在缩小时淡出。另有一个 3D 模式。
-;;
-;; 它和 Emacs 之间是双向的：在这边切卡片，图上跟着高亮居中（`org-roam-ui-follow'）；
-;; 在图里点节点，直接在 Emacs 里打开那个文件，而不是在浏览器里预览。
-;; 服务默认地址 http://127.0.0.1:35901/ （`org-roam-ui-port'）。
-;;
-;; 面板里最该动的几项：
-;;   Filter → Directory filters —— 黑白名单，可以直接把 literature/ 滤掉，
-;;                                 只看永久笔记之间那张网
-;;   Filter → Tag colors        —— 按标签给节点上色
-;;   Filter → Orphans           —— 孤立节点显隐
-;;   Visual → Node degree size multiplier / Label dynamicity —— 调观感
-;;
-;; 这里**故意不挂 after-init**：起服务 + 查一次数据库会明显拖慢启动，而这个图
-;; 不是每天都要看的东西（日常的"网络感"靠反链缓冲区就够）。用 SPC n g 按需起。
 (use-package! org-roam-ui
   :after org-roam
   :config

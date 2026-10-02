@@ -66,3 +66,6 @@
 ;; org-roam 钉回更老的版本，导致图里引用链接那块静默降级。
 (unpin! org-roam)
 (package! org-roam-ui)
+
+(package! poet-theme
+  :recipe (:host github :repo "kunalb/poet"))
