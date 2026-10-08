@@ -160,7 +160,7 @@ key_binder，改按键映射也没用。"
   :config
   ;; `rime-activate' 内部先 `rime-lib-start' 再 `rime-mode 1'，所以 :after 跑
   ;; 的时候 engine 已经就绪。每次激活都设一遍，幂等。
-  (advice-add 'rime-activate :after #'+rime/force-ascii-punctuation)
+  ;; (advice-add 'rime-activate :after #'+rime/force-ascii-punctuation)
   (add-hook 'after-change-major-mode-hook #'+rime/activate-in-prose-buffer))
 
 (use-package! isearch-mb

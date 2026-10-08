@@ -22,9 +22,9 @@
 ;; (setq doom-theme 'doom-flatwhite)
 ;; (setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-earl-grey)      ;; 淡白色主题
-;; (setq doom-theme 'poet)                ;; 原来的米色主题，想换回去就取消注释
+(setq doom-theme 'poet)                ;; 原来的米色主题，想换回去就取消注释
 
-(setq doom-theme 'everforest-hard-light)
+;; (setq doom-theme 'everforest-hard-light)
 
 
 ;; ============================================================
