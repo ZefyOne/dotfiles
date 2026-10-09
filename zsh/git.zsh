@@ -9,6 +9,7 @@ typeset -ga repos=(
   script    "$HOME/Documents/Script"           "gitee"
   know      "$HOME/Documents/KnowledgeSystem"  "gitee github"
   novel     "$HOME/Documents/Novel"            "gitee"
+  zettelkasten  "$HOME/Documents/zettelkasten" "gitee"
 )
 
 # 按别名查路径 / 远程标记(找不到返回 1)

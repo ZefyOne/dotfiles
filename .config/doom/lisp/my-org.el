@@ -118,7 +118,7 @@
 ;; 目录要先存在，org-capture 不会替你创建父目录。
 (after! org-roam
   (setq org-roam-capture-templates
-        `(("d" "永久笔记" plain "%?"
+        `(("p" "永久笔记" plain "%?"
            :target (file+head "permanent/${slug}.org"
                               ":PROPERTIES:
 :ID: ${id}
@@ -136,6 +136,17 @@
 :CREATED: %<%Y-%m-%d>
 :SOURCE:
 :LOC:
+:END:
+#+title: ${title}
+#+filetags:
+")
+           :unnarrowed t)
+          ("r" "参考笔记" plain "%?"
+           :target (file+head "refs/${slug}.org"
+                              ":PROPERTIES:
+:ID: ${id}
+:CREATED: %<%Y-%m-%d>
+:SOURCE:
 :END:
 #+title: ${title}
 #+filetags:
