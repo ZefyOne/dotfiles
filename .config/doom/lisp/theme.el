@@ -23,7 +23,8 @@
 ;; (setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-earl-grey)      ;; 淡白色主题
 ;; (setq doom-theme 'poet)                ;; 原来的米色主题，想换回去就取消注释
-(setq doom-theme 'doom-solarized-light)
+;; (setq doom-theme 'doom-solarized-light)  ;; 象牙白，想换回去就取消注释
+(setq doom-theme 'organic-green)           ;; 浅绿底护眼主题（#F0FFF0）
 
 ;; (setq doom-theme 'everforest-hard-light)
 

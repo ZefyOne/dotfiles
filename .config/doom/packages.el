@@ -101,3 +101,12 @@
   :recipe (:repo "https://git.sr.ht/~theorytoe/everforest-theme"
            :files ("everforest-hard-dark-theme.el"
                    "everforest-hard-light-theme.el")))
+
+;; 浅绿底的护眼主题。MELPA 上名字或描述含 green 的主题一共 8 个，其余 7 个
+;; （naga / green-screen / vegetative / chyla-dark / metalheart /
+;; green-is-the-new-black / laguna）全是深绿乃至近黑的复古 CRT 风，
+;; 浅绿底的只此一个，所以裸写 (package! organic-green-theme) 即可。
+;;
+;; 底色 #F0FFF0（Honeydew 淡水绿），比豆沙绿 #C7EDCC 淡得多，接近白。
+;; 2014 年建仓，一直在维护（2026-10 仍在推代码）。主题符号名是 `organic-green'。
+(package! organic-green-theme)
