@@ -81,8 +81,8 @@
        ;;eshell            ; 到处都能用的 elisp shell
        ;;shell             ; Emacs 的简单 shell REPL
        ;;term              ; Emacs 的基础终端模拟器
-       vterm             ; 几乎是 Emacs 里最好的终端模拟
-       ;;ghostel           ; Emacs 里最好的终端模拟
+       ;;vterm             ; 几乎是 Emacs 里最好的终端模拟
+       ghostel            ; Emacs 里最好的终端模拟
 
        :checkers
        syntax              ; 你每忘掉一个分号就抽你一下

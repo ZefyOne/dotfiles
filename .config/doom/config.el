@@ -48,3 +48,4 @@
 (load! "lisp/novel.el")         ; 小说模式（.nov）
 (load! "lisp/writing.el")       ; 写作
 (load! "lisp/keymaps.el")       ; 全局快捷键
+(load! "lisp/term.el")          ; 终端

@@ -83,3 +83,13 @@
       :i "C-k" nil
       :i "C-h" nil
       :i "C-l" nil)
+
+
+;; ============================================================
+;; M-w 关闭光标所在的缓冲区
+;; ============================================================
+;; 顶掉的是 Emacs 原生的 `kill-ring-save'（复制），Doom 里复制用 y 即可。
+;; `kill-current-buffer' 被 Doom 挂了 advice（doom-emacs.el:1061-1070）：
+;; fallback buffer（*doom*）拒绝关闭、dedicated window 里连窗一起删、
+;; 关掉后没有真实 buffer 时自动切回 fallback buffer、有未保存改动会询问。
+(map! :nvm "M-w" #'kill-current-buffer)
