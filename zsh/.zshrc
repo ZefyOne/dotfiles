@@ -39,4 +39,7 @@ source $ZDOTDIR/splash.zsh
 # mywine：用独立 wine 环境运行 Windows 程序
 source $ZDOTDIR/wine.zsh
 
+# Claude Code 环境清理（ghostel 里不写历史记录的问题）
+source $ZDOTDIR/claude.zsh
+
 proxyon
