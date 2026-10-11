@@ -39,6 +39,9 @@ source $ZDOTDIR/splash.zsh
 # mywine：用独立 wine 环境运行 Windows 程序
 source $ZDOTDIR/wine.zsh
 
+# 游戏一键启动器（play），没有该文件就跳过
+[[ -f $ZDOTDIR/games.zsh ]] && source $ZDOTDIR/games.zsh
+
 # Claude Code 环境清理（ghostel 里不写历史记录的问题）
 source $ZDOTDIR/claude.zsh
 
