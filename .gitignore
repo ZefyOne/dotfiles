@@ -11,7 +11,7 @@ obsidianConfig/workspace-mobile.json
 obsidianConfig/plugins/realclaudian/data.json
 
 # zsh auto-generated completion cache
-zsh/.zcompdump*
+.zcompdump*
 zsh/games.zsh
 
 # doom: symlink target is a machine-specific absolute path
