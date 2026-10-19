@@ -29,14 +29,23 @@
       :i "C-k"   #'+insert-kill-to-line-end
       :i "C-j"   #'newline
       :i "C-h"   #'delete-backward-char
-      :i "C-y"   #'yank
-      :i "C-M-n" #'centaur-tabs-forward
-      :i "C-M-p" #'centaur-tabs-backward)
+      :i "C-y"   #'yank)
 
 ;; n模式快捷键
 (map! :n "<f7>" #'+zen/toggle                   ; f7切换专注模式
       :n "H" #'+tabs:previous-or-goto           ; 上一个标签
       :n "L" #'+tabs:next-or-goto)              ; 下一个标签
+
+
+;; ============================================================
+;; C-M-n / C-M-p 切换缓冲区（不是标签页）
+;; ============================================================
+;; 绑到 general-override-mode-map：优先级高于 evil 各状态键位图、
+;; evil 辅助键位图（corfu-mode-map、evil-org-mode-map 等）以及所有 major mode 键位图。
+;; 状态字母：n normal, v visual, i insert, e emacs, m motion, o operator, r replace
+(map! :map override
+      :nviemor "C-M-n" #'next-buffer
+      :nviemor "C-M-p" #'previous-buffer)
 
 
 ;; ============================================================
