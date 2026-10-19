@@ -1,0 +1,220 @@
+#!/usr/bin/env bash
+#
+# btrfs-rollback —— 把某个 btrfs 快照固化成当前根子卷
+#
+# 为什么不用 `snapper rollback`：
+#   本机 GRUB 和 fstab 都显式指定 subvol=@，而 snapper rollback 依赖 btrfs
+#   "默认子卷" 机制，两者冲突，无法生效。
+#   详见 /home/zefy/arch-disaster-recovery.md §8.1
+#
+# 用法：
+#   sudo /home/zefy/bin/btrfs-rollback -l         列出所有可用快照
+#   sudo /home/zefy/bin/btrfs-rollback -n <编号>  演练：只显示会做什么
+#   sudo /home/zefy/bin/btrfs-rollback <编号>     回滚到该快照
+#
+# ⚠️ 必须从"由快照启动的系统"里运行 —— 不能在正常的 @ 里运行。
+#    因为脚本要改名 @，而你无法一边运行在 @ 上一边改名它。
+#
+# 放在 /home 而不是 /usr/local/bin 的原因：
+#   快照是只读子卷，从快照启动时 /usr/local/bin 不可写、且内容随快照而变。
+#   /home 是独立 ext4 分区，无论从哪个快照启动都同一个、且始终可写。
+
+set -euo pipefail
+
+PROG="${0##*/}"
+SELF="$0"
+
+die()  { printf '\033[31m✗ %s\033[0m\n' "$*" >&2; exit 1; }
+info() { printf '\033[36m:: %s\033[0m\n' "$*"; }
+ok()   { printf '\033[32m✓ %s\033[0m\n' "$*"; }
+warn() { printf '\033[33m! %s\033[0m\n' "$*"; }
+
+usage() {
+  cat <<EOF
+用法：
+  sudo $SELF -l          列出所有可用快照
+  sudo $SELF -n <编号>   演练：只显示会做什么，不实际执行
+  sudo $SELF <编号>      回滚到该快照
+
+⚠️ 必须先重启进一个快照（GRUB → Arch Linux snapshots），再运行本脚本。
+EOF
+  exit "${1:-0}"
+}
+
+# ─────────────────────────── 参数 ───────────────────────────
+DRY=0; LIST=0; NUM=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -h|--help)    usage 0 ;;
+    -l|--list)    LIST=1; shift ;;
+    -n|--dry-run) DRY=1;  shift ;;
+    -*)           die "未知参数：$1（-h 看用法）" ;;
+    *)            [ -z "$NUM" ] || die "只接受一个编号"
+                  NUM="$1"; shift ;;
+  esac
+done
+
+[ "$(id -u)" -eq 0 ] || die "需要 root 权限：sudo $SELF ..."
+
+# ─────────────────────── 识别根设备与子卷 ───────────────────────
+ROOTSRC="$(findmnt -no SOURCE /)"
+DEV="${ROOTSRC%%[*}"
+SUBVOL="${ROOTSRC#*[}"; SUBVOL="${SUBVOL%]}"
+
+[ -b "$DEV" ] || die "无法确定根设备（SOURCE=$ROOTSRC）"
+[ "$(blkid -s TYPE -o value "$DEV" 2>/dev/null)" = "btrfs" ] \
+  || die "$DEV 不是 btrfs 文件系统"
+
+info "根设备     ：$DEV"
+info "当前根子卷 ：$SUBVOL"
+
+# ─────────────────────────── 挂顶层 ───────────────────────────
+TOP=/run/btrfs-rollback-top
+STARTED=0; DONE=0
+
+cleanup() {
+  if [ "$STARTED" -eq 1 ] && [ "$DONE" -ne 1 ]; then
+    printf '\n\033[31m⚠  操作中断，系统可能处于中间状态！\033[0m\n'
+    printf '   补救办法（从 U 盘 live 环境）：\n'
+    printf '     sudo mount -o subvolid=5 %s /mnt\n' "$DEV"
+    printf '     ls /mnt/          # 看 @  @.broken  @snapshots-tmp 各在哪\n'
+    printf '   目标：让 /mnt/@ 是想要的系统，/mnt/@/.snapshots 是快照仓库\n\n'
+  fi
+  if mountpoint -q "$TOP" 2>/dev/null; then umount "$TOP" 2>/dev/null || true; fi
+  rmdir "$TOP" 2>/dev/null || true
+}
+trap cleanup EXIT
+
+mkdir -p "$TOP"
+mount -o subvolid=5 "$DEV" "$TOP" || die "挂载 btrfs 顶层失败"
+
+[ -d "$TOP/@" ]            || die "$TOP/@ 不存在 —— 布局与预期不符"
+[ -d "$TOP/@/.snapshots" ] || die "$TOP/@/.snapshots 不存在 —— 布局与预期不符"
+
+SNAP_TOP="$TOP/@/.snapshots"
+TMP_TOP="$TOP/@snapshots-tmp"
+
+# info.xml 里存的是 UTC，转成本地时间
+snap_time() {
+  local raw
+  raw="$(sed -n 's:.*<date>\([^<]*\)</date>.*:\1:p' "$1" 2>/dev/null)"
+  [ -n "$raw" ] || { echo "?"; return; }
+  date -d "$raw UTC" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || echo "$raw"
+}
+snap_desc() { sed -n 's:.*<description>\([^<]*\)</description>.*:\1:p' "$1" 2>/dev/null || true; }
+
+# ─────────────────────────── -l 列快照 ───────────────────────────
+if [ "$LIST" -eq 1 ]; then
+  printf '\n%-6s %-21s %s\n' "编号" "本地时间" "描述"
+  printf '─────────────────────────────────────────────────────────────\n'
+  found=0
+  for n in $(ls "$SNAP_TOP" 2>/dev/null | grep -E '^[0-9]+$' | sort -n); do
+    f="$SNAP_TOP/$n/info.xml"; [ -f "$f" ] || continue
+    printf '%-6s %-21s %s\n' "$n" "$(snap_time "$f")" "$(snap_desc "$f")"
+    found=1
+  done
+  [ "$found" -eq 1 ] || warn "没有找到任何快照"
+  echo
+  exit 0
+fi
+
+# ─────────────────────────── 校验编号 ───────────────────────────
+[ -n "$NUM" ] || usage 1
+case "$NUM" in ''|*[!0-9]*) die "编号必须是数字：$NUM" ;; esac
+
+[ -d "$SNAP_TOP/$NUM/snapshot" ] || die "找不到快照 $NUM（用 $SELF -l 看看有哪些）"
+[ -e "$TMP_TOP" ] && die "$TMP_TOP 已存在 —— 请先手工清理再重试"
+
+# ─────────────────────── ★ 安全检查：必须在快照里 ───────────────────────
+case "$SUBVOL" in
+  *"/.snapshots/"*) ok "安全检查通过：当前运行在快照里" ;;
+  *)
+    die "当前根不是快照，而是「$SUBVOL」。
+
+  不能在正常系统里执行本脚本 —— 那会改名你正在运行的根子卷。
+
+  正确流程：
+    1. sudo reboot
+    2. GRUB 菜单 → \"Arch Linux snapshots\" → 选一个快照
+    3. 在那里运行： sudo $SELF $NUM" ;;
+esac
+
+# 旧根的备份名（避免覆盖上一次的）
+BROKEN="$TOP/@.broken"
+[ -e "$BROKEN" ] && BROKEN="$TOP/@.broken.$(date +%Y%m%d-%H%M%S)"
+
+# ─────────────────────────── 确认 ───────────────────────────
+cat <<EOF
+
+目标快照 $NUM
+  时间：$(snap_time "$SNAP_TOP/$NUM/info.xml")
+  描述：$(snap_desc "$SNAP_TOP/$NUM/info.xml")
+
+将要执行：
+  ① mv  @/.snapshots      →  @snapshots-tmp      （把仓库挪出 @）
+  ② mv  @                 →  $(basename "$BROKEN")     （旧根让路）
+  ③ btrfs subvolume snapshot  @snapshots-tmp/$NUM/snapshot  →  @
+  ④ mv  @snapshots-tmp    →  @/.snapshots        （仓库放回）
+
+旧的根保留为 $(basename "$BROKEN")，确认无误后再删。完成后需要重启。
+（顶层挂载点：$TOP）
+
+EOF
+
+if [ "$DRY" -eq 1 ]; then ok "演练模式 —— 未做任何改动。"; exit 0; fi
+
+printf '确认执行？输入 yes 继续：'
+read -r ans || ans=""
+[ "$ans" = "yes" ] || { echo "已取消。"; exit 0; }
+
+# ─────────────────────────── 执行 ───────────────────────────
+STARTED=1
+
+info "① 把快照仓库挪出 @ ……"
+mv "$SNAP_TOP" "$TMP_TOP"
+
+info "② 旧根让路 → $(basename "$BROKEN")"
+mv "$TOP/@" "$BROKEN"
+
+info "③ 从快照 $NUM 生成新根 ……"
+btrfs subvolume snapshot "$TMP_TOP/$NUM/snapshot" "$TOP/@" >/dev/null
+
+info "④ 把快照仓库放回新根 ……"
+# 新 @ 来自快照，里面自带一个【空的】.snapshots 挂载点目录。
+# 必须先删掉它，否则 mv 会把 "@snapshots-tmp" 理解成"移进该目录"
+# （即 @/.snapshots/@snapshots-tmp）而不是"改名为 .snapshots"，
+# 这种跨子卷的移动会被 btrfs 以 EPERM 拒绝。
+if [ -d "$TOP/@/.snapshots" ]; then
+  if rmdir "$TOP/@/.snapshots" 2>/dev/null; then
+    : # 空目录，已删除 —— 正常情况
+  else
+    STALE="$TOP/@.snapshots-stale.$(date +%Y%m%d-%H%M%S)"
+    mv "$TOP/@/.snapshots" "$STALE"
+    warn "新根里的 .snapshots 非空，已挪到 $(basename "$STALE")"
+  fi
+fi
+mv "$TMP_TOP" "$TOP/@/.snapshots"
+
+# 验证结果确实是子卷
+btrfs subvolume show "$TOP/@/.snapshots" >/dev/null 2>&1 \
+  || warn "⚠ @/.snapshots 看起来不是子卷 —— 重启前请手工检查！"
+
+DONE=1
+ok "回滚完成。"
+
+cat <<EOF
+
+下一步：重启
+    sudo reboot
+
+重启后验证：
+    findmnt -no SOURCE /            # 应显示 $DEV[/@]
+    sudo snapper -c root list       # 快照应该都在
+    df -h /
+
+确认一切正常后，删掉旧根：
+    sudo mount -o subvolid=5 $DEV /mnt
+    sudo btrfs subvolume delete /mnt/$(basename "$BROKEN")
+    sudo umount /mnt
+
+EOF
