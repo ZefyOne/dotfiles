@@ -93,6 +93,11 @@
       :i "C-h" nil
       :i "C-l" nil)
 
+;; org 里 RET 续写列表项
+(map! :after evil-org
+      :map evil-org-mode-map
+      :i "RET" (cmd! (if (org-in-item-p) (org-insert-item) (+org/return))))
+
 
 ;; ============================================================
 ;; M-w 关闭光标所在的缓冲区
