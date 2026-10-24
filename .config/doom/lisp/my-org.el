@@ -12,6 +12,9 @@
   :init
   (setq org-modern-star 'replace
         org-modern-replace-stars "◉○◈◇✳"
+        org-modern-list '((?- . "•")
+                          (?+ . "•")
+                          (?* . "•"))
         org-modern-table nil))
 
 
