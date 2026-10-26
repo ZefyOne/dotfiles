@@ -35,9 +35,6 @@ switches: # 0 默认关，1 默认开
   - name: simplification  #简转繁滤镜
     reset: 0
     states: [ 简中, 繁中 ]
-  - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
-    reset: 0
-    states: [ 有刻, 半刻, 无刻 ]
   - name: charset_comment_filter  #字符集提示
     reset: 0  
     states: [ U区关, U区开 ]
@@ -50,9 +47,6 @@ switches: # 0 默认关，1 默认开
   # - name: dz_ci  #过滤词组
   #   reset: 0
   #   states: [ 词组, 单字 ]
-  - options: [_keyboard_default, _keyboard_defaultzj]
-    reset: 0
-    states: [ 助记关, 助记开 ]
   # - name: fanjian  #繁转简滤镜
   #   reset: 0
   #   states: [ 反繁, 反简 ]
@@ -67,7 +61,6 @@ engine:
     - key_binder
     - speller
     - punctuator
-    - lua_processor@exe_processor #exe启动器
     - selector
     - navigator
     - express_editor #计算
@@ -90,6 +83,7 @@ engine:
     - lua_translator@number_translator # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
     - lua_translator@shijian2_translator # 高级时间
+    - lua_translator@exe_translator # 网页启动器（/bddu 等命令，确认后打开）
 
 
   filters:
@@ -126,7 +120,7 @@ translator:
   encode_commit_history: false
   # max_phrase_length: 4
   enable_user_dict: false
-  enable_completion: false	# 编码提示 true 开启  false 关闭
+  enable_completion: false # 编码提示 true 开启  false 关闭
   comment_format:  #提示码自定义
     - "xform/~/ /" #去掉编码提示前的~号
     # - "xform/^/ /" #提示前面 +间距

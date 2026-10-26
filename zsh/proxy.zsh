@@ -5,7 +5,7 @@ proxyon() {
   export http_proxy="$PROXY_HTTP"
   export https_proxy="$PROXY_HTTP"
   export all_proxy="$PROXY_HTTP"
-  export no_proxy="localhost,127.0.0.1,dl.google.com"
+  export no_proxy="localhost,127.0.0.1,dl.google.com,.local"
 }
 
 proxyoff() {

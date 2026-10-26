@@ -1,0 +1,175 @@
+#+TITLE: 虎码 Rime 方案功能说明
+#+DATE: 2026-10-26
+#+OPTIONS: toc:2 num:nil
+#+STARTUP: overview
+
+本文件是这套虎码 Rime 配置的功能清单，按「能干什么 / 怎么触发 / 想改改哪里」组织。
+
+* 环境与当前状态
+
+  | 项目        | 值                                              |
+  |-------------+-------------------------------------------------|
+  | 系统        | Arch Linux                                      |
+  | 输入法框架  | fcitx5 5.1.23 + fcitx5-rime 5.1.16              |
+  | Rime 核心   | librime 1.17.0（已启用 librime-lua）            |
+  | 用户目录    | ~/.local/share/fcitx5/rime                      |
+  | 当前方案    | 虎码官方词库（tigress）                         |
+  | 候选数量    | 9 个，标号 ①…⑨                                   |
+
+  说明：单字方案 ~tiger~ 目前被注释掉了（[[file:default.custom.yaml][default.custom.yaml]] 里 ~schema_list~ 的
+  ~# - {schema: tiger}~），文件都还在，删掉行首的 ~#~ 重新部署即可恢复。
+  中英切换交给 fcitx5（左 Shift 是 fcitx5 的「切换输入法」触发键），Rime 内不再处理 Shift。
+
+* 方案一览
+
+  | schema_id      | 名称           | 作用                       | 状态       |
+  |----------------+----------------+----------------------------+------------|
+  | ~tigress~      | 虎码官方词库   | 打词（单字 + 词）          | 启用       |
+  | ~tiger~        | 虎码官方单字   | 纯单字                     | 已注释     |
+  | ~PY_c~         | 拼音++         | 全拼输入 + 笔画反查        | 启用       |
+  | ~core2022~     | 常用字表       | 被「常用字」过滤使用       | 依赖，自动 |
+  | ~easy_english~ | 英文词库       | 临时英文（15 MB 词库）     | 依赖，自动 |
+  | ~stroke~       | 五笔画         | PY_c 的笔画反查            | 依赖，自动 |
+
+* 编码与候选
+
+  - 4 码上限；~;~ 和 ~'~ 也是码元（分别用于快符、重复上屏）
+  - 满 4 码后继续敲字母 → 自动清屏重来（~auto_clear: max_length~）
+  - ~;~ 引导的编码：候选唯一时自动上屏（~auto_select_pattern~）
+  - 不开用户词典（~enable_user_dict: false~）→ 不学词、不自动调频，候选顺序永远稳定
+  - 不喜欢 4 码上限/自动上屏，可改 schema 的 ~speller~ 段
+
+* 快捷键
+
+  | 按键                      | 作用                                |
+  |---------------------------+-------------------------------------|
+  | ~;~                       | 选第 2 个候选（次选）               |
+  | ~'~                       | 选第 3 个候选（三选）               |
+  | ~-~ / ~=~                 | 上一页 / 下一页                     |
+  | ↑ ↓ ← →                   | 在候选间移动焦点                    |
+  | ~Tab~                     | 清屏（等同 Esc）                    |
+  | ~[~ / ~]~ / ~z~ / ~'~     | 重复上屏（几个触发键优先级不同）    |
+  | ~Ctrl+`~ / ~Ctrl+F8~      | 方案选单（F4 已关闭）               |
+  | ~Ctrl+.~                  | 中英标点切换                        |
+  | ~Ctrl+O~                  | 简体 ↔ 繁体                         |
+  | ~Ctrl+P~                  | 拼音注释                            |
+  | ~Ctrl+I~                  | emoji 滤镜                          |
+  | ~Ctrl+U~                  | Unicode 分区名提示                  |
+  | ~Ctrl+Y~                  | U+ 码位提示                         |
+  | ~Ctrl+H~ / ~Ctrl+Shift+H~ | 全字集 ↔ 常用字                     |
+  | ~Ctrl+J~                  | 拆分（字根）显示                    |
+
+* 开关一览（方案选单里能看到、可用快捷键切）
+
+  | 开关名                   | 状态               | 快捷键      | 作用                              |
+  |--------------------------+--------------------+-------------+-----------------------------------|
+  | ~ascii_mode~             | 中文 / 西文        | 左 Shift    | 中英（由 fcitx5 控制）            |
+  | ~extended_char~          | 全集 / 常用        | Ctrl+H      | 默认「常用」，靠 core2022 过滤    |
+  | ~pinyin~                 | 拼 / pīn           | Ctrl+P      | 候选后加拼音                      |
+  | ~emoji_cn~               | 🈚 / 🈶              | Ctrl+I      | 表情滤镜                          |
+  | ~chaifen~                | 拆隐 / 拆显        | Ctrl+J      | 字根（拆分）注释                  |
+  | ~simplification~         | 简中 / 繁中        | Ctrl+O      | 简体 → 繁体                       |
+  | ~charset_comment_filter~ | U区关 / U区开      | Ctrl+U      | 显示「基本区」「表情符号」等      |
+  | ~udpf_switch~            | U编关 / U编开      | Ctrl+Y      | 显示 ~[U+6765]~ 这样的码位        |
+  | ~ascii_punct~            | 。， / ．，         | Ctrl+.      | 中文标点 / 西文标点               |
+  | ~full_shape~             | 半角 / 全角        | 无（选单切）| 全角半角                          |
+
+* 反查
+
+** 拼音反查（主方案可用）
+   ~`~ 开头打拼音，例：~`ni~ → 你 / 拟 / 尼 …，候选后面显示对应的虎码编码。
+   可以换成双拼：配置文件在 ~~/Documents/虎码双拼反查配置~（自然码 / 小鹤 / 微软），
+   把对应目录里的 ~PY_c.custom.yaml~ 复制回本目录即可。
+
+** 笔画反查（PY_c 方案里）
+   ~`~ 开头，用 ~h s p n z~ 代表 横 竖 撇 捺 折，末位可加 ~'~ 收尾。
+
+* 内置小工具
+
+** 计算器（主方案 + PY_c）
+   ~=~ 开头，例如 ~=1+2~ → 候选 ~1+2=3~。
+   边打边算（贪婪求值），支持 ~#~ 当空格、~$~ 链式调用、以及简易 lambda 语法糖，
+   细节见 [[file:lua/calculator_translator.lua][lua/calculator_translator.lua]]。
+
+** 数字转中文
+   ~S~ 加数字，例如 ~S123~ → ~壹佰贰拾叁~ / ~一百二十三~（两种写法各一条候选）；
+   带小数会给到 角 / 分 / 厘 / 毫。
+
+** 日期时间
+   | 触发                    | 结果                                       |
+   |-------------------------+--------------------------------------------|
+   | ~/date~                 | 今天日期，多种格式（2026.10.26、2026年10月26日、Oct 26, 2026…） |
+   | ~/cdate~                | 农历日期 + 节气 + 时辰                     |
+   | ~/time~                 | 当前时间，多种格式（24h、12h、带秒、中文） |
+   | ~/week~                 | 星期几（中/英）+ 第几周                    |
+   | ~/fjq~                  | 最近的节气                                 |
+   | ~N20261026~             | 查指定公历日期的农历                       |
+   | ~/djs~                  | 距下次生日还有多少天（生日写死在 lua 里）  |
+
+   同一组功能有多个别名，例如 ~/frq~、~/fnl~、~/fsj~、~/fxq~、~/lzvq~，效果相同。
+   实现见 [[file:lua/shijian2.lua][lua/shijian2.lua]]；~/djs~ 里的生日（1998-08-14）可以自己改。
+
+** 网页启动器
+   打出命令后候选栏出现「🌐 打开 xxx」，按空格/回车确认才打开（编码不会上屏）。
+
+   | 目标           | 网址                          | 命令                              |
+   |----------------+-------------------------------+-----------------------------------|
+   | 虎码官网       | https://tiger-code.com        | ~/huma~ ~/zhmn~                   |
+   | 百度           | https://www.baidu.com         | ~/baidu~ ~/bddu~ ~/fuxl~          |
+   | 必应           | https://cn.bing.com           | ~/biying~ ~/bing~ ~/biyk~ ~/htxk~ |
+   | 谷歌           | https://www.google.com        | ~/guge~ ~/google~ ~/hgzz~         |
+   | 虎码网盘       | http://huma.ysepan.com        | ~/wangpan~ ~/whpj~ ~/mbia~        |
+   | 虎码打字练习   | https://typer.owenyang.top    | ~/genda~ ~/gfda~ ~/piua~ ~/muyi~ ~/emon~ |
+   | 字通           | https://zi.tools              | ~/zitong~ ~/zits~ ~/whib~         |
+   | 汉典           | http://www.yedict.com         | ~/yedian~ ~/yedm~ ~/dnih~         |
+
+   增删网址只改 [[file:lua/exe.lua][lua/exe.lua]] 顶部那张表。
+
+** 临时英文
+   ~'~ 开头打英文，用 15 MB 的英文词库，带补全（~'hello~ → hello / hellos / hellow）。
+   注意 ~'~ 同时是「三选」和「重复上屏」的触发键，同一个键身兼数职。
+
+* 滤镜与注释
+
+  | 滤镜       | 效果                                   | 实现                                   |
+  |------------+----------------------------------------+----------------------------------------|
+  | 简 → 繁    | 默认秃版 ~st_tu.json~（可换 s2tw / s2hk / s2twp） | ~simplification~ 段            |
+  | 拼音       | 候选后附拼音                            | ~pinyin~ 段 + ~opencc/pinyin.json~     |
+  | 拆分       | 候选后附字根                            | ~chaifen~ 段 + ~opencc/hu_cf.json~     |
+  | emoji      | 词语转表情                              | ~emoji_cn~ 段 + ~opencc/emoji.json~    |
+  | Unicode 区 | 候选后附「基本区」「表情符号」等        | ~lua/charset_comment_filter.lua~       |
+  | U+ 码位    | 候选后附 ~[U+6765]~                     | ~lua/unicode_display.lua~              |
+  | 常用字     | 按 core2022 只留常用字                  | ~lua/core2022_filter.lua~              |
+  | 去重       | ~uniquifier~                            | 内置                                   |
+
+* 标点符号
+
+  ~punctuator~ 用自定义的 [[file:symbols.yaml][symbols.yaml]]（全角 / 半角两套，共 32 个键）。
+  修改候选顺序或增删符号改这个文件即可，不用动 schema。
+
+* 用户词与学习
+
+  - 主方案 ~enable_user_dict: false~ → 不学习新词，不记录词频
+  - ~PY_c~ 例外：~encode_commit_history: true~，会把上屏内容自动造词
+  - ~easy_english~ 有独立的 ~easy_english.userdb~（英文用户词）
+
+* 想改什么 → 改哪里
+
+  | 想做的事                 | 改哪个文件                                          |
+  |--------------------------+-----------------------------------------------------|
+  | 默认方案 / 快捷键总开关  | [[file:default.custom.yaml][default.custom.yaml]]（~schema_list~、~switcher/hotkeys~、Shift）|
+  | 候选数、候选标号         | [[file:tigress.custom.yaml][tigress.custom.yaml]] / [[file:tiger.custom.yaml][tiger.custom.yaml]] |
+  | 网页启动器命令           | [[file:lua/exe.lua][lua/exe.lua]] 顶部的 ~groups~ 表                 |
+  | 简繁用哪套 OpenCC        | 各 schema 的 ~simplification/opencc_config~         |
+  | 标点符号顺序             | [[file:symbols.yaml][symbols.yaml]]                                  |
+  | 候选窗外观（横竖、字体） | fcitx5 的主题设置（Rime 侧的 style/* 已移除）       |
+
+* 维护备忘
+
+  - 改完任何配置文件都要**重新部署**：托盘 → 中州韵 → 重新部署，或 ~fcitx5 -r~
+  - [[file:user.yaml][user.yaml]] 会记住上次用的方案（~previously_selected_schema~），它优先于
+    ~schema_list~ 的顺序；想换默认方案，用 Ctrl+` 选一次即可
+  - ~build/~ 是部署产物，删掉会自动重建
+  - 词库的 ~import_tables~ 只向下展开一层：~tigress.extended~ 必须自己列出
+    ~tigress_ci~ / ~tigress_simp_ci~，漏了会丢词
+  - Shift 的行为在 fcitx5 的全局热键里（~Shift+Shift_L~ 为切换输入法），Rime 侧是 ~noop~

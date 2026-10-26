@@ -397,7 +397,9 @@ local function calculator_translator(input, seg)
   -- 防止危險操作，禁用os和io命名空間
   if expe:find("i?os?%.") then return end
   -- return語句保證了只有合法的Lua表達式才可執行
-  local result = load("return "..expe)()
+  local chunk = load("return "..expe)
+  if not chunk then return end
+  local result = chunk()
   if result == nil then return end
   
   result = serialize(result)

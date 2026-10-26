@@ -10,7 +10,9 @@ schema:
 
 switches:
   - name: ascii_mode
+    # 0 默认中文，1 默认英文
     reset: 0
+    states: [ 中文, 英文 ]
   - name: full_shape
     reset: 0
   - name: simplification
@@ -19,14 +21,6 @@ switches:
     reset: 0
   - name: extended_charset
     reset: 1
-  - name: ascii_mode
-  #↓以下1條爲设置默认中英文状态（0为默认中文，1为默认英文）
-    reset: 0
-    states: [ 中文, 英文 ]
-  - name: _hide_candidate  
-    reset: 0 #默认开启这个开关，隐藏候选栏
-  - name: _hide_key_hint  
-    reset: 1 #默认开启这个开关，隐藏按键助记符号
 
 engine:
   processors:
@@ -51,7 +45,7 @@ engine:
     - script_translator
     - table_translator
   filters:
-    - simplifier
+    # - simplifier # 本方案是英文词库，不做简繁转换；要启用需先配 opencc_config
     - uniquifier
 
 

@@ -35,9 +35,6 @@ switches: # 0 默认关，1 默认开
   - name: simplification  #简转繁滤镜
     reset: 0
     states: [ 简中, 繁中 ]
-  - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
-    reset: 0
-    states: [ 有刻, 半刻, 无刻 ]
   - name: charset_comment_filter  #字符集提示
     reset: 0  
     states: [ U区关, U区开 ]
@@ -50,9 +47,6 @@ switches: # 0 默认关，1 默认开
   # - name: dz_ci  #过滤词组
   #   reset: 0
   #   states: [ 词组, 单字 ]
-  # - options: [_keyboard_default, _keyboard_defaultzj]
-  #   reset: 0
-  #   states: [ 助记关, 助记开 ]
   # - name: fanjian  #繁转简滤镜
   #   reset: 0
   #   states: [ 反繁, 反简 ]
@@ -68,7 +62,6 @@ engine:
     - key_binder # 在特定条件下将按键绑定到其他按键，如重定义逗号、句号为候选翻页键
     - speller # 把字母追加到编码串
     - punctuator # 处理符号按键
-    - lua_processor@exe_processor #exe启动器
     - selector # 选字和换页功能
     - navigator # 移动插入点
     - express_editor # 空格确认当前输入，其他字符直接上屏
@@ -94,6 +87,7 @@ engine:
     - lua_translator@number_translator # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
     - lua_translator@shijian2_translator # 高级时间
+    - lua_translator@exe_translator # 网页启动器（/bddu 等命令，确认后打开）
 
 
   filters:
