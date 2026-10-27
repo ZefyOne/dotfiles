@@ -1,5 +1,5 @@
 ---
-name: 短剧_转正文格式
+name: duanju-zhuanzhengwengeshi
 description: 将剧本的简约格式（场景+一段话）转换为完整正文格式（带场景编号、人物行、▲镜头描述、标准对话）。支持单集和多集范围转换。
 ---
 
