@@ -1,0 +1,30 @@
+// 输入设备
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            // CapsLock 当 Ctrl 用（Shift+CapsLock 仍可输入大写锁定）
+            // 这是 KDE 里原来的设置：caps:ctrl_shifted_capslock
+            options "caps:ctrl_shifted_capslock"
+        }
+        numlock
+
+        // 长按重复：默认是 600ms 延迟 / 25 字每秒，手感偏“迟钝”
+        // repeat-delay：按住多久后开始重复（毫秒，越小越灵敏）
+        // repeat-rate：重复速度（字/秒，越大越快）
+        repeat-delay 200
+        repeat-rate 50
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    // 鼠标移入窗口即聚焦（如果需要）
+    // focus-follows-mouse max-scroll-amount="0%"
+}

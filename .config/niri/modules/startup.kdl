@@ -1,0 +1,13 @@
+// 会话启动项
+// 注意：这些进程绑在 niri session 上，niri 退出会被杀掉
+
+spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/zefy/.dotfiles/resource/wallpapers/109.jpg"
+spawn-at-startup "swaync"
+spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
+
+// 剪贴板历史监听
+spawn-sh-at-startup "wl-paste --watch cliphist store"

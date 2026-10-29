@@ -1,0 +1,32 @@
+// ~/.config/niri/config.kdl
+// 入口文件：只放 include、环境变量、全局开关
+// 改具体内容去 modules/ 下对应的文件
+
+include "modules/input.kdl"
+include "modules/output.kdl"
+include "modules/layout.kdl"
+include "modules/binds.kdl"
+include "modules/rules.kdl"
+include "modules/startup.kdl"
+include "modules/animations.kdl"
+
+// 本机覆盖，文件不存在也不报错
+include optional=true "hosts/local.kdl"
+
+environment {
+    GTK_IM_MODULE "fcitx"
+    QT_IM_MODULE "fcitx"
+    XMODIFIERS "@im=fcitx"
+    // Electron 应用走 Wayland
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+// 截图保存位置（strftime 格式）
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// 让客户端尽量省略 CSD 标题栏，圆角/边框效果更好
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}

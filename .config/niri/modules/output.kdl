@@ -1,0 +1,16 @@
+// 显示器配置
+// 由 `niri msg outputs` 实测得出，换显示器/换线后要重新确认
+
+output "eDP-1" {
+    mode "1920x1080@60.001"
+    scale 1.25
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    mode "2560x1440@60.000"
+    scale 1.0
+    // eDP-1 逻辑宽度 = 1920 / 1.25 = 1536
+    position x=1536 y=0
+    focus-at-startup
+}
