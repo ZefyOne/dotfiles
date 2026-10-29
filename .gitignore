@@ -13,6 +13,8 @@ obsidianConfig/plugins/realclaudian/data.json
 # zsh auto-generated completion cache
 .zcompdump*
 zsh/games.zsh
+# fish 游戏列表含个人路径，和 zsh/games.zsh 一样不入库
+fish/20-games.fish
 
 # doom: symlink target is a machine-specific absolute path
 .config/doom/rime
