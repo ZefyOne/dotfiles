@@ -13,7 +13,7 @@
 # -----------------------------------------------------------------------------
 
 set -g __games \
-    'opp|native|~/.mgm/.7/0.5/0.5|./OppaiOdyssey.sh|欧派奥德赛' \
+    'opp|native|~/.mgm/.7/OppaiOdyssey-0.5.1-pc|./OppaiOdyssey.sh|欧派奥德赛' \
     'eter|native|~/.mgm/.7/Eternum-0.9.0-pc|./Eternum.sh|永恒世界' \
     'mil|native|~/.mgm/.7/ns/Nanviowrnzy/Nanviweornzy/电脑/Milfs.Of.Sunville.S.2.v5.00|./MilfsOfSunville.sh|熟女' \
     'pho|native|~/.mgm/.7/Phoenixes|./Phoenixes.x86_64|凤凰' \
