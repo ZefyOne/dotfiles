@@ -10,6 +10,8 @@
 # 目录，否则会去 ~/.config/fish/conf.d/ 下找分文件。
 # =============================================================================
 
+# Tab 若又变成「直接吞掉灰色建议」，删掉 ~/.config/fish/config.fish 里的 `bind \t custom_tab_complete` 那一行
+
 # 防止被重复 source（例如手动 source 一次 + 启动加载一次）
 if set -q __custom_fish_loaded
     return

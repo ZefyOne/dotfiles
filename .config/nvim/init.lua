@@ -10,4 +10,5 @@ require("tools.auto_save")
 -- 护眼主题
 -- require("theme.EyeProtection")
 
-vim.cmd.colorscheme("tokyonight-moon")
+-- vim.cmd.colorscheme("tokyonight-moon")
+vim.cmd.colorscheme("catppuccin-latte")

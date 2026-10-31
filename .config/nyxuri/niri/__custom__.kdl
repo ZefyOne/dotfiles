@@ -69,3 +69,13 @@ binds {
     // 最大化当前列宽度 / Maximize column width
     Alt+F hotkey-overlay-title="最大化列宽" { maximize-column; }
 }
+
+// ==========================================================
+// WPS 嵌套合成器外壳（见 ~/.local/bin/wps-nested）
+// WPS 是 X11 程序，右键菜单是普通顶层窗口；niri 无法按屏幕坐标摆放
+// 顶层窗口，会把它当成新浮动窗口丢到屏幕正中。用 labwc 包一层即可修复。
+// ==========================================================
+window-rule {
+    match app-id=r#"^labwc$"#
+    open-maximized true
+}
