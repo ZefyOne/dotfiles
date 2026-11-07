@@ -31,6 +31,21 @@
       :i "C-h"   #'delete-backward-char
       :i "C-y"   #'yank)
 
+
+;; ============================================================
+;; insert 态 C-SPC：把光标周围的空白规整成 8 个空格
+;; ============================================================
+;; S-SPC 在终端里和普通空格无法区分，GUI 下也不保证能送到 Emacs，所以用 C-SPC。
+;; 终端里 Ctrl-Space 实际发送的是 C-@（NUL），因此两个事件都绑。
+;; 代价：insert 态原来的 set-mark-command 被顶掉；normal/visual 态不受影响。
+(defun +insert-eight-spaces ()
+  "Delete horizontal whitespace around point, leaving exactly 8 spaces."
+  (interactive)
+  (just-one-space 8))
+
+(map! :i "C-SPC" #'+insert-eight-spaces
+      :i "C-@"   #'+insert-eight-spaces)
+
 ;; n模式快捷键
 (map! :n "<f7>" #'+zen/toggle                   ; f7切换专注模式
       :n "H" #'+tabs:previous-or-goto           ; 上一个标签
@@ -66,7 +81,12 @@
 (map! :after corfu
       :map corfu-mode-map
       :i "C-n" nil
-      :i "C-p" nil)
+      :i "C-p" nil
+      ;; corfu 的 insert 辅助键位图把 C-SPC / C-@ 绑成了 completion-at-point，
+      ;; 优先级高于 evil-insert-state-map，会压掉 +insert-eight-spaces。
+      ;; 解绑，让按键落回 evil-insert-state-map 里的 8 空格命令。
+      :i "C-SPC" nil
+      :i "C-@" nil)
 
 
 ;; ============================================================
