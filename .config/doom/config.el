@@ -45,6 +45,7 @@
 (load! "lisp/theme.el")         ; 主题
 (load! "lisp/ui.el")            ; 界面设置
 (load! "lisp/my-org.el")        ; org-mode配置
+(load! "lisp/my-markdown.el")   ; markdown 配置
 (load! "lisp/novel.el")         ; 小说模式（.nov）
 (load! "lisp/writing.el")       ; 写作
 (load! "lisp/keymaps.el")       ; 全局快捷键
