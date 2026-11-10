@@ -14,7 +14,7 @@ ln -sf ~/.dotfiles/fish/__custom__.fish ~/.config/fish/conf.d/__custom__.fish
 | `__custom__.fish` | — | 入口：取真实目录，按顺序 source 下面的分文件 |
 | `00-aliases.fish` | `aliass.zsh` / `path.zsh` | `n`、`y`、`c`、`cl`、`cld`、`l`、`lla`、`lt`，`EDITOR=nvim` |
 | `10-git.fish` | `git.zsh` | `repos` 表 + `commit`/`push`/`pushe`/`pushb`/`pushall`/`pullall`/`commitall`/`query` |
-| `20-games.fish` | `games.zsh` | `play` 游戏启动器（12 个游戏，native/proton） |
+| `20-games.fish` | `games.zsh` | `play` 启动器；条目数据在同目录 `games.json` |
 | `30-wine.fish` | `wine.zsh` | `umu`（Steam Proton 10.0，独立前缀） |
 | `40-claude.fish` | `claude.zsh` | Emacs/ghostel 下清理 `CLAUDE*`，强制会话持久化 |
 | `50-proxy.fish` | `proxy.zsh` | `proxyon`/`proxyoff` 兼容名 + 首提示符自动开代理 |
@@ -26,4 +26,5 @@ ln -sf ~/.dotfiles/fish/__custom__.fish ~/.config/fish/conf.d/__custom__.fish
 - `conf.d` 在 `config.fish` 之前执行，因此这里无法覆盖 `config.fish` 中已定义的
   `ls`、`clear`、`up`/`in`/`se`/`un`、`nyxhelp`、`proxy_*` 等名字。
 - 新增模块：在同目录建 `NN-name.fish`，再在 `__custom__.fish` 的列表里加 `NN-name`。
-- `20-games.fish` 含个人游戏列表，已在 `.gitignore` 中排除（与旧的 `zsh/games.zsh` 一致）。
+- `games.json` 含个人路径，已在 `.gitignore` 中排除（与旧的 `zsh/games.zsh` 一致）。
+  `20-games.fish` 现在只有逻辑，但也一并排除、不再入库；加条目只改 `games.json`。
