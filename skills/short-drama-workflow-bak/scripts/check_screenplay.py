@@ -18,6 +18,11 @@ SCENE_MARKER = re.compile(r"[0-9]+\s*[-－–—]\s*[0-9]+")
 TIME_LABELS = {"日/内", "日/外", "夜/内", "夜/外"}
 EPISODE_GAP = 5
 MAX_EPISODE = 100
+MIN_EPISODE_CHARACTERS = 1000
+MAX_EPISODE_CHARACTERS = 1060
+MIN_FULL_SCRIPT_CHARACTERS = 80000
+MAX_FULL_SCRIPT_CHARACTERS = 85000
+SPEAKER_LABEL = re.compile(r"^[^：:\r\n]+[：:]\s*")
 
 
 @dataclass
@@ -78,7 +83,7 @@ def read_paragraph(element, word):
     return Paragraph(text, not text and not contains_object_or_break)
 
 
-def read_episodes(path):
+def read_episodes(path, exclude_front_matter=False):
     if path.suffix.lower() != ".docx":
         raise ValueError(f"请提供 .docx 文件：{path}")
     try:
@@ -92,8 +97,15 @@ def read_episodes(path):
     if body is None:
         raise ValueError(f"Word 文件缺少正文结构：{path}")
 
+    elements = list(body)
+    if exclude_front_matter:
+        for index, element in enumerate(elements):
+            if element.tag == word + "p" and read_paragraph(element, word).text == "正文":
+                elements = elements[index + 1:]
+                break
+
     episodes = []
-    for element in body:
+    for element in elements:
         if element.tag == word + "p":
             paragraph = read_paragraph(element, word)
             number = episode_number(paragraph.text)
@@ -201,6 +213,39 @@ def check_format(episodes, expected):
     return issues
 
 
+def count_episode_characters(episode):
+    """Count screenplay body characters, including punctuation but not labels."""
+    count = 0
+    for paragraph in episode.text_paragraphs():
+        if (SCENE_MARKER.fullmatch(paragraph) or paragraph in TIME_LABELS
+                or paragraph.startswith(("场景：", "人物："))):
+            continue
+        if paragraph.startswith("▲"):
+            body = paragraph[1:]
+        else:
+            body = SPEAKER_LABEL.sub("", paragraph, count=1)
+        count += sum(not character.isspace() for character in body)
+    return count
+
+
+def check_lengths(episode_lengths, expected):
+    issues = []
+    for episode, length in episode_lengths:
+        if not MIN_EPISODE_CHARACTERS <= length <= MAX_EPISODE_CHARACTERS:
+            issues.append(
+                f"第{episode.number}集：正文 {length} 字，应为 "
+                f"{MIN_EPISODE_CHARACTERS}–{MAX_EPISODE_CHARACTERS} 字（含标点）"
+            )
+    if expected == range(1, 81):
+        total = sum(length for _, length in episode_lengths)
+        if not MIN_FULL_SCRIPT_CHARACTERS <= total <= MAX_FULL_SCRIPT_CHARACTERS:
+            issues.append(
+                f"第1–80集：正文合计 {total} 字，应为 "
+                f"{MIN_FULL_SCRIPT_CHARACTERS}–{MAX_FULL_SCRIPT_CHARACTERS} 字（含标点）"
+            )
+    return issues
+
+
 def compare_reference(path, references, draft_by_number, expected):
     compared = set()
     counts = Counter(episode.number for episode in references)
@@ -239,7 +284,7 @@ def compare_reference(path, references, draft_by_number, expected):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="只读复核 Word 短剧稿的集场、集间空行和定稿版本")
+    parser = argparse.ArgumentParser(description="只读复核 Word 短剧稿的集场、集间空行、定稿版本和可选字数")
     parser.add_argument("draft", type=Path, help="待复查的 .docx")
     parser.add_argument("--episodes", required=True, type=parse_episode_range, help="应交集数，如 1-80")
     parser.add_argument("--reference", type=Path, action="append", default=[],
@@ -248,6 +293,10 @@ def main():
                         help="对应定稿应比对的集数，按 --reference 的顺序逐份指定")
     parser.add_argument("--full-coverage", action="store_true",
                         help="要求定稿参照合计覆盖 --episodes 的全部集数")
+    parser.add_argument("--check-length", action="store_true",
+                        help="统计正文含标点的非空白字符，每集须为 1000–1060 字；"
+                             "--episodes 1-80 时另查全剧 80000–85000 字。"
+                             "用户另有篇幅或计数约定时可不启用此项")
     args = parser.parse_args()
     if len(args.reference) != len(args.reference_episodes):
         parser.error("每个 --reference 都须对应一个 --reference-episodes，按传入顺序配对")
@@ -261,10 +310,10 @@ def main():
             parser.error(f"定稿参照未覆盖指定集数：{', '.join(map(str, missing))}")
 
     try:
-        episodes = read_episodes(args.draft)
+        episodes = read_episodes(args.draft, exclude_front_matter=args.check_length)
         references = []
         for path, expected in zip(args.reference, args.reference_episodes):
-            reference_episodes = read_episodes(path)
+            reference_episodes = read_episodes(path, exclude_front_matter=args.check_length)
             if args.draft.samefile(path):
                 raise ValueError(f"定稿参照与待交稿指向同一个文件：{path}")
             references.append((path, reference_episodes, expected))
@@ -273,6 +322,10 @@ def main():
         return 2
 
     issues = check_format(episodes, args.episodes)
+    episode_lengths = []
+    if args.check_length:
+        episode_lengths = [(episode, count_episode_characters(episode)) for episode in episodes]
+        issues.extend(check_lengths(episode_lengths, args.episodes))
     counts = Counter(episode.number for episode in episodes)
     draft_by_number = {episode.number: episode for episode in episodes
                        if counts[episode.number] == 1}
@@ -283,6 +336,11 @@ def main():
         comparison_scopes.append((path.name, expected, sorted(covered)))
 
     print(f"{args.draft.name}｜检查第{args.episodes.start}–{args.episodes.stop - 1}集")
+    if args.check_length:
+        for episode, length in episode_lengths:
+            print(f"第{episode.number}集正文：{length} 字")
+        total = sum(length for _, length in episode_lengths)
+        print(f"本批正文合计：{total} 字（含标点，不含场头、说话人标签、▲和空白）")
     for name, expected, covered in comparison_scopes:
         coverage = ", ".join(map(str, covered)) or "无"
         print(f"定稿 {name}｜指定比对第{expected.start}–{expected.stop - 1}集｜参与比对的集数：{coverage}")
