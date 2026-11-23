@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checking your Browser ...</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<style type="text/css">
+.ui-uam-box  {
+	text-align: center;
+	font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-size: 16px;
+}
+
+.ui-uam-box h1 {
+	font-weight: normal;
+}
+
+.ui-uam-box .ui-counter {
+	font-weight: 450;
+}
+
+</style>
+<script type="text/javascript">
+var cpk = "fl_ua_p"
+var step = "prev";
+var nonce = 9855;
+function loadFunc(){var e=document.cookie,t=5;if(null!=e){for(var n=e.toString().split(";"),o="",i=0;i<n.length;i++){var a=(e=n[i].trim()).split("=");if(2==a.length&&a[0]==cpk){o=a[1];break}}if(0!=o.length){for(var d=12345,i=0;i<o.length;i++){var r=o[i];/^[a-zA-Z0-9]$/.test(r)&&(d+=o.charCodeAt(i)*(nonce+i))}var l=window.location.toString(),s=new XMLHttpRequest;s.open("POST",l,!0),s.setRequestHeader("Content-type","application/x-www-form-urlencoded"),s.setRequestHeader("X-FL-UA-Step",step),s.onreadystatechange=function(){4==this.readyState&&200==this.status&&(window.setTimeout(function(){window.location.reload()},1e3*t),window.setInterval(function(){if(!(t<=0)){var e=document.getElementsByClassName("ui-counter");if(0<e.length)for(var n=0;n<e.length;n++)e[n].innerHTML=t.toString(),t--}},1e3))},s.send("sum="+d+"&nonce="+nonce)}}else window.setTimeout(function(){window.location.reload()},sleepMs)}window.addEventListener?window.addEventListener("load",loadFunc):window.onload=loadFunc;
+</script>
+</head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Security Verification</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Consolas,Monaco,monospace;background:#e8ebef;color:#2c3e50;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.t{background:#f5f6f8;border:1px solid #d8dce1;border-radius:8px;max-width:600px;width:100%;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.h{background:#ebedef;border-bottom:1px solid #d8dce1;padding:12px 20px;display:flex;gap:8px;border-radius:8px 8px 0 0}
+.d{width:12px;height:12px;border-radius:50%;background:#ddd}
+.d:nth-child(1){background:#ff5f56}
+.d:nth-child(2){background:#ffbd2e}
+.d:nth-child(3){background:#27c93f}
+.c{padding:40px 32px}
+.p{color:#3b82f6;font-weight:700;margin-bottom:24px;font-size:14px}
+.p::before{content:'> '}
+.s{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+.i{width:48px;height:48px;border:2px solid #3b82f6;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#3b82f6}
+.i svg{width:28px;height:28px;fill:currentColor}
+.e{font-size:64px;font-weight:700;color:#3b82f6;line-height:1}
+.m{margin-bottom:32px}
+.m h1{font-size:20px;font-weight:600;color:#2c3e50;margin-bottom:12px}
+.m p{font-size:14px;color:#64748b;line-height:1.6}
+.data{background:#fff;border:1px solid #e8ecef;border-radius:4px;padding:20px;margin-bottom:24px}
+.r{display:flex;padding:10px 0;font-size:13px}
+.r:not(:last-child){border-bottom:1px solid #f1f3f5}
+.k{color:#94a3b8;min-width:100px}
+.k::after{content:':';margin-right:12px}
+.v{color:#3b82f6;word-break:break-all}
+.ui-counter{color:#3b82f6;font-weight:700}
+.f{font-size:12px;color:#64748b;text-align:right}
+.f a{color:#3b82f6;text-decoration:none}
+.cur{display:inline-block;width:8px;height:2px;background:#3b82f6;margin-left:4px;animation:b 1s step-end infinite;vertical-align:text-top;transform:translateY(12px)}
+@keyframes b{50%{opacity:0}}
+@media(max-width:480px){
+body{padding:0;overflow:hidden;position:fixed;width:100%;height:100vh}
+.t{border-radius:0;border-left:0;border-right:0;height:100vh;display:flex;flex-direction:column;overflow-y:auto}
+.c{padding:32px 20px;flex:1}
+.s{flex-direction:column;align-items:flex-start}
+.e{font-size:48px}
+.m h1{font-size:18px}
+.r{flex-direction:column;gap:4px}
+.k{min-width:auto}
+.f{text-align:right}
+}
+</style>
+</head>
+<body>
+<div class="t">
+<div class="h">
+<span class="d"></span>
+<span class="d"></span>
+<span class="d"></span>
+</div>
+<div class="c">
+<div class="p">UAM_CHECKING<span class="cur"></span></div>
+<div class="s">
+<div class="i">
+<svg viewBox="0 0 24 24">
+<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+</svg>
+</div>
+<div class="e">Verifying</div>
+</div>
+<div class="m">
+<h1>SECURITY_VERIFICATION</h1>
+<p>Verifying your request, this will take about <span class="ui-counter">5</span> seconds</p>
+</div>
+<div class="data">
+<div class="r">
+<span class="k">client_ip</span>
+<span class="v">175.11.143.8</span>
+</div>
+<div class="r">
+<span class="k">request_id</span>
+<span class="v">179532621785281004277</span>
+</div>
+<div class="r">
+<span class="k">timestamp</span>
+<span class="v">2026-11-22T13:43:37.902+08:00</span>
+</div>
+</div>
+<div class="f">
+Protected By <a href="https://peekabo.io" target="_blank">Peekabo</a>
+</div>
+</div>
+</div>
+</body>
+</html></body>
+</html>

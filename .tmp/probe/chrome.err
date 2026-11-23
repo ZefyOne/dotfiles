@@ -1,0 +1,6 @@
+[4:4:1122/134348.911531:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:208] open /home/g/.config/google-chrome/Crash Reports/settings.dat: 只读文件系统 (30)
+[4:4:1122/134348.911699:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:208] open /home/g/.config/google-chrome/Crash Reports/settings.dat: 只读文件系统 (30)
+[4:23:1122/134348.938586:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:208] open /home/g/.config/google-chrome/Crash Reports/settings.dat: 只读文件系统 (30)
+[4:4:1122/134349.105448:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.systemd1.Manager.StartTransientUnit: object_path= /org/freedesktop/systemd1: org.freedesktop.DBus.Error.InvalidArgs: Process 4 is a kernel thread, refusing.
+[4:23:1122/134349.182471:ERROR:crypto/nss_util.cc:256] Error initializing NSS with a persistent database (sql:/home/g/.pki/nssdb): NSS error code: -8126
+[42:66:1122/134349.915733:ERROR:net/socket/ssl_client_socket_impl.cc:949] handshake failed; returned -1, SSL error code 1, net_error -202

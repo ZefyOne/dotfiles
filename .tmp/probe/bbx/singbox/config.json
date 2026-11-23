@@ -1,0 +1,234 @@
+{
+    "log": {
+        "disabled": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "type": "tls",
+                "tag": "proxyDns",
+                "detour": "proxy",
+                "server": "8.8.8.8"
+            },
+            {
+                "type": "https",
+                "tag": "localDns",
+                "server": "223.5.5.5",
+                "path": "/dns-query"
+            }
+        ],
+        "rules": [
+            {
+                "rule_set": "geosite-cn",
+                "server": "localDns"
+            },
+            {
+                "clash_mode": "rule",
+                "rule_set": "geosite-cn",
+                "server": "localDns"
+            },
+            {
+                "domain_suffix": [
+                    "qq.com",
+                    "wechat.com",
+                    "weixin.qq.com",
+                    "taobao.com",
+                    "tmall.com",
+                    "jd.com",
+                    "360buyimg.com",
+                    "alipay.com",
+                    "alipayobjects.com",
+                    "douyin.com",
+                    "douyinpic.com",
+                    "douyinvod.com",
+                    "bilibili.com",
+                    "bilivideo.com"
+                ],
+                "clash_mode": "rule",
+                "server": "localDns"
+            },
+            {
+                "domain_suffix": [
+                    "chatgpt.com",
+                    "openai.com",
+                    "oaistatic.com",
+                    "claude.ai",
+                    "google.com",
+                    "googleapis.com",
+                    "gstatic.com",
+                    "gmail.com",
+                    "youtube.com",
+                    "youtu.be",
+                    "ytimg.com",
+                    "facebook.com",
+                    "fbcdn.net",
+                    "instagram.com",
+                    "cdninstagram.com",
+                    "x.com",
+                    "twitter.com",
+                    "twimg.com",
+                    "whatsapp.com",
+                    "whatsapp.net",
+                    "telegram.org",
+                    "t.me"
+                ],
+                "clash_mode": "rule",
+                "server": "proxyDns"
+            },
+            {
+                "clash_mode": "rule",
+                "server": "proxyDns"
+            },
+            {
+                "clash_mode": "global",
+                "server": "proxyDns"
+            }
+        ],
+        "final": "proxyDns",
+        "strategy": "ipv4_only"
+    },
+    "inbounds": [
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 32081
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy"
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "inbound": [
+                    "tun-in",
+                    "mixed-in"
+                ],
+                "action": "sniff"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 53
+                    },
+                    {
+                        "protocol": "dns"
+                    }
+                ],
+                "action": "hijack-dns"
+            },
+            {
+                "ip_cidr": [
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "192.168.0.0/16"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "domain_suffix": [
+                    "qq.com",
+                    "wechat.com",
+                    "weixin.qq.com",
+                    "taobao.com",
+                    "tmall.com",
+                    "jd.com",
+                    "360buyimg.com",
+                    "alipay.com",
+                    "alipayobjects.com",
+                    "douyin.com",
+                    "douyinpic.com",
+                    "douyinvod.com",
+                    "bilibili.com",
+                    "bilivideo.com"
+                ],
+                "clash_mode": "rule",
+                "outbound": "direct"
+            },
+            {
+                "domain_suffix": [
+                    "chatgpt.com",
+                    "openai.com",
+                    "oaistatic.com",
+                    "claude.ai",
+                    "google.com",
+                    "googleapis.com",
+                    "gstatic.com",
+                    "gmail.com",
+                    "youtube.com",
+                    "youtu.be",
+                    "ytimg.com",
+                    "facebook.com",
+                    "fbcdn.net",
+                    "instagram.com",
+                    "cdninstagram.com",
+                    "x.com",
+                    "twitter.com",
+                    "twimg.com",
+                    "whatsapp.com",
+                    "whatsapp.net",
+                    "telegram.org",
+                    "t.me"
+                ],
+                "clash_mode": "rule",
+                "outbound": "proxy"
+            },
+            {
+                "clash_mode": "rule",
+                "rule_set": [
+                    "geoip-cn",
+                    "geosite-cn"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "rule",
+                "outbound": "proxy"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "proxy"
+            },
+            {
+                "rule_set": [
+                    "geoip-cn",
+                    "geosite-cn"
+                ],
+                "outbound": "direct"
+            }
+        ],
+        "rule_set": [
+            {
+                "type": "local",
+                "tag": "geosite-cn",
+                "format": "binary",
+                "path": "geosite_cn.srs"
+            },
+            {
+                "type": "local",
+                "tag": "geoip-cn",
+                "format": "binary",
+                "path": "geoip_cn.srs"
+            }
+        ],
+        "final": "proxy",
+        "auto_detect_interface": true,
+        "default_domain_resolver": "proxyDns"
+    },
+    "experimental": {
+        "clash_api": {
+            "external_controller": "127.0.0.1:39090",
+            "external_ui_download_detour": "direct",
+            "default_mode": "global"
+        }
+    }
+}
